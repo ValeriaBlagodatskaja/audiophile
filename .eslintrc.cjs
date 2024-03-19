@@ -17,5 +17,6 @@ module.exports = {
       'warn',
       { allowConstantExport: true },
     ],
+    'tailwindcss/enforce-negative-arbitrary-values': ['error', 'always'],
   },
 }
