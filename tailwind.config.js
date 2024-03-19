@@ -16,6 +16,13 @@ export default {
       fontFamily: {
         sans: ['Manrope', 'sans-serif'],
       },
+      screens: {
+        md: '768px',
+
+        sm: '375px',
+
+        xl: '1440px',
+      },
     },
   },
 }
