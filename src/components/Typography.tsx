@@ -4,7 +4,7 @@ import { ReactNode } from 'react'
 interface TypographyProps {
   as: keyof JSX.IntrinsicElements
   children: ReactNode
-  varient:
+  variant:
     | '13px'
     | '14px'
     | '15px'
@@ -16,7 +16,7 @@ interface TypographyProps {
     | '56px'
 }
 
-export default function Typography({ as, children, varient }: TypographyProps) {
+export default function Typography({ as, children, variant }: TypographyProps) {
   const Element = as
   const variantClasses = {
     '13px': 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase',
@@ -29,6 +29,6 @@ export default function Typography({ as, children, varient }: TypographyProps) {
     '40px': 'font-bold text-[40px] leading-[44px] tracking-[1.5px] uppercase',
     '56px': 'font-bold text-[56px] leading-[58px] tracking-[2px] uppercase',
   }
-  const classNames = clsx(variantClasses[varient])
+  const classNames = clsx(variantClasses[variant])
   return <Element className={classNames}>{children}</Element>
 }
