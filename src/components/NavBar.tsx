@@ -1,18 +1,33 @@
 import { Spin as Hamburger } from 'hamburger-react'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
+import ShadowEarPhones from '../assets/exported-figma/earphones-with-shadow.png'
+import ShadowHeadphones from '../assets/exported-figma/headphones-with-shadow.png'
+import ShadowSpeakers from '../assets/exported-figma/speakers-with-shadow.png'
 import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
 import Logo from '../assets/shared/desktop/logo.svg?react'
+import Container from './Container'
 import MenuLink from './MenuLink'
 import Typography from './Typography'
 
 function NavBar() {
   const [isOpen, setOpen] = useState(false)
 
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1440) {
+        setOpen(false)
+      }
+    }
+
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
+
   return (
-    <>
-      <div className="flex h-[90px] items-center justify-between bg-black px-[24px] md:justify-normal  md:px-[39px] xl:justify-between xl:px-[165px]">
+    <div className="bg-black">
+      <Container className="border-b-1 relative flex h-[90px] items-center justify-between border-white border-opacity-20   md:justify-normal   xl:justify-between ">
         <div className="xl:hidden">
           <Hamburger
             color="white"
@@ -51,13 +66,19 @@ function NavBar() {
           </Link>
         </div>
         <CartIcon className="md:ml-auto xl:ml-0" />
-      </div>
+      </Container>
 
-      <div className="mx-[165px] hidden h-px bg-white opacity-20 md:mx-[39px] md:opacity-10 xl:block"></div>
-      <div className={`${isOpen ? 'block' : 'hidden'}`}>
-        <MenuLink />
-      </div>
-    </>
+      {isOpen && (
+        <div className="absolute top-[90px] h-[calc(100%-90px)] w-full bg-black bg-opacity-40 " />
+      )}
+      {isOpen && (
+        <div className="absolute flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-[10px] md:pb-[67px] md:pt-[108px] ">
+          <MenuLink src={ShadowHeadphones}>HEADPHONES</MenuLink>
+          <MenuLink src={ShadowSpeakers}>SPEAKERS</MenuLink>
+          <MenuLink src={ShadowEarPhones}>EARPHONES</MenuLink>
+        </div>
+      )}
+    </div>
   )
 }
 export default NavBar
