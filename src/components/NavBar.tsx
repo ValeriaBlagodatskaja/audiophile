@@ -41,7 +41,7 @@ function NavBar() {
           />
         </div>
 
-        <Logo className="ml-0 md:ml-[42px] xl:ml-0" />
+        <Logo className="ml-0 md:ml-[40px] xl:ml-0" />
 
         <div className="hidden gap-[34px] text-white xl:flex">
           <Link to="/">
