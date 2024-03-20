@@ -41,7 +41,9 @@ function NavBar() {
           />
         </div>
 
-        <Logo className="ml-0 md:ml-[40px] xl:ml-0" />
+        <Link to="/">
+          <Logo className="ml-0 md:ml-[40px] xl:ml-0" />
+        </Link>
 
         <div className="hidden gap-[34px] text-white xl:flex">
           <Link to="/">
@@ -73,9 +75,15 @@ function NavBar() {
       )}
       {isOpen && (
         <div className="absolute flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-[10px] md:pb-[67px] md:pt-[108px] ">
-          <MenuLink src={ShadowHeadphones}>HEADPHONES</MenuLink>
-          <MenuLink src={ShadowSpeakers}>SPEAKERS</MenuLink>
-          <MenuLink src={ShadowEarPhones}>EARPHONES</MenuLink>
+          <MenuLink src={ShadowHeadphones} to="/headphones">
+            HEADPHONES
+          </MenuLink>
+          <MenuLink src={ShadowSpeakers} to="/speakers">
+            SPEAKERS
+          </MenuLink>
+          <MenuLink src={ShadowEarPhones} to="/earphones">
+            EARPHONES
+          </MenuLink>
         </div>
       )}
     </div>
