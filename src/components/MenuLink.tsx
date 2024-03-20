@@ -6,9 +6,10 @@ import Typography from './Typography'
 interface MenuLinkProps {
   children?: ReactNode
   src: string
+  to: string
 }
 
-function MenuLink({ children, src }: MenuLinkProps) {
+function MenuLink({ children, src, to }: MenuLinkProps) {
   return (
     <div className="bg-gray-light relative flex h-[165px] w-[328px] items-center justify-center rounded-lg md:w-[224px]">
       <img
@@ -19,7 +20,7 @@ function MenuLink({ children, src }: MenuLinkProps) {
         <Typography as="h2" variant="15px">
           {children}
         </Typography>
-        <LinkButton to="/" variant="tertiary">
+        <LinkButton to={to} variant="tertiary">
           <Typography as="h3" variant="13px">
             SHOP
           </Typography>
