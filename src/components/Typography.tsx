@@ -18,6 +18,9 @@ interface TypographyProps {
 
 export default function Typography({ as, children, variant }: TypographyProps) {
   const Element = as
+
+  const fontBaseClass = 'font-sans'
+
   const variantClasses = {
     '13px': 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase',
     '14px': 'font-normal text-[14px] leading-[19px] tracking-[10px] uppercase',
@@ -29,6 +32,6 @@ export default function Typography({ as, children, variant }: TypographyProps) {
     '40px': 'font-bold text-[40px] leading-[44px] tracking-[1.5px] uppercase',
     '56px': 'font-bold text-[56px] leading-[58px] tracking-[2px] uppercase',
   }
-  const classNames = clsx(variantClasses[variant])
+  const classNames = clsx(fontBaseClass, variantClasses[variant])
   return <Element className={classNames}>{children}</Element>
 }
