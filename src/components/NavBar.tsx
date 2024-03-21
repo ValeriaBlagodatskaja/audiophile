@@ -25,6 +25,25 @@ function NavBar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const links = [
+    {
+      href: '/',
+      label: 'Home',
+    },
+    {
+      href: '/headphones',
+      label: 'Headphones',
+    },
+    {
+      href: '/speakers',
+      label: 'Speakers',
+    },
+    {
+      href: '/earphones',
+      label: 'Earphones',
+    },
+  ]
+
   return (
     <div className="bg-black">
       <Container className="border-b-1 relative flex h-[90px] items-center justify-between border-white border-opacity-20   md:justify-normal   xl:justify-between ">
@@ -46,26 +65,13 @@ function NavBar() {
         </Link>
 
         <div className="hidden gap-[34px] text-white xl:flex">
-          <Link to="/">
-            <Typography as="p" variant="13px">
-              Home
-            </Typography>
-          </Link>
-          <Link to="/headphones">
-            <Typography as="p" variant="13px">
-              HEADPHONES
-            </Typography>
-          </Link>
-          <Link to="/speakers">
-            <Typography as="p" variant="13px">
-              SPEAKERS
-            </Typography>
-          </Link>
-          <Link to="/earphones">
-            <Typography as="p" variant="13px">
-              EARPHONES
-            </Typography>
-          </Link>
+          {links.map((link, index) => (
+            <Link key={index} to={link.href}>
+              <Typography as="p" variant="13px">
+                {link.label}
+              </Typography>
+            </Link>
+          ))}
         </div>
         <CartIcon className="md:ml-auto xl:ml-0" />
       </Container>
@@ -75,15 +81,29 @@ function NavBar() {
       )}
       {isOpen && (
         <div className="absolute flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-[10px] md:pb-[67px] md:pt-[108px] ">
-          <MenuLink src={ShadowHeadphones} to="/headphones">
-            HEADPHONES
-          </MenuLink>
-          <MenuLink src={ShadowSpeakers} to="/speakers">
-            SPEAKERS
-          </MenuLink>
-          <MenuLink src={ShadowEarPhones} to="/earphones">
-            EARPHONES
-          </MenuLink>
+          {links.map((link, index) => {
+            if (link.label === 'Home') {
+              return null
+            }
+
+            return (
+              <MenuLink
+                key={index}
+                src={
+                  link.label === 'Headphones'
+                    ? ShadowHeadphones
+                    : link.label === 'Speakers'
+                      ? ShadowSpeakers
+                      : link.label === 'Earphones'
+                        ? ShadowEarPhones
+                        : ''
+                }
+                to={link.href}
+              >
+                {link.label.toUpperCase()}
+              </MenuLink>
+            )
+          })}
         </div>
       )}
     </div>
