@@ -33,14 +33,17 @@ function NavBar() {
     {
       href: '/headphones',
       label: 'Headphones',
+      src: ShadowHeadphones,
     },
     {
       href: '/speakers',
       label: 'Speakers',
+      src: ShadowSpeakers,
     },
     {
       href: '/earphones',
       label: 'Earphones',
+      src: ShadowEarPhones,
     },
   ]
 
@@ -61,12 +64,12 @@ function NavBar() {
         </div>
 
         <Link to="/">
-          <Logo className="ml-0 md:ml-[40px] xl:ml-0" />
+          <Logo className="ml-0 md:ml-10 xl:ml-0" />
         </Link>
 
         <div className="hidden gap-[34px] text-white xl:flex">
-          {links.map((link, index) => (
-            <Link key={index} to={link.href}>
+          {links.map((link) => (
+            <Link key={link.href} to={link.href}>
               <Typography as="p" variant="13px">
                 {link.label}
               </Typography>
@@ -80,26 +83,14 @@ function NavBar() {
         <div className="absolute top-[90px] h-[calc(100%-90px)] w-full bg-black bg-opacity-40 " />
       )}
       {isOpen && (
-        <div className="absolute flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-[10px] md:pb-[67px] md:pt-[108px] ">
+        <div className="absolute flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
           {links.map((link, index) => {
             if (link.label === 'Home') {
               return null
             }
 
             return (
-              <MenuLink
-                key={index}
-                src={
-                  link.label === 'Headphones'
-                    ? ShadowHeadphones
-                    : link.label === 'Speakers'
-                      ? ShadowSpeakers
-                      : link.label === 'Earphones'
-                        ? ShadowEarPhones
-                        : ''
-                }
-                to={link.href}
-              >
+              <MenuLink key={index} src={link.src} to={link.href}>
                 {link.label.toUpperCase()}
               </MenuLink>
             )

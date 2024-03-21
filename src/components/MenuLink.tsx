@@ -1,17 +1,15 @@
-import { ReactNode } from 'react'
-
 import { LinkButton } from './Button'
 import Typography from './Typography'
 
 interface MenuLinkProps {
-  children?: ReactNode
-  src: string
+  children?: string
+  src?: string
   to: string
 }
 
 function MenuLink({ children, src, to }: MenuLinkProps) {
   return (
-    <div className="bg-gray-light relative flex h-[165px] w-[328px] items-center justify-center rounded-lg md:w-[224px]">
+    <div className="bg-gray-light relative flex h-[165px] w-[328px] items-center justify-center rounded-lg md:w-56">
       <img
         className="absolute right-[76.5px] top-[-50px] md:right-[23px]"
         src={src}
