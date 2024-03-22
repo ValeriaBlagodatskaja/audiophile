@@ -48,8 +48,8 @@ function NavBar() {
   ]
 
   return (
-    <div className="bg-black">
-      <Container className="border-b-1 relative flex h-[90px] items-center justify-between border-white border-opacity-20   md:justify-normal   xl:justify-between ">
+    <div className="bg-[#191919]">
+      <Container className="relative flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   xl:justify-between ">
         <div className="xl:hidden">
           <Hamburger
             color="white"
@@ -79,11 +79,13 @@ function NavBar() {
         <CartIcon className="md:ml-auto xl:ml-0" />
       </Container>
 
+      {isOpen && <div className="absolute top-[90px] z-10 h-full w-full"></div>}
+
       {isOpen && (
         <div className="absolute top-[90px] h-[calc(100%-90px)] w-full bg-black bg-opacity-40 " />
       )}
       {isOpen && (
-        <div className="absolute flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
+        <div className="absolute z-30 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
           {links.map((link, index) => {
             if (link.label === 'Home') {
               return null
