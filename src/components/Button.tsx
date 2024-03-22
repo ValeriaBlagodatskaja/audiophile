@@ -20,9 +20,9 @@ const commonClasses = {
   primary:
     'flex justify-center items-center  h-12 w-40 bg-orange-dark hover:bg-orange-light border-0 px-[30px] py-[15px] text-white',
   secondary:
-    'flex justify-center items-center  h-12 w-40 border-[1px] border-black bg-white text-black hover:bg-black hover:text-white',
+    'flex justify-center items-center  h-12 w-40 border border-black bg-white text-black hover:bg-black hover:text-white',
   tertiary:
-    'gap-[13px] flex items-center justify-center text-grey-light hover:text-orange-dark bg-transparent',
+    'gap-[13px] text-black opacity-50 flex items-center justify-center hover:text-orange-dark bg-transparent',
 }
 
 export default function Button({ children, onClick, variant }: ButtonProps) {
