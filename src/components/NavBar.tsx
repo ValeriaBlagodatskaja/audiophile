@@ -2,7 +2,7 @@ import { Spin as Hamburger } from 'hamburger-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import ShadowEarPhones from '../assets/exported-figma/earphones-with-shadow.png'
+import ShadowEarphones from '../assets/exported-figma/earphones-with-shadow.png'
 import ShadowHeadphones from '../assets/exported-figma/headphones-with-shadow.png'
 import ShadowSpeakers from '../assets/exported-figma/speakers-with-shadow.png'
 import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
@@ -43,7 +43,7 @@ function NavBar() {
     {
       href: '/earphones',
       label: 'Earphones',
-      src: ShadowEarPhones,
+      src: ShadowEarphones,
     },
   ]
 
