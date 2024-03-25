@@ -17,9 +17,9 @@ export default {
         sans: ['Manrope', 'sans-serif'],
       },
       screens: {
-        md: '768px',
+        md: { max: '1439px', min: '768px' },
 
-        sm: '375px',
+        sm: { max: '767px', min: '375px' },
 
         xl: '1440px',
       },
