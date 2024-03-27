@@ -4,7 +4,7 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import NavBar from './components/NavBar'
 import Earphones from './pages/Earphones'
 import Headphones from './pages/Headphones'
-import Home from './pages/Home'
+import Home from './pages/Home/Home'
 import Speakers from './pages/Speakers'
 
 function Layout({ children }: { children: ReactNode }) {
