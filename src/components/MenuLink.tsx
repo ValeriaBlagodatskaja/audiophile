@@ -11,17 +11,17 @@ interface MenuLinkProps {
 
 function MenuLink({ children, src, srcDesktop, to }: MenuLinkProps) {
   return (
-    <div className="bg-gray-light relative flex h-[165px] w-[328px] items-center justify-center rounded-lg md:w-56 xl:h-[204px] xl:w-[350px]">
+    <div className="relative flex h-[165px] w-[327px] items-center justify-center rounded-lg bg-gray-light md:w-56 lg:h-[204px] lg:w-[350px]">
       {src && (
-        <img className="absolute top-[-50px] block  xl:hidden" src={src} />
+        <img className="absolute top-[-50px] block  lg:hidden" src={src} />
       )}
       {srcDesktop && (
         <img
-          className="absolute top-[-74px] hidden xl:block "
+          className="absolute top-[-74px] hidden lg:block "
           src={srcDesktop}
         />
       )}
-      <div className="mt-[62px] flex flex-col gap-[17px] xl:mt-[72px] xl:gap-[15px] xl:pt-[20px]">
+      <div className="mt-[62px] flex flex-col gap-[17px] lg:mt-[72px] lg:gap-[15px] lg:pt-[20px]">
         <Typography
           as="h2"
           className="!font-bold tracking-[1.07px]"

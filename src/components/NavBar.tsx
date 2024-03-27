@@ -49,8 +49,8 @@ function NavBar() {
 
   return (
     <div className="bg-[#191919]">
-      <Container className="relative flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   xl:justify-between ">
-        <div className="xl:hidden">
+      <Container className="relative flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
+        <div className="lg:hidden">
           <Hamburger
             color="white"
             direction="right"
@@ -64,10 +64,10 @@ function NavBar() {
         </div>
 
         <Link to="/">
-          <Logo className="ml-0 md:ml-10 xl:ml-0" />
+          <Logo className="ml-0 md:ml-10 lg:ml-0" />
         </Link>
 
-        <div className="hidden gap-[34px] text-white xl:flex">
+        <div className="hidden gap-[34px] text-white lg:flex">
           {links.map((link) => (
             <Link key={link.href} to={link.href}>
               <Typography as="p" variant="13px">
@@ -76,7 +76,7 @@ function NavBar() {
             </Link>
           ))}
         </div>
-        <CartIcon className="md:ml-auto xl:ml-0" />
+        <CartIcon className="md:ml-auto lg:ml-0" />
       </Container>
 
       {isOpen && <div className="absolute top-[90px] z-10 h-full w-full"></div>}
