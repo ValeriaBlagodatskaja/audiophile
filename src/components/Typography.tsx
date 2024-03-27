@@ -13,9 +13,10 @@ interface TypographyProps {
     | '24px'
     | '28px'
     | '32px'
-    | '36px'
     | '40px'
     | '56px'
+    | 'h1'
+    | 'h2'
 }
 
 export default function Typography({
@@ -36,10 +37,12 @@ export default function Typography({
     '24px': 'font-bold text-[24px] leading-[33px] tracking-[1.7px] uppercase',
     '28px': 'font-bold text-[28px] leading-[38px] tracking-[2px] uppercase',
     '32px': 'font-bold text-[32px] leading-[36px] tracking-[1.15px] uppercase',
-    '36px': 'font-bold text-[36px] leading-[40px] tracking-[1.29px] uppercase',
     '40px': 'font-bold text-[40px] leading-[44px] tracking-[1.5px] uppercase',
     '56px': 'font-bold text-[56px] leading-[58px] tracking-[2px] uppercase',
+    h1: 'font-bold text-[36px] leading-[40px] tracking-[1.29px] uppercase md:text-[56px] md:leading-[58px] md:tracking-[2px] lg:text-[56px] lg:leading-[58px] lg:tracking-[2px]',
+    h2: 'font-bold text-[28px] leading-[38px] tracking-[2px] uppercase md:text-[40px] md:leading-[44px] md:tracking-[1.5px]',
   }
+
   const classNames = clsx(fontBaseClass, variantClasses[variant], className)
   return <Element className={classNames}>{children}</Element>
 }
