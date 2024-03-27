@@ -9,10 +9,7 @@ interface ContainerProps {
 function Container({ children, className }: ContainerProps) {
   return (
     <div
-      className={clsx(
-        'mx-auto w-full max-w-[1110px] px-6 md:px-10 xl:px-0',
-        className
-      )}
+      className={clsx('mx-auto w-full max-w-[1180px] px-6 md:px-10', className)}
     >
       {children}
     </div>
