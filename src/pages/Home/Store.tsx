@@ -12,16 +12,16 @@ export default function Store() {
           <source media="(min-width:1100px)" srcSet={BestGearDesktop} />
           <source media="(min-width:768px)" srcSet={BestGearTablet} />
           <img
-            className="h-full rounded-lg object-cover object-center"
+            className="h-full grow rounded-lg object-cover object-center"
             src={BestGearMobile}
           />
         </picture>
       </div>
 
-      <div className="flex flex-col items-center justify-center lg:items-start">
+      <div className="flex flex-col items-center justify-center lg:items-start lg:text-left">
         <Typography
           as="h2"
-          className="mb-[32px]  w-[327px] text-center md:w-[573px] lg:w-[445px]"
+          className="mb-[32px]  w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
           variant="h2"
         >
           Bringing you the{' '}

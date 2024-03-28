@@ -14,7 +14,7 @@ export default function Earphones() {
             <source media="(min-width:1100px)" srcSet={EarphonesYX1Desktop} />
             <source media="(min-width:768px)" srcSet={EarphonesYX1Tablet} />
             <img
-              className="h-full rounded-lg object-cover object-center"
+              className="h-full grow rounded-lg object-cover object-center"
               src={EarphonesYX1Mobile}
             />
           </picture>
