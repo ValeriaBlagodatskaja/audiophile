@@ -1,3 +1,4 @@
+import Footer from '../../components/Footer'
 import Earphones from '../Home/Earphones'
 import Hero from '../Home/Hero'
 import ProductLinks from '../Home/ProductLinks'
@@ -15,6 +16,7 @@ export default function Home() {
       <SpeakerTwo />
       <Earphones />
       <Store />
+      <Footer />
     </>
   )
 }
