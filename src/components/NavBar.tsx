@@ -7,6 +7,7 @@ import ShadowHeadphones from '../assets/exported-figma/headphones-with-shadow.pn
 import ShadowSpeakers from '../assets/exported-figma/speakers-with-shadow.png'
 import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
 import Logo from '../assets/shared/desktop/logo.svg?react'
+import { LinkButton } from './Button'
 import Container from './Container'
 import MenuLink from './MenuLink'
 import Typography from './Typography'
@@ -69,11 +70,11 @@ function NavBar() {
 
         <div className="hidden gap-[34px] text-white lg:flex">
           {links.map((link) => (
-            <Link key={link.href} to={link.href}>
+            <LinkButton key={link.href} to={link.href} variant="quinary">
               <Typography as="p" variant="13px">
                 {link.label}
               </Typography>
-            </Link>
+            </LinkButton>
           ))}
         </div>
         <CartIcon className="md:ml-auto lg:ml-0" />
