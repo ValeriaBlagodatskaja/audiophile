@@ -4,7 +4,6 @@ import Facebook from '../assets/exported-figma/facebook.svg?react'
 import Instagram from '../assets/exported-figma/instagram.svg?react'
 import Twitter from '../assets/exported-figma/twitter.svg?react'
 import Logo from '../assets/shared/desktop/logo.svg?react'
-import { LinkButton } from '../components/Button'
 import Container from './Container'
 import Typography from './Typography'
 
@@ -37,11 +36,15 @@ export default function Footer() {
           </Link>
           <div className="flex flex-col gap-[16px] text-center text-white md:flex-row md:gap-[34px]">
             {links.map((link) => (
-              <LinkButton key={link.href} to={link.href} variant="quinary">
+              <Link
+                className="hover:text-orange-dark"
+                key={link.href}
+                to={link.href}
+              >
                 <Typography as="p" variant="13px">
                   {link.label}
                 </Typography>
-              </LinkButton>
+              </Link>
             ))}
           </div>
         </div>
@@ -66,15 +69,15 @@ export default function Footer() {
               Copyright 2021. All Rights Reserved
             </Typography>
             <div className="flex justify-center gap-[16px] lg:absolute lg:right-[.30px] lg:top-[68px]">
-              <LinkButton to="/" variant="quinary">
-                <Facebook />
-              </LinkButton>
-              <LinkButton to="/" variant="quinary">
-                <Twitter />
-              </LinkButton>
-              <LinkButton to="/" variant="quinary">
-                <Instagram />
-              </LinkButton>
+              <a href="/">
+                <Facebook className="fill-white transition-colors hover:fill-orange-dark" />
+              </a>
+              <a href="/">
+                <Twitter className="fill-white transition-colors hover:fill-orange-dark" />
+              </a>
+              <a href="/">
+                <Instagram className="fill-white transition-colors hover:fill-orange-dark" />
+              </a>
             </div>
           </div>
         </div>
