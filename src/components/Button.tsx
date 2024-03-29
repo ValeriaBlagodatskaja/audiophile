@@ -7,14 +7,14 @@ import ArrowRightIcon from '../assets/shared/desktop/icon-arrow-right.svg?react'
 interface ButtonProps {
   children: ReactNode
   onClick: () => void
-  variant: 'primary' | 'quaternary' | 'quinary' | 'secondary' | 'tertiary'
+  variant: 'primary' | 'quaternary' | 'secondary' | 'tertiary'
 }
 
 interface LinkButtonProps {
   children: ReactNode
   className?: string
   to: string
-  variant: 'primary' | 'quaternary' | 'quinary' | 'secondary' | 'tertiary'
+  variant: 'primary' | 'quaternary' | 'secondary' | 'tertiary'
 }
 
 const commonClasses = {
@@ -22,7 +22,6 @@ const commonClasses = {
     'flex justify-center items-center  h-12 w-40 bg-orange-dark hover:bg-orange-light border-0 px-[30px] py-[15px] text-white',
   quaternary:
     'flex justify-center items-center  h-12 w-40 hover:border hover:border-black hover:bg-white hover:text-black bg-black text-white',
-  quinary: 'hover:text-orange-dark hover:fill-orange-dark',
   secondary:
     'flex justify-center items-center  h-12 w-40 border border-black bg-transparent text-black hover:bg-black hover:text-white',
   tertiary:
