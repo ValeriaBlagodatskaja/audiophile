@@ -1,10 +1,10 @@
-import SpeakerImageZX9Mobile from '../../assets/exported-figma/image-speaker-zx9-mobile.png'
-import SpeakerImageZX9Tablet from '../../assets/exported-figma/image-speaker-zx9-tablet.png'
-import SpeakerImageZX9Desktop from '../../assets/home/desktop/image-speaker-zx9.png'
-import Circles from '../../assets/home/desktop/pattern-circles.svg?react'
-import { LinkButton } from '../../components/Button'
-import Container from '../../components/Container'
-import Typography from '../../components/Typography'
+import SpeakerImageZX9Mobile from '../../../assets/exported-figma/image-speaker-zx9-mobile.png'
+import SpeakerImageZX9Tablet from '../../../assets/exported-figma/image-speaker-zx9-tablet.png'
+import SpeakerImageZX9Desktop from '../../../assets/home/desktop/image-speaker-zx9.png'
+import Circles from '../../../assets/home/desktop/pattern-circles.svg?react'
+import { LinkButton } from '../../../components/Button'
+import Container from '../../../components/Container'
+import Typography from '../../../components/Typography'
 
 export default function SpeakerOne() {
   return (
@@ -33,20 +33,20 @@ export default function SpeakerOne() {
           </div>
         </div>
         <div className="relative mb-[58px] flex flex-col items-center justify-center gap-[24px] text-center md:mb-[150px] lg:mb-0 lg:flex lg:items-start lg:text-left">
-          <Typography as="h1" className=" text-white" variant="h1">
+          <Typography as="h1" className=" text-white" color="h1">
             ZX9 <br />
             SPEAKER
           </Typography>
           <Typography
             as="p"
             className="w-[280px] text-white md:mb-[16px] md:w-[349px]"
-            variant="15px"
+            color="15px"
           >
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </Typography>
-          <LinkButton to="/" variant="quaternary">
-            <Typography as="p" variant="13px">
+          <LinkButton color="black" to="/">
+            <Typography as="p" color="13px">
               SEE PRODUCT
             </Typography>
           </LinkButton>

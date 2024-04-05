@@ -1,9 +1,9 @@
-import EarphonesYX1Desktop from '../../assets/home/desktop/image-earphones-yx1.jpg'
-import EarphonesYX1Mobile from '../../assets/home/mobile/image-earphones-yx1.jpg'
-import EarphonesYX1Tablet from '../../assets/home/tablet/image-earphones-yx1.jpg'
-import { LinkButton } from '../../components/Button'
-import Container from '../../components/Container'
-import Typography from '../../components/Typography'
+import EarphonesYX1Desktop from '../../../assets/home/desktop/image-earphones-yx1.jpg'
+import EarphonesYX1Mobile from '../../../assets/home/mobile/image-earphones-yx1.jpg'
+import EarphonesYX1Tablet from '../../../assets/home/tablet/image-earphones-yx1.jpg'
+import { LinkButton } from '../../../components/Button'
+import Container from '../../../components/Container'
+import Typography from '../../../components/Typography'
 
 export default function Earphones() {
   return (
@@ -21,11 +21,11 @@ export default function Earphones() {
         </div>
         <div className="flex h-[200px]  w-full rounded-lg bg-gray-light md:h-[320px] ">
           <div className="ml-[24px] flex w-full flex-col items-start justify-center gap-[32px] md:ml-[41px] lg:ml-[95px]">
-            <Typography as="p" variant="28px">
+            <Typography as="p" color="28px">
               YX1 EARPHONES
             </Typography>
-            <LinkButton to="/" variant="secondary">
-              <Typography as="p" variant="13px">
+            <LinkButton color="white" to="/">
+              <Typography as="p" color="13px">
                 SEE PRODUCT
               </Typography>
             </LinkButton>
