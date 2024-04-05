@@ -2,8 +2,8 @@ import Container from '../components/Container'
 import Footer from '../components/Footer'
 import Product, { ProductProps } from '../components/Product'
 import Typography from '../components/Typography'
-import ProductLinks from '../pages/Home/ProductLinks'
-import Store from '../pages/Home/Store'
+import ProductLinks from '../pages/Home/components/ProductLinks'
+import Store from '../pages/Home/components/Store'
 
 interface ProductListPageProps {
   products: ProductProps[]
@@ -17,7 +17,7 @@ export default function ProductListPage({
   return (
     <>
       <div className="flex h-[102px] items-center justify-center bg-[#191919] md:h-[246px] lg:h-[239px]">
-        <Typography as="h2" className="text-white" variant="h2">
+        <Typography as="h2" className="text-white" color="h2">
           {title}
         </Typography>
       </div>
