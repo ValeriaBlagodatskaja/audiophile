@@ -42,7 +42,7 @@ export default function ProductLinks() {
     },
   ]
   return (
-    <Container className="align-center relative mb-[120px] mt-[92px] flex justify-center md:mb-[96px] md:mt-[148px] lg:mb-[168px] lg:mt-[200px]">
+    <Container className="align-center relative mb-[120px] flex justify-center md:mb-[96px] lg:mb-[168px] lg:mt-[200px]">
       <div className="flex flex-col gap-[68px] md:flex-row md:gap-2.5 lg:gap-[30px]">
         {links.map((link, index) => {
           if (link.label === 'Home' || !link.srcSet) {

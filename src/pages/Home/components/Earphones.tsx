@@ -8,7 +8,7 @@ import Typography from '../../../components/Typography'
 export default function Earphones() {
   return (
     <Container className="mb-[120px] md:mb-[96px] lg:mb-[200px]">
-      <div className=" flex flex-col gap-[24px] md:flex-row  lg:flex-row">
+      <div className="flex flex-col gap-[24px] md:flex-row  lg:flex-row">
         <div className="w-full">
           <picture className="flex h-[200px] grow rounded-lg md:h-[320px] ">
             <source media="(min-width:1100px)" srcSet={EarphonesYX1Desktop} />

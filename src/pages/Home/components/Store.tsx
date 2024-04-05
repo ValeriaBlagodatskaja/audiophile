@@ -6,9 +6,9 @@ import Typography from '../../../components/Typography'
 
 export default function Store() {
   return (
-    <Container className="mb-[120px] md:mb-[96px] lg:mb-[200px] lg:flex lg:flex-row-reverse lg:gap-[125px]">
+    <Container className="flex flex-col gap-10 md:gap-[63px] lg:flex lg:flex-row-reverse lg:gap-[125px]">
       <div className="w-full">
-        <picture className="mb-[40px] flex h-[300px] grow rounded-lg md:mb-[63px] lg:mb-0 lg:h-[588px]">
+        <picture className="flex h-[300px] grow rounded-lg lg:h-[588px]">
           <source media="(min-width:1100px)" srcSet={BestGearDesktop} />
           <source media="(min-width:768px)" srcSet={BestGearTablet} />
           <img
@@ -18,10 +18,10 @@ export default function Store() {
         </picture>
       </div>
 
-      <div className="flex flex-col items-center justify-center lg:items-start lg:text-left">
+      <div className="flex flex-col items-center justify-center gap-8 lg:items-start lg:text-left">
         <Typography
           as="h2"
-          className="mb-[32px]  w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
+          className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
           color="h2"
         >
           Bringing you the{' '}
