@@ -1,38 +1,35 @@
 import clsx from 'clsx'
 import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-
-import ArrowRightIcon from '../assets/shared/desktop/icon-arrow-right.svg?react'
-
 interface ButtonProps {
   children: ReactNode
+  color: 'black' | 'orange' | 'white'
   onClick: () => void
-  variant: 'primary' | 'quaternary' | 'secondary' | 'tertiary'
 }
 
 interface LinkButtonProps {
   children: ReactNode
   className?: string
+  color: 'black' | 'orange' | 'white'
+  onClick?: () => void
   to: string
-  variant: 'primary' | 'quaternary' | 'secondary' | 'tertiary'
 }
 
 const commonClasses = {
-  primary:
+  black:
+    'flex justify-center items-center  h-12 w-40 hover:border hover:border-0 hover:bg-gray-800 hover:text-white bg-black text-white',
+  orange:
     'flex justify-center items-center  h-12 w-40 bg-orange-dark hover:bg-orange-light border-0 px-[30px] py-[15px] text-white',
-  quaternary:
-    'flex justify-center items-center  h-12 w-40 hover:border hover:border-black hover:bg-white hover:text-black bg-black text-white',
-  secondary:
-    'flex justify-center items-center  h-12 w-40 border border-black bg-transparent text-black hover:bg-black hover:text-white',
   tertiary:
     'gap-[13px] text-black opacity-50 flex items-center justify-center hover:text-orange-dark bg-transparent',
+  white:
+    'flex justify-center items-center  h-12 w-40 border border-black bg-transparent text-black hover:bg-black hover:text-white',
 }
 
-export default function Button({ children, onClick, variant }: ButtonProps) {
+export default function Button({ children, color, onClick }: ButtonProps) {
   return (
-    <button className={clsx(commonClasses[variant])} onClick={onClick}>
+    <button className={clsx(commonClasses[color])} onClick={onClick}>
       <span>{children}</span>
-      {variant === 'tertiary' && <ArrowRightIcon />}
     </button>
   )
 }
@@ -40,13 +37,17 @@ export default function Button({ children, onClick, variant }: ButtonProps) {
 export function LinkButton({
   children,
   className,
+  color,
+  onClick,
   to,
-  variant,
 }: LinkButtonProps) {
   return (
-    <Link className={clsx(commonClasses[variant], className)} to={to}>
+    <Link
+      className={clsx(commonClasses[color], className)}
+      onClick={onClick}
+      to={to}
+    >
       <span>{children}</span>
-      {variant === 'tertiary' && <ArrowRightIcon className="flex" />}
     </Link>
   )
 }
