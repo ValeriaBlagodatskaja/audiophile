@@ -42,8 +42,8 @@ export default function ProductLinks() {
     },
   ]
   return (
-    <Container className="align-center relative flex justify-center">
-      <div className="flex w-full flex-col items-center gap-[68px] md:flex-row md:gap-2.5 lg:gap-[30px]">
+    <Container className="relative flex items-center justify-center">
+      <div className="flex w-full flex-col items-center justify-center gap-[68px] md:flex-row md:gap-2.5 lg:gap-[30px]">
         {links.map((link, index) => {
           if (link.label === 'Home' || !link.srcSet) {
             return null
