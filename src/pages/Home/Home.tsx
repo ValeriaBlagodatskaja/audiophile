@@ -9,7 +9,7 @@ import Store from './components/Store'
 export default function Home() {
   return (
     <>
-      <div className="flex flex-col gap-[92px] md:gap-[148px] lg:gap-[200px]">
+      <div className="mb-[120px] flex flex-col gap-[92px] md:mb-24 md:gap-[148px] lg:mb-[168px] lg:gap-[200px]">
         <Hero />
         <ProductLinks />
       </div>
