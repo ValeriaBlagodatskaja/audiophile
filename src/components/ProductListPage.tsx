@@ -4,7 +4,6 @@ import Product, { ProductProps } from '../components/Product'
 import Typography from '../components/Typography'
 import ProductLinks from '../pages/Home/components/ProductLinks'
 import Store from '../pages/Home/components/Store'
-
 interface ProductListPageProps {
   products: ProductProps[]
   title: string
@@ -21,7 +20,7 @@ export default function ProductListPage({
           {title}
         </Typography>
       </div>
-      <Container>
+      <Container className="mb-[172px] mt-16 flex flex-col gap-[120px] md:mt-[120px] lg:mb-60 lg:mt-40 lg:gap-40">
         {products.map((product, index) => (
           <Product
             alignment={index % 2 === 0 ? 'left' : 'right'}
@@ -34,9 +33,11 @@ export default function ProductListPage({
           />
         ))}
       </Container>
-      <ProductLinks />
-      <Store />
-      <Footer />
+      <div className="flex flex-col gap-[120px] lg:gap-40">
+        <ProductLinks />
+        <Store />
+        <Footer />
+      </div>
     </>
   )
 }
