@@ -15,7 +15,7 @@ interface MenuLinkProps {
 
 function MenuLink({ children, onClick, srcSet, to }: MenuLinkProps) {
   return (
-    <div className="relative flex h-[165px] w-[327px] items-center justify-center rounded-lg bg-gray-light md:w-56 lg:h-[204px] lg:w-[350px]">
+    <div className="relative flex h-[165px] w-full max-w-[327px] items-center justify-center rounded-lg bg-gray-light md:max-w-56 lg:h-[204px] lg:max-w-[350px]">
       <picture className="absolute top-[-50px] lg:top-[-74px]">
         <source media="(min-width:1100px)" srcSet={srcSet.lg} />
         <source media="(min-width:768px)" srcSet={srcSet.md} />
