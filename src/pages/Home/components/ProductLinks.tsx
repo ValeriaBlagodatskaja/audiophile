@@ -1,9 +1,6 @@
-import ShadowEarphones from '../../../assets/exported-figma/earphones-with-shadow.png'
-import ShadowEarphonesDesktop from '../../../assets/exported-figma/earphones-with-shadow-desktop.png'
-import ShadowHeadphones from '../../../assets/exported-figma/headphones-with-shadow.png'
-import ShadowHeadphonesDesktop from '../../../assets/exported-figma/headphones-with-shadow-desktop.png'
-import ShadowSpeakers from '../../../assets/exported-figma/speakers-with-shadow.png'
-import ShadowSpeakersDesktop from '../../../assets/exported-figma/speakers-with-shadow-desktop.png'
+import ShadowEarphones from '../../../assets/shared/desktop/image-category-thumbnail-earphones.png'
+import ShadowHeadphones from '../../../assets/shared/desktop/image-category-thumbnail-headphones.png'
+import ShadowSpeakers from '../../../assets/shared/desktop/image-category-thumbnail-speakers.png'
 import Container from '../../../components/Container'
 import MenuLink from '../../../components/MenuLink'
 
@@ -16,41 +13,29 @@ export default function ProductLinks() {
     {
       href: '/headphones',
       label: 'Headphones',
-      srcSet: {
-        lg: ShadowHeadphonesDesktop,
-        md: ShadowHeadphones,
-        sm: ShadowHeadphones,
-      },
+      src: ShadowHeadphones,
     },
     {
       href: '/speakers',
       label: 'Speakers',
-      srcSet: {
-        lg: ShadowSpeakersDesktop,
-        md: ShadowSpeakers,
-        sm: ShadowSpeakers,
-      },
+      src: ShadowSpeakers,
     },
     {
       href: '/earphones',
       label: 'Earphones',
-      srcSet: {
-        lg: ShadowEarphonesDesktop,
-        md: ShadowEarphones,
-        sm: ShadowEarphones,
-      },
+      src: ShadowEarphones,
     },
   ]
   return (
     <Container className="relative flex items-center justify-center">
       <div className="flex w-full flex-col items-center justify-center gap-[68px] md:flex-row md:gap-2.5 lg:gap-[30px]">
         {links.map((link, index) => {
-          if (link.label === 'Home' || !link.srcSet) {
+          if (link.label === 'Home' || !link.src) {
             return null
           }
 
           return (
-            <MenuLink key={index} srcSet={link.srcSet} to={link.href}>
+            <MenuLink key={index} src={link.src} to={link.href}>
               {link.label.toUpperCase()}
             </MenuLink>
           )
