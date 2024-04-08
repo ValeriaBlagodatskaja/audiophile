@@ -33,23 +33,35 @@ function NavBar() {
     {
       href: '/headphones',
       label: 'Headphones',
-      src: ShadowHeadphones,
+      srcSet: {
+        lg: ShadowHeadphones,
+        md: ShadowHeadphones,
+        sm: ShadowHeadphones,
+      },
     },
     {
       href: '/speakers',
       label: 'Speakers',
-      src: ShadowSpeakers,
+      srcSet: {
+        lg: ShadowSpeakers,
+        md: ShadowSpeakers,
+        sm: ShadowSpeakers,
+      },
     },
     {
       href: '/earphones',
       label: 'Earphones',
-      src: ShadowEarphones,
+      srcSet: {
+        lg: ShadowEarphones,
+        md: ShadowEarphones,
+        sm: ShadowEarphones,
+      },
     },
   ]
 
   return (
-    <div className="bg-[#191919]">
-      <Container className="relative flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
+    <div className="sticky top-0 z-20 bg-[#191919]">
+      <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
         <div className="lg:hidden">
           <Hamburger
             color="white"
@@ -74,7 +86,7 @@ function NavBar() {
               key={link.href}
               to={link.href}
             >
-              <Typography as="p" variant="13px">
+              <Typography as="p" color="13px">
                 {link.label}
               </Typography>
             </Link>
@@ -82,26 +94,28 @@ function NavBar() {
         </div>
         <CartIcon className="md:ml-auto lg:ml-0" />
       </Container>
-
-      {isOpen && <div className="absolute top-[90px] z-10 h-full w-full"></div>}
-
       {isOpen && (
-        <div className="absolute top-[90px] h-[calc(100%-90px)] w-full bg-black bg-opacity-40 " />
-      )}
-      {isOpen && (
-        <div className="absolute z-30 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
-          {links.map((link, index) => {
-            if (link.label === 'Home') {
-              return null
-            }
-
-            return (
-              <MenuLink key={index} src={link.src} to={link.href}>
-                {link.label.toUpperCase()}
-              </MenuLink>
-            )
-          })}
-        </div>
+        <>
+          <div className="absolute top-[90px] z-10 h-full w-full"></div>
+          <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "></div>
+          <div className="absolute z-40 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
+            {links.map((link, index) => {
+              if (link.label === 'Home' || !link.srcSet) {
+                return null
+              }
+              return (
+                <MenuLink
+                  key={index}
+                  onClick={() => setOpen(false)}
+                  srcSet={link.srcSet}
+                  to={link.href}
+                >
+                  {link.label.toUpperCase()}
+                </MenuLink>
+              )
+            })}
+          </div>
+        </>
       )}
     </div>
   )
