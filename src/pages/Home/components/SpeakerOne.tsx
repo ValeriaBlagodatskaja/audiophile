@@ -1,7 +1,7 @@
-import SpeakerImageZX9Mobile from '../../../assets/exported-figma/image-speaker-zx9-mobile.png'
-import SpeakerImageZX9Tablet from '../../../assets/exported-figma/image-speaker-zx9-tablet.png'
 import SpeakerImageZX9Desktop from '../../../assets/home/desktop/image-speaker-zx9.png'
 import Circles from '../../../assets/home/desktop/pattern-circles.svg?react'
+import SpeakerImageZX9Mobile from '../../../assets/home/mobile/image-speaker-zx9.png'
+import SpeakerImageZX9Tablet from '../../../assets/home/tablet/image-speaker-zx9.png'
 import { LinkButton } from '../../../components/Button'
 import Container from '../../../components/Container'
 import Typography from '../../../components/Typography'
@@ -17,7 +17,7 @@ export default function SpeakerOne() {
           <div className="overfow-hidden flex h-[320px] w-[320px] items-center justify-center rounded-full border-[1px] border-white border-opacity-20 md:h-[540px] md:w-[540px] lg:border-0">
             <div className="flex items-center justify-center">
               <div className="flex h-[276px] w-[276px] items-center justify-center overflow-hidden rounded-full ring-[1px] ring-white ring-opacity-20 md:h-[450px] md:w-[450px] lg:ring-0">
-                <picture className="absolute  lg:top-[20px] lg:max-w-[400px]">
+                <picture className="absolute h-[208px] w-[172px]  md:h-[238px] md:w-[198px] lg:top-[20px] lg:h-[464px] lg:w-[400px]">
                   <source
                     media="(min-width:1100px)"
                     srcSet={SpeakerImageZX9Desktop}
