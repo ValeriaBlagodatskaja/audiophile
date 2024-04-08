@@ -2,10 +2,10 @@ import { Spin as Hamburger } from 'hamburger-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import ShadowEarphones from '../assets/exported-figma/earphones-with-shadow.png'
-import ShadowHeadphones from '../assets/exported-figma/headphones-with-shadow.png'
-import ShadowSpeakers from '../assets/exported-figma/speakers-with-shadow.png'
 import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
+import ShadowEarphones from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
+import ShadowHeadphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
+import ShadowSpeakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
 import Logo from '../assets/shared/desktop/logo.svg?react'
 import Container from './Container'
 import MenuLink from './MenuLink'
@@ -33,29 +33,17 @@ function NavBar() {
     {
       href: '/headphones',
       label: 'Headphones',
-      srcSet: {
-        lg: ShadowHeadphones,
-        md: ShadowHeadphones,
-        sm: ShadowHeadphones,
-      },
+      src: ShadowHeadphones,
     },
     {
       href: '/speakers',
       label: 'Speakers',
-      srcSet: {
-        lg: ShadowSpeakers,
-        md: ShadowSpeakers,
-        sm: ShadowSpeakers,
-      },
+      src: ShadowSpeakers,
     },
     {
       href: '/earphones',
       label: 'Earphones',
-      srcSet: {
-        lg: ShadowEarphones,
-        md: ShadowEarphones,
-        sm: ShadowEarphones,
-      },
+      src: ShadowEarphones,
     },
   ]
 
@@ -100,14 +88,14 @@ function NavBar() {
           <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "></div>
           <div className="absolute z-40 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
             {links.map((link, index) => {
-              if (link.label === 'Home' || !link.srcSet) {
+              if (link.label === 'Home' || !link.src) {
                 return null
               }
               return (
                 <MenuLink
                   key={index}
                   onClick={() => setOpen(false)}
-                  srcSet={link.srcSet}
+                  src={link.src}
                   to={link.href}
                 >
                   {link.label.toUpperCase()}
