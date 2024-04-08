@@ -29,16 +29,16 @@ export default function Product({
     <>
       <div
         className={clsx(
-          'flex flex-col items-center justify-center lg:gap-[125px]',
+          'flex flex-col items-center justify-center gap-8 md:gap-[52px] lg:gap-[125px]',
           alignment === 'left' ? 'lg:flex-row' : 'lg:flex-row-reverse'
         )}
       >
-        <picture className="mb-8 mt-16  max-w-[380px] md:mb-[52px] md:mt-[120px] md:max-w-[780px] lg:mt-40">
+        <picture className="max-w-[380px] md:max-w-[780px]">
           <source media="(min-width:1100px)" srcSet={srcSet.lg} />
           <source media="(min-width:768px)" srcSet={srcSet.md} />
           <img className="" srcSet={srcSet.sm} />
         </picture>
-        <div className="flex flex-col items-center lg:mt-40 lg:flex lg:h-[560px] lg:items-start lg:justify-center lg:text-left">
+        <div className="flex flex-col items-center lg:flex lg:h-[560px] lg:items-start lg:justify-center lg:text-left">
           {newProduct && (
             <Typography
               as="span"
@@ -58,7 +58,7 @@ export default function Product({
           >
             {description}
           </Typography>
-          <LinkButton className="mb-14" color="orange" to={to}>
+          <LinkButton color="orange" to={to}>
             <Typography as="p" color="13px">
               SEE PRODUCT
             </Typography>
