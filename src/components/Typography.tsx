@@ -4,7 +4,8 @@ import { ReactNode } from 'react'
 interface TypographyProps {
   as: keyof JSX.IntrinsicElements
   children: ReactNode
-  variant:
+  className?: string
+  color:
     | '13px'
     | '14px'
     | '15px'
@@ -14,14 +15,21 @@ interface TypographyProps {
     | '32px'
     | '40px'
     | '56px'
+    | 'h1'
+    | 'h2'
 }
 
-export default function Typography({ as, children, variant }: TypographyProps) {
+export default function Typography({
+  as,
+  children,
+  className,
+  color,
+}: TypographyProps) {
   const Element = as
 
   const fontBaseClass = 'font-sans'
 
-  const variantClasses = {
+  const colorClasses = {
     '13px': 'font-bold text-[13px] leading-[25px] tracking-[1px] uppercase',
     '14px': 'font-normal text-[14px] leading-[19px] tracking-[10px] uppercase',
     '15px': 'font-medium text-[15px] leading-[25px]',
@@ -31,7 +39,10 @@ export default function Typography({ as, children, variant }: TypographyProps) {
     '32px': 'font-bold text-[32px] leading-[36px] tracking-[1.15px] uppercase',
     '40px': 'font-bold text-[40px] leading-[44px] tracking-[1.5px] uppercase',
     '56px': 'font-bold text-[56px] leading-[58px] tracking-[2px] uppercase',
+    h1: 'font-bold text-[36px] leading-[40px] tracking-[1.29px] uppercase md:text-[56px] md:leading-[58px] md:tracking-[2px] lg:text-[56px] lg:leading-[58px] lg:tracking-[2px]',
+    h2: 'font-bold text-[28px] leading-[38px] tracking-[2px] uppercase md:text-[40px] md:leading-[44px] md:tracking-[1.5px]',
   }
-  const classNames = clsx(fontBaseClass, variantClasses[variant])
+
+  const classNames = clsx(fontBaseClass, colorClasses[color], className)
   return <Element className={classNames}>{children}</Element>
 }

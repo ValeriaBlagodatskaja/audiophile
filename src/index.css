@@ -1,7 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-/* 
-body {
-    @apply 
-} */
+
+body,
+html,
+#root {
+  @apply min-h-screen;
+}
+
+@media (min-width: 390px) {
+  .custom-media {
+    @apply object-cover;
+  }
+}

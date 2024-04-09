@@ -1,28 +1,42 @@
-import { LinkButton } from './Button'
+import { useMediaQuery } from 'react-responsive'
+
+import ShopLink from '../components/ShopLink'
 import Typography from './Typography'
 
 interface MenuLinkProps {
   children?: string
-  src?: string
+  className?: string
+  onClick?: () => void
+  src: string
   to: string
 }
 
-function MenuLink({ children, src, to }: MenuLinkProps) {
+function MenuLink({ children, onClick, src, to }: MenuLinkProps) {
+  const isLGScreen = useMediaQuery({ minWidth: 1100 })
   return (
-    <div className="bg-gray-light relative flex h-[165px] w-[328px] items-center justify-center rounded-lg md:w-56">
-      <img
-        className="absolute right-[76.5px] top-[-50px] md:right-[23px]"
-        src={src}
-      />
-      <div className="mt-[62px] flex flex-col gap-[17px]">
-        <Typography as="h2" variant="15px">
+    <div className="relative flex h-[165px] w-full max-w-[327px] items-center justify-center rounded-lg bg-gray-light md:max-w-56 lg:h-[204px] lg:max-w-[350px]">
+      <picture
+        className="absolute top-[-50px] lg:top-[-74px]"
+        style={{
+          height: isLGScreen ? '200px' : '155px',
+          width: isLGScreen ? '205px' : '160px',
+        }}
+      >
+        <img src={src} style={{ height: '100%', width: '100%' }} />
+      </picture>
+      <div className="mt-[62px] flex flex-col gap-[17px] lg:mt-[72px] lg:gap-[15px] lg:pt-[20px]">
+        <Typography
+          as="h2"
+          className="!font-bold tracking-[1.07px]"
+          color="15px"
+        >
           {children}
         </Typography>
-        <LinkButton to={to} variant="tertiary">
-          <Typography as="h3" variant="13px">
+        <ShopLink onClick={onClick} to={to}>
+          <Typography as="h3" color="13px">
             SHOP
           </Typography>
-        </LinkButton>
+        </ShopLink>
       </div>
     </div>
   )

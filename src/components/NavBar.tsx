@@ -2,10 +2,10 @@ import { Spin as Hamburger } from 'hamburger-react'
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-import ShadowEarPhones from '../assets/exported-figma/earphones-with-shadow.png'
-import ShadowHeadphones from '../assets/exported-figma/headphones-with-shadow.png'
-import ShadowSpeakers from '../assets/exported-figma/speakers-with-shadow.png'
 import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
+import ShadowEarphones from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
+import ShadowHeadphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
+import ShadowSpeakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
 import Logo from '../assets/shared/desktop/logo.svg?react'
 import Container from './Container'
 import MenuLink from './MenuLink'
@@ -43,14 +43,14 @@ function NavBar() {
     {
       href: '/earphones',
       label: 'Earphones',
-      src: ShadowEarPhones,
+      src: ShadowEarphones,
     },
   ]
 
   return (
-    <div className="bg-black">
-      <Container className="border-b-1 relative flex h-[90px] items-center justify-between border-white border-opacity-20   md:justify-normal   xl:justify-between ">
-        <div className="xl:hidden">
+    <div className="sticky top-0 z-20 bg-[#191919]">
+      <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
+        <div className="lg:hidden">
           <Hamburger
             color="white"
             direction="right"
@@ -64,38 +64,46 @@ function NavBar() {
         </div>
 
         <Link to="/">
-          <Logo className="ml-0 md:ml-10 xl:ml-0" />
+          <Logo className="ml-0 md:ml-10 lg:ml-0" />
         </Link>
 
-        <div className="hidden gap-[34px] text-white xl:flex">
+        <div className="hidden gap-[34px] text-white lg:flex">
           {links.map((link) => (
-            <Link key={link.href} to={link.href}>
-              <Typography as="p" variant="13px">
+            <Link
+              className="hover:text-orange-dark"
+              key={link.href}
+              to={link.href}
+            >
+              <Typography as="p" color="13px">
                 {link.label}
               </Typography>
             </Link>
           ))}
         </div>
-        <CartIcon className="md:ml-auto xl:ml-0" />
+        <CartIcon className="md:ml-auto lg:ml-0" />
       </Container>
-
       {isOpen && (
-        <div className="absolute top-[90px] h-[calc(100%-90px)] w-full bg-black bg-opacity-40 " />
-      )}
-      {isOpen && (
-        <div className="absolute flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
-          {links.map((link, index) => {
-            if (link.label === 'Home') {
-              return null
-            }
-
-            return (
-              <MenuLink key={index} src={link.src} to={link.href}>
-                {link.label.toUpperCase()}
-              </MenuLink>
-            )
-          })}
-        </div>
+        <>
+          <div className="absolute top-[90px] z-10 h-full w-full"></div>
+          <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "></div>
+          <div className="absolute z-40 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
+            {links.map((link, index) => {
+              if (link.label === 'Home' || !link.src) {
+                return null
+              }
+              return (
+                <MenuLink
+                  key={index}
+                  onClick={() => setOpen(false)}
+                  src={link.src}
+                  to={link.href}
+                >
+                  {link.label.toUpperCase()}
+                </MenuLink>
+              )
+            })}
+          </div>
+        </>
       )}
     </div>
   )

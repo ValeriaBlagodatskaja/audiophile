@@ -17,11 +17,8 @@ export default {
         sans: ['Manrope', 'sans-serif'],
       },
       screens: {
+        lg: '1100px',
         md: '768px',
-
-        sm: '375px',
-
-        xl: '1440px',
       },
     },
   },
