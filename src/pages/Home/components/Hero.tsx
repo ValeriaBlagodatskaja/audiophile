@@ -15,26 +15,26 @@ export default function Hero() {
           <img className="mt-[-115px] h-auto w-auto" src={HeroMobileImage} />
         </picture>
         <div className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left">
-          <Typography as="p" className="text-white opacity-50" color="14px">
+          <Typography as="p" className="text-white opacity-50" variant="14px">
             NEW PRODUCT
           </Typography>
           <Typography
             as="h1"
             className="mb-6 mt-4 text-white md:my-6"
-            color="h1"
+            variant="h1"
           >
             XX99 Mark II Headphones
           </Typography>
           <Typography
             as="p"
             className="mb-7 w-[328px] text-white opacity-75 md:mb-10 md:w-[349px]"
-            color="15px"
+            variant="15px"
           >
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </Typography>
-          <LinkButton color="orange" to="/">
-            <Typography as="p" color="13px">
+          <LinkButton color="orange" to="/xx99-mark-two-headphones">
+            <Typography as="p" variant="13px">
               SEE PRODUCT
             </Typography>
           </LinkButton>

@@ -24,7 +24,6 @@ export default function Product({
   title,
   to,
 }: ProductProps) {
-  console.log(alignment)
   return (
     <>
       <div
@@ -36,30 +35,30 @@ export default function Product({
         <picture className="max-w-[380px] md:max-w-[780px]">
           <source media="(min-width:1100px)" srcSet={srcSet.lg} />
           <source media="(min-width:768px)" srcSet={srcSet.md} />
-          <img className="" srcSet={srcSet.sm} />
+          <img srcSet={srcSet.sm} />
         </picture>
         <div className="flex flex-col items-center lg:flex lg:h-[560px] lg:items-start lg:justify-center lg:text-left">
           {newProduct && (
             <Typography
               as="span"
               className="mb-6 text-orange-dark"
-              color="14px"
+              variant="14px"
             >
               new product
             </Typography>
           )}
-          <Typography as="h2" className="text-center lg:text-left" color="h2">
+          <Typography as="h1" className="text-center lg:text-left" variant="h2">
             {title}
           </Typography>
           <Typography
             as="p"
             className="my-6 w-[327px] text-center opacity-50 md:mb-6 md:mt-8 md:w-[572px] lg:mb-10 lg:w-[445px] lg:text-left"
-            color="15px"
+            variant="15px"
           >
             {description}
           </Typography>
           <LinkButton color="orange" to={to}>
-            <Typography as="p" color="13px">
+            <Typography as="p" variant="13px">
               SEE PRODUCT
             </Typography>
           </LinkButton>

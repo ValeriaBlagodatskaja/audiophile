@@ -22,7 +22,7 @@ export default function Store() {
         <Typography
           as="h2"
           className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
-          color="h2"
+          variant="h2"
         >
           Bringing you the{' '}
           <span className="font-bold text-orange-dark">best</span> audio gear
@@ -30,7 +30,7 @@ export default function Store() {
         <Typography
           as="p"
           className="h-[250px] w-[327px] text-center opacity-50 md:h-[150px] md:w-[573px] lg:w-[445px] lg:text-left xl:h-[175px]"
-          color="15px"
+          variant="15px"
         >
           Located at the heart of New York City, Audiophile is the premier store
           for high end headphones, earphones, speakers, and audio accessories.

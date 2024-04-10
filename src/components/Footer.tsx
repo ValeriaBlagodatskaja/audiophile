@@ -41,7 +41,7 @@ export default function Footer() {
                 key={link.href}
                 to={link.href}
               >
-                <Typography as="p" color="13px">
+                <Typography as="p" variant="13px">
                   {link.label}
                 </Typography>
               </Link>
@@ -53,7 +53,7 @@ export default function Footer() {
           <Typography
             as="p"
             className=" text-white opacity-50 lg:max-w-[540px]"
-            color="15px"
+            variant="15px"
           >
             Audiophile is an all in one stop to fulfill your audio needs. We're
             a small team of music lovers and sound specialists who are devoted
@@ -61,7 +61,11 @@ export default function Footer() {
             our demo facility - we’re open 7 days a week.
           </Typography>
           <div className="flex flex-col gap-[48px] md:flex md:flex-row md:items-start md:justify-between ">
-            <Typography as="p" className=" text-white opacity-50 " color="15px">
+            <Typography
+              as="p"
+              className=" text-white opacity-50 "
+              variant="15px"
+            >
               Copyright 2024. All Rights Reserved
             </Typography>
             <div className="flex justify-center gap-[16px] lg:absolute lg:right-[.30px] lg:top-[68px]">
