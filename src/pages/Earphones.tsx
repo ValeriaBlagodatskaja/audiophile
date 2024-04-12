@@ -17,7 +17,7 @@ export default function Earphones() {
           sm: product.categoryImage.mobile,
         },
         title: product.name,
-        to: '',
+        to: `/${product.slug}`,
       }
       return productObject
     })
