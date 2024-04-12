@@ -1,27 +1,18 @@
-import { useState } from 'react'
-
 import Button from '../../components/Button'
 
 interface ItemAmountProps {
-  initialValue: number
-  onAmountChange: (newAmount: number) => void
+  amount: number
+  setAmount: React.Dispatch<React.SetStateAction<number>>
 }
 
-export default function ItemAmount({
-  initialValue,
-  onAmountChange,
-}: ItemAmountProps) {
-  const [amount, setAmount] = useState(initialValue)
-
+export default function ItemAmount({ amount, setAmount }: ItemAmountProps) {
   const increaseAmount = () => {
     setAmount(amount + 1)
-    onAmountChange(amount + 1)
   }
 
   const decreaseAmount = () => {
     if (amount > 1) {
       setAmount(amount - 1)
-      onAmountChange(amount - 1)
     }
   }
 
