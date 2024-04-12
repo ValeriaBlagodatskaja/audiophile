@@ -5,6 +5,7 @@ import NavBar from './components/NavBar'
 import Earphones from './pages/Earphones'
 import Headphones from './pages/Headphones'
 import Home from './pages/Home/Home'
+import ProductInfoPage from './pages/ProductInfo/ProductInfoPage'
 import Speakers from './pages/Speakers'
 
 function Layout({ children }: { children: ReactNode }) {
@@ -48,6 +49,14 @@ export default function Router() {
         </Layout>
       ),
       path: 'earphones',
+    },
+    {
+      element: (
+        <Layout>
+          <ProductInfoPage />
+        </Layout>
+      ),
+      path: ':slug',
     },
   ])
   return <RouterProvider router={router} />
