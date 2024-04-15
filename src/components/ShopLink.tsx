@@ -20,7 +20,7 @@ export default function ShopLink({
   return (
     <Link
       className={clsx(
-        'flex items-center justify-center gap-[13px] bg-transparent text-black opacity-50 hover:text-orange-dark',
+        'flex items-center justify-center gap-[13px] bg-transparent uppercase text-black opacity-50 hover:text-orange-dark',
         className
       )}
       onClick={onClick}
