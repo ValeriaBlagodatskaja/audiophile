@@ -78,7 +78,7 @@ export default function ProductInfoPage({ to }: ProductInfoPageProps) {
 
   return (
     <>
-      <GoBackLink to={to}>Go Back</GoBackLink>
+      <GoBackLink>Go Back</GoBackLink>
       <div className="flex flex-col gap-14 md:gap-[172px] lg:gap-60">
         <ProductDetails
           description={remappedData.description}
