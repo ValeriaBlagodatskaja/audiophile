@@ -7,10 +7,6 @@ import ProductLinks from '../Home/components/ProductLinks'
 import Store from '../Home/components/Store'
 import ProductDetails, { ProductDetailsProps } from './ProductDetails'
 
-interface ProductInfoPageProps {
-  to?: string
-}
-
 interface OtherProduct {
   image: {
     desktop: string
@@ -21,7 +17,7 @@ interface OtherProduct {
   slug: string
 }
 
-export default function ProductInfoPage({ to }: ProductInfoPageProps) {
+export default function ProductInfoPage() {
   const { slug } = useParams()
   const product = data.find((item) => item.slug === slug)
   if (!product) {
