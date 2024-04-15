@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 
 import data from '../../../data.json'
-import Container from '../../components/Container'
 import Footer from '../../components/Footer'
 import GoBackLink from '../../components/GoBackLink'
 import ProductLinks from '../Home/components/ProductLinks'
@@ -12,13 +11,35 @@ interface ProductInfoPageProps {
   to?: string
 }
 
+interface OtherProduct {
+  image: {
+    desktop: string
+    mobile: string
+    tablet: string
+  }
+  name: string
+  slug: string
+}
+
 export default function ProductInfoPage({ to }: ProductInfoPageProps) {
   const { slug } = useParams()
   const product = data.find((item) => item.slug === slug)
-  console.log(slug)
   if (!product) {
     return <div>Product not found</div>
   }
+
+  const mapOthersData = (others: OtherProduct[]) => {
+    return others.map(({ image, name, slug }) => ({
+      images: {
+        lg: image.desktop,
+        md: image.tablet,
+        sm: image.mobile,
+      },
+      name,
+      slug,
+    }))
+  }
+
   const remapDataToMatchProps = () => {
     const productObject: ProductDetailsProps = {
       description: product.description,
@@ -42,6 +63,7 @@ export default function ProductInfoPage({ to }: ProductInfoPageProps) {
       ],
       includes: product.includes,
       newProduct: product.new,
+      others: mapOthersData(product.others),
       price: product.price,
       srcSet: {
         lg: product.image.desktop,
@@ -56,24 +78,23 @@ export default function ProductInfoPage({ to }: ProductInfoPageProps) {
 
   return (
     <>
-      <Container>
-        <div className="flex flex-col gap-6 pb-[88px] md:pb-[120px] lg:gap-14 lg:pb-0 ">
-          <GoBackLink to={to}>Go Back</GoBackLink>
-          <ProductDetails
-            description={remappedData.description}
-            features={remappedData.features}
-            galleryImageThird={remappedData.galleryImageThird}
-            galleryImages={remappedData.galleryImages}
-            includes={remappedData.includes}
-            newProduct={remappedData.newProduct}
-            price={remappedData.price}
-            srcSet={remappedData.srcSet}
-            title={remappedData.title}
-          />
+      <GoBackLink to={to}>Go Back</GoBackLink>
+      <div className="flex flex-col gap-14 md:gap-[172px] lg:gap-60">
+        <ProductDetails
+          description={remappedData.description}
+          features={remappedData.features}
+          galleryImageThird={remappedData.galleryImageThird}
+          galleryImages={remappedData.galleryImages}
+          includes={remappedData.includes}
+          newProduct={remappedData.newProduct}
+          others={remappedData.others}
+          price={remappedData.price}
+          srcSet={remappedData.srcSet}
+          title={remappedData.title}
+        />
+        <div className="flex flex-col gap-[120px] lg:gap-40">
+          <ProductLinks />
         </div>
-      </Container>
-      <div className="flex flex-col gap-[120px] lg:gap-40">
-        <ProductLinks />
         <Store />
         <Footer />
       </div>
