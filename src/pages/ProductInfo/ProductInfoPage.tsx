@@ -1,0 +1,99 @@
+import { useParams } from 'react-router-dom'
+
+import data from '../../../data.json'
+import Footer from '../../components/Footer'
+import GoBackLink from '../../components/GoBackLink'
+import ProductLinks from '../Home/components/ProductLinks'
+import Store from '../Home/components/Store'
+import ProductDetails, { ProductDetailsProps } from './ProductDetails'
+
+interface OtherProduct {
+  image: {
+    desktop: string
+    mobile: string
+    tablet: string
+  }
+  name: string
+  slug: string
+}
+
+export default function ProductInfoPage() {
+  const { slug } = useParams()
+  const product = data.find((item) => item.slug === slug)
+  if (!product) {
+    return <div>Product not found</div>
+  }
+
+  const mapOthersData = (others: OtherProduct[]) => {
+    return others.map(({ image, name, slug }) => ({
+      images: {
+        lg: image.desktop,
+        md: image.tablet,
+        sm: image.mobile,
+      },
+      name,
+      slug,
+    }))
+  }
+
+  const remapDataToMatchProps = () => {
+    const productObject: ProductDetailsProps = {
+      description: product.description,
+      features: product.features,
+      galleryImageThird: {
+        lg: product.gallery.third.desktop,
+        md: product.gallery.third.tablet,
+        sm: product.gallery.third.mobile,
+      },
+      galleryImages: [
+        {
+          lg: product.gallery.first.desktop,
+          md: product.gallery.first.tablet,
+          sm: product.gallery.first.mobile,
+        },
+        {
+          lg: product.gallery.second.desktop,
+          md: product.gallery.second.tablet,
+          sm: product.gallery.second.mobile,
+        },
+      ],
+      includes: product.includes,
+      newProduct: product.new,
+      others: mapOthersData(product.others),
+      price: product.price,
+      srcSet: {
+        lg: product.image.desktop,
+        md: product.image.tablet,
+        sm: product.image.mobile,
+      },
+      title: product.name,
+    }
+    return productObject
+  }
+  const remappedData = remapDataToMatchProps()
+
+  return (
+    <>
+      <GoBackLink>Go Back</GoBackLink>
+      <div className="flex flex-col gap-14 md:gap-[172px] lg:gap-60">
+        <ProductDetails
+          description={remappedData.description}
+          features={remappedData.features}
+          galleryImageThird={remappedData.galleryImageThird}
+          galleryImages={remappedData.galleryImages}
+          includes={remappedData.includes}
+          newProduct={remappedData.newProduct}
+          others={remappedData.others}
+          price={remappedData.price}
+          srcSet={remappedData.srcSet}
+          title={remappedData.title}
+        />
+        <div className="flex flex-col gap-[120px] lg:gap-40">
+          <ProductLinks />
+        </div>
+        <Store />
+        <Footer />
+      </div>
+    </>
+  )
+}

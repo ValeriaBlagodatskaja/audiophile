@@ -28,12 +28,12 @@ function MenuLink({ children, onClick, src, to }: MenuLinkProps) {
         <Typography
           as="h2"
           className="!font-bold tracking-[1.07px]"
-          color="15px"
+          variant="15px"
         >
           {children}
         </Typography>
         <ShopLink onClick={onClick} to={to}>
-          <Typography as="h3" color="13px">
+          <Typography as="h3" variant="13px">
             SHOP
           </Typography>
         </ShopLink>

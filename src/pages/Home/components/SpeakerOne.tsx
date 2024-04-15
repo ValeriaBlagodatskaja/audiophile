@@ -33,20 +33,20 @@ export default function SpeakerOne() {
           </div>
         </div>
         <div className="relative mb-[58px] flex flex-col items-center justify-center gap-[24px] text-center md:mb-[150px] lg:mb-0 lg:flex lg:items-start lg:text-left">
-          <Typography as="h1" className=" text-white" color="h1">
+          <Typography as="h1" className=" text-white" variant="h1">
             ZX9 <br />
             SPEAKER
           </Typography>
           <Typography
             as="p"
             className="w-[280px] text-white md:mb-[16px] md:w-[349px]"
-            color="15px"
+            variant="15px"
           >
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </Typography>
           <LinkButton color="black" to="/">
-            <Typography as="p" color="13px">
+            <Typography as="p" variant="13px">
               SEE PRODUCT
             </Typography>
           </LinkButton>

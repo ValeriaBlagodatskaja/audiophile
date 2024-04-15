@@ -74,7 +74,7 @@ function NavBar() {
               key={link.href}
               to={link.href}
             >
-              <Typography as="p" color="13px">
+              <Typography as="p" variant="13px">
                 {link.label}
               </Typography>
             </Link>

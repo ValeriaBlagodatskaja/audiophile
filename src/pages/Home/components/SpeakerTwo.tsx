@@ -17,11 +17,11 @@ export default function SpeakerTwo() {
         />
       </picture>
       <div className="absolute ml-[24px] flex flex-col gap-[32px] pt-[101px] md:ml-[62px] lg:ml-[95px]">
-        <Typography as="p" color="28px">
+        <Typography as="p" variant="28px">
           ZX7 SPEAKER
         </Typography>
         <LinkButton color="white" to="/">
-          <Typography as="p" color="13px">
+          <Typography as="p" variant="13px">
             SEE PRODUCT
           </Typography>
         </LinkButton>

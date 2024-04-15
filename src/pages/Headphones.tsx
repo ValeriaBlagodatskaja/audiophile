@@ -10,7 +10,6 @@ export default function Headphones() {
       a.new === b.new ? 0 : a.new ? -1 : 1
     )
     return sortedHeadphones.map((product) => {
-      console.log('product', product)
       const productObject: ProductProps = {
         description: product.description,
         newProduct: product.new,
@@ -20,7 +19,7 @@ export default function Headphones() {
           sm: product.categoryImage.mobile,
         },
         title: product.name,
-        to: '',
+        to: `/${product.slug}`,
       }
       return productObject
     })
