@@ -12,7 +12,7 @@ interface LinkButtonProps {
   className?: string
   color: 'black' | 'gray' | 'orange' | 'white'
   onClick?: () => void
-  to: string
+  to?: string
 }
 
 const commonClasses = {
@@ -38,7 +38,7 @@ export function LinkButton({
   className,
   color,
   onClick,
-  to,
+  to = '',
 }: LinkButtonProps) {
   return (
     <Link
