@@ -7,12 +7,16 @@ import ShadowEarphones from '../assets/shared/desktop/image-category-thumbnail-e
 import ShadowHeadphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
 import ShadowSpeakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
 import Logo from '../assets/shared/desktop/logo.svg?react'
+import Cart from '../components/Cart/Cart'
 import Container from './Container'
 import MenuLink from './MenuLink'
+import Modal from './Modal'
 import Typography from './Typography'
 
 function NavBar() {
   const [isOpen, setOpen] = useState(false)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
     const handleResize = () => {
@@ -80,7 +84,15 @@ function NavBar() {
             </Link>
           ))}
         </div>
-        <CartIcon className="md:ml-auto lg:ml-0" />
+        <button
+          className="md:ml-auto lg:ml-0"
+          onClick={() => setIsModalOpen(true)}
+        >
+          <CartIcon />
+        </button>
+        <Modal open={isModalOpen} setOpen={setIsModalOpen}>
+          <Cart />
+        </Modal>
       </Container>
       {isOpen && (
         <>
