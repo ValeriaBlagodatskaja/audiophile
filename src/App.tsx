@@ -1,7 +1,12 @@
+import { CartProvider } from './components/Cart/useCartProvider'
 import Router from './router'
 
 function App() {
-  return <Router />
+  return (
+    <CartProvider>
+      <Router />
+    </CartProvider>
+  )
 }
 
 export default App
