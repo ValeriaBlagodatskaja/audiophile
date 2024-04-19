@@ -20,7 +20,10 @@ export default function Modal({
   const modalContentRef = useRef(null)
   useClickOutside(modalContentRef, open, () => setOpen(false))
 
-  if (!open) return null
+  if (!open) {
+    return <div className="hidden" />
+  }
+
   return ReactDom.createPortal(
     <>
       <div className="z-1000 fixed inset-0 bg-black bg-opacity-40" />
