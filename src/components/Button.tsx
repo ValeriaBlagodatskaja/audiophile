@@ -3,6 +3,7 @@ import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 interface ButtonProps {
   children: ReactNode
+  className?: string
   color: 'black' | 'gray' | 'orange' | 'white'
   onClick: () => void
 }
@@ -25,9 +26,14 @@ const commonClasses = {
     'flex justify-center items-center  h-12 w-40 border border-black bg-transparent text-black hover:bg-black hover:text-white',
 }
 
-export default function Button({ children, color, onClick }: ButtonProps) {
+export default function Button({
+  children,
+  className,
+  color,
+  onClick,
+}: ButtonProps) {
   return (
-    <button className={clsx(commonClasses[color])} onClick={onClick}>
+    <button className={clsx(commonClasses[color], className)} onClick={onClick}>
       <span>{children}</span>
     </button>
   )

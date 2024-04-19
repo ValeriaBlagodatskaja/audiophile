@@ -1,6 +1,8 @@
 import { useState } from 'react'
 
 import Button from '../../components/Button'
+import { useCart } from '../../components/Cart/useCart'
+import { CartItem } from '../../components/Cart/useCartProvider'
 import Container from '../../components/Container'
 import Typography from '../../components/Typography'
 import FeaturesSection from './FeaturesSection'
@@ -22,6 +24,7 @@ export interface ProductDetailsProps {
     md: string
     sm: string
   }[]
+  id: number
   includes: { item: string; quantity: number }[]
   newProduct: boolean
   others: {
@@ -33,6 +36,7 @@ export interface ProductDetailsProps {
     name: string
     slug: string
   }[]
+
   price: number
   srcSet: {
     lg: string
@@ -47,6 +51,7 @@ export default function ProductDetails({
   features,
   galleryImageThird,
   galleryImages,
+  id,
   includes,
   newProduct,
   others,
@@ -55,9 +60,23 @@ export default function ProductDetails({
   title,
 }: ProductDetailsProps) {
   const [amount, setAmount] = useState(1)
+  const { addToCart } = useCart()
 
   const handleAddToCart = () => {
+    const newItem: CartItem = {
+      id,
+
+      price: price,
+      quantity: amount,
+      srcSet,
+      title: title,
+    }
+    addToCart(newItem)
     console.log('Products amount added to cart:', amount)
+  }
+
+  const updateQuantity = (newQuantity: number) => {
+    setAmount(newQuantity)
   }
 
   return (
@@ -93,7 +112,7 @@ export default function ProductDetails({
                 $ {price}
               </Typography>
               <div className="flex gap-4">
-                <ItemAmount amount={amount} setAmount={setAmount} />
+                <ItemAmount amount={amount} updateQuantity={updateQuantity} />
                 <Button color="orange" onClick={handleAddToCart}>
                   <Typography as="p" variant="13px">
                     Add to cart

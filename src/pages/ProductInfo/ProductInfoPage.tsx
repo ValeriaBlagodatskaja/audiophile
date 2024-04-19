@@ -57,6 +57,7 @@ export default function ProductInfoPage() {
           sm: product.gallery.second.mobile,
         },
       ],
+      id: product.id,
       includes: product.includes,
       newProduct: product.new,
       others: mapOthersData(product.others),
@@ -76,18 +77,7 @@ export default function ProductInfoPage() {
     <>
       <GoBackLink>Go Back</GoBackLink>
       <div className="flex flex-col gap-14 md:gap-[172px] lg:gap-60">
-        <ProductDetails
-          description={remappedData.description}
-          features={remappedData.features}
-          galleryImageThird={remappedData.galleryImageThird}
-          galleryImages={remappedData.galleryImages}
-          includes={remappedData.includes}
-          newProduct={remappedData.newProduct}
-          others={remappedData.others}
-          price={remappedData.price}
-          srcSet={remappedData.srcSet}
-          title={remappedData.title}
-        />
+        <ProductDetails {...remappedData} />
         <div className="flex flex-col gap-[120px] lg:gap-40">
           <ProductLinks />
         </div>

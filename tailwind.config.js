@@ -19,6 +19,7 @@ export default {
       screens: {
         lg: '1100px',
         md: '768px',
+        'md-custom': '440px',
       },
     },
   },
