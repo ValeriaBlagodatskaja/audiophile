@@ -36,7 +36,7 @@ const Cart = () => {
             className="flex flex-row items-center justify-between"
             key={item.id}
           >
-            <div className="flex flex-row items-center gap-1 md:gap-4">
+            <div className="md-custom:gap-4 flex flex-row items-center gap-1">
               <img className="h-16 w-16 rounded-lg" srcSet={item.srcSet.sm} />
               <div>
                 <Typography
@@ -72,14 +72,14 @@ const Cart = () => {
       </ul>
       <div className="flex flex-col gap-6">
         <div className="flex flex-row justify-between">
-          <Typography as="h3" variant="15px">
+          <Typography as="h3" className="opacity-50" variant="15px">
             TOTAL
           </Typography>
           <Typography as="h3" variant="18px">
             $ {subtotal}
           </Typography>
         </div>
-        <LinkButton className="mx-auto" color="orange">
+        <LinkButton className="mx- w-full" color="orange">
           Checkout
         </LinkButton>
       </div>
