@@ -1,6 +1,7 @@
 import { ReactNode } from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 
+import Checkout from './components/Checkout/Checkout'
 import NavBar from './components/NavBar'
 import Earphones from './pages/Earphones'
 import Headphones from './pages/Headphones'
@@ -57,6 +58,14 @@ export default function Router() {
         </Layout>
       ),
       path: ':slug',
+    },
+    {
+      element: (
+        <Layout>
+          <Checkout />
+        </Layout>
+      ),
+      path: '/checkout',
     },
   ])
   return <RouterProvider router={router} />
