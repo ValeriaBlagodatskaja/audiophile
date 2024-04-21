@@ -37,7 +37,9 @@ const Cart = () => {
             key={item.id}
           >
             <div className="md-custom:gap-4 flex flex-row items-center gap-1">
-              <img className="h-16 w-16 rounded-lg" srcSet={item.srcSet.sm} />
+              {item.srcSet && item.srcSet.sm && (
+                <img className="h-16 w-16 rounded-lg" srcSet={item.srcSet.sm} />
+              )}
               <div>
                 <Typography
                   as="p"
@@ -79,7 +81,7 @@ const Cart = () => {
             $ {subtotal}
           </Typography>
         </div>
-        <LinkButton className="mx- w-full" color="orange">
+        <LinkButton className="mx- w-full" color="orange" to="/checkout">
           Checkout
         </LinkButton>
       </div>
