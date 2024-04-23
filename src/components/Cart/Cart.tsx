@@ -81,7 +81,7 @@ const Cart = () => {
             $ {subtotal}
           </Typography>
         </div>
-        <LinkButton className="mx- w-full" color="orange" to="/checkout">
+        <LinkButton className="mx w-full" color="orange" to="/checkout">
           Checkout
         </LinkButton>
       </div>
