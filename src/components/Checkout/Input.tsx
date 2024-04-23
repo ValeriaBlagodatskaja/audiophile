@@ -1,9 +1,11 @@
 import clsx from 'clsx'
 import { InputHTMLAttributes, Ref, forwardRef } from 'react'
 
+import Typography from '../Typography'
+
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
   error?: string
-  label: string
+  label?: string
   rootClassName?: string
 }
 
@@ -13,20 +15,30 @@ const InputComponent = (
 ) => {
   return (
     <label className={clsx('w-full', rootClassName)}>
-      <div
-        className={clsx('flex justify-between gap-2', error && 'text-red-300')}
-      >
-        <div>{label}</div> <div>{error}</div>
+      <div className="flex flex-col gap-[9px]">
+        <div
+          className={clsx(
+            'flex justify-between gap-2',
+            error && 'text-red-600'
+          )}
+        >
+          <Typography as="p" variant="12px">
+            {label}
+          </Typography>
+          <Typography as="p" variant="12px">
+            {error}
+          </Typography>
+        </div>
+        <input
+          {...inputAttributes}
+          className={clsx(
+            'h-14 w-full rounded-lg border-[1px] pl-6 text-[14px] tracking-[-0.25px] outline-none focus:border-orange-dark',
+            inputAttributes.className,
+            error && 'border-red-600'
+          )}
+          ref={ref}
+        />
       </div>
-      <input
-        {...inputAttributes}
-        className={clsx(
-          'bg-gray w-full rounded-lg border-[1px] p-2 outline-none',
-          inputAttributes.className,
-          error && 'border-red-300'
-        )}
-        ref={ref}
-      />
     </label>
   )
 }
