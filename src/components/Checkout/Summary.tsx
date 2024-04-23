@@ -1,8 +1,19 @@
+import { LinkButton } from '../Button'
 import { useCart } from '../Cart/useCart'
 import Typography from '../Typography'
 
 export default function Summary() {
-  const { cartItems, subtotal } = useCart()
+  const { cartItems } = useCart()
+
+  const subtotal = cartItems.reduce((accumulator, { price, quantity }) => {
+    return accumulator + price * quantity
+  }, 0)
+
+  const shippingFee = cartItems.length > 0 ? 50 : 0
+
+  const vat = Math.round((subtotal + shippingFee) * 0.22)
+
+  const grandTotal = vat + subtotal
 
   return (
     <>
@@ -49,42 +60,51 @@ export default function Summary() {
             </li>
           ))}
         </ul>
-        <div>
-          <div className="flex flex-row justify-between">
-            <Typography as="h3" className="opacity-50" variant="15px">
-              TOTAL
-            </Typography>
-            <Typography as="h3" variant="18px">
-              $ {subtotal}
-            </Typography>
-          </div>
+        <div className="flex flex-col gap-6">
+          <div className="flex flex-col gap-2">
+            <div className="flex flex-row justify-between">
+              <Typography as="h3" className="opacity-50" variant="15px">
+                TOTAL
+              </Typography>
+              <Typography as="h3" variant="18px">
+                $ {subtotal}
+              </Typography>
+            </div>
 
-          <div className="flex flex-row justify-between">
-            <Typography as="h3" className="opacity-50" variant="15px">
-              SHIPPING
-            </Typography>
-            <Typography as="h3" variant="18px">
-              $50
-            </Typography>
-          </div>
+            <div className="flex flex-row justify-between">
+              <Typography as="h3" className="opacity-50" variant="15px">
+                SHIPPING
+              </Typography>
+              <Typography as="h3" variant="18px">
+                $ {shippingFee}
+              </Typography>
+            </div>
 
-          <div className="flex flex-row justify-between">
-            <Typography as="h3" className="opacity-50" variant="15px">
-              VAT (INCLUDED)
-            </Typography>
-            <Typography as="h3" variant="18px">
-              $
-            </Typography>
+            <div className="flex flex-row justify-between">
+              <Typography as="h3" className="opacity-50" variant="15px">
+                VAT(22%)
+              </Typography>
+              <Typography as="h3" variant="18px">
+                $ {vat}
+              </Typography>
+            </div>
           </div>
           <div className="flex flex-row justify-between">
             <Typography as="h3" className="opacity-50" variant="15px">
               GRAND TOTAL
             </Typography>
             <Typography as="h3" className="text-orange-dark" variant="18px">
-              $
+              $ {grandTotal}
             </Typography>
           </div>
         </div>
+        <LinkButton
+          className="mx w-full text-[13px] tracking-[1px]"
+          color="orange"
+          to="/"
+        >
+          CONTINUE
+        </LinkButton>
       </div>
     </>
   )
