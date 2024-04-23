@@ -45,7 +45,7 @@ export default function SpeakerOne() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </Typography>
-          <LinkButton color="black" to="/">
+          <LinkButton color="black" to="/zx9-speaker">
             <Typography as="p" variant="13px">
               SEE PRODUCT
             </Typography>

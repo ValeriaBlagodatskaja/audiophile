@@ -20,7 +20,7 @@ export default function SpeakerTwo() {
         <Typography as="p" variant="28px">
           ZX7 SPEAKER
         </Typography>
-        <LinkButton color="white" to="/">
+        <LinkButton color="white" to="/zx7-speaker">
           <Typography as="p" variant="13px">
             SEE PRODUCT
           </Typography>

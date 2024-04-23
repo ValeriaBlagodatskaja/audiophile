@@ -24,7 +24,7 @@ export default function Earphones() {
             <Typography as="p" variant="28px">
               YX1 EARPHONES
             </Typography>
-            <LinkButton color="white" to="/">
+            <LinkButton color="white" to="/yx1-earphones">
               <Typography as="p" variant="13px">
                 SEE PRODUCT
               </Typography>
