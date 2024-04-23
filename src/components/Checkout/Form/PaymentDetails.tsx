@@ -1,19 +1,24 @@
 import { useState } from 'react'
-import { useForm } from 'react-hook-form'
+import {
+  FieldErrors,
+  FieldValues,
+  RegisterOptions,
+  UseFormRegisterReturn,
+} from 'react-hook-form'
 
 import IconCash from '../../../assets/checkout/icon-cash-on-delivery.svg?react'
 import Typography from '../../Typography'
 import Input from '../Input'
 
 interface PaymentDetailsProps {
-  register: any
+  errors: FieldErrors<FieldValues>
+  register: (name: string, options?: RegisterOptions) => UseFormRegisterReturn
 }
 
-export default function PaymentDetails({ register }: PaymentDetailsProps) {
-  const {
-    formState: { errors },
-  } = useForm()
-
+export default function PaymentDetails({
+  errors,
+  register,
+}: PaymentDetailsProps) {
   const [selectedPayment, setSelectedPayment] = useState('e-money')
 
   const handlePaymentChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,51 +26,65 @@ export default function PaymentDetails({ register }: PaymentDetailsProps) {
   }
   return (
     <>
-      <Typography as="p" className="pb-4 text-orange-dark" variant="13px">
-        payment details
-      </Typography>
-      <div className="flex flex-col gap-4 md:flex-row">
-        <Typography as="label" className="grow" variant="12px">
-          Payment Method
+      <div className="grid gap-4">
+        <Typography as="p" className="text-orange-dark" variant="13px">
+          payment details
         </Typography>
+        <div className="grid gap-4 md:grid-cols-2">
+          <Typography as="label" className="grow" variant="12px">
+            Payment Method
+          </Typography>
 
-        <div className="flex grow flex-col gap-4 pb-[30px] text-[14px] font-bold tracking-[-0.25px]">
-          <label className="flex h-14 w-full items-center gap-4 rounded-lg border-[1px] pl-6 focus:border-orange-dark">
-            <input
-              {...register('payment', { required: true })}
-              checked={selectedPayment === 'e-money'}
-              onChange={handlePaymentChange}
-              type="radio"
-              value="e-money"
-            />
-            e-Money
-          </label>
-          <label className="flex h-14 w-full items-center gap-4 rounded-lg border-[1px] pl-6 focus:border-orange-dark">
-            <input
-              {...register('payment', { required: true })}
-              checked={selectedPayment === 'cash'}
-              onChange={handlePaymentChange}
-              type="radio"
-              value="cash"
-            />
-            Cash on Delivery
-          </label>
+          <div className="grid gap-4 text-[14px] font-bold tracking-[-0.25px]">
+            <label className="input-wrapper">
+              <input
+                {...register('payment', { required: true })}
+                checked={selectedPayment === 'e-money'}
+                onChange={handlePaymentChange}
+                type="radio"
+                value="e-money"
+              />
+              e-Money
+            </label>
+            <label className="input-wrapper">
+              <input
+                {...register('payment', { required: true })}
+                checked={selectedPayment === 'cash'}
+                onChange={handlePaymentChange}
+                type="radio"
+                value="cash"
+              />
+              Cash on Delivery
+            </label>
+          </div>
         </div>
       </div>
       {selectedPayment === 'e-money' && (
-        <div className="flex grow flex-col gap-4 md:flex-row">
+        <div className="grid gap-4 md:grid-cols-2">
           <Input
             error={
               errors.eMoneyNumber && (errors.eMoneyNumber.message as string)
             }
             placeholder="238521993"
-            {...register('eMoneyNumber', { required: 'Required field' })}
+            {...register('eMoneyNumber', {
+              pattern: {
+                message: 'Use only numbers',
+                value: /^[0-9]+$/,
+              },
+              required: 'Required field',
+            })}
             label="e-Money Number"
           />
           <Input
             error={errors.eMoneyPin && (errors.eMoneyPin.message as string)}
             placeholder="6891"
-            {...register('eMoneyPin', { required: 'Required field' })}
+            {...register('eMoneyPin', {
+              pattern: {
+                message: 'Use only numbers',
+                value: /^[0-9]+$/,
+              },
+              required: 'Required field',
+            })}
             label="e-Money PIN"
           />
         </div>
