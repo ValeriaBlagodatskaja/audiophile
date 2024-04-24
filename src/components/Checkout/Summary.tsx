@@ -98,7 +98,7 @@ export default function Summary({ onContinue }: { onContinue: () => void }) {
           </div>
         </div>
         <button
-          className="mx hover:orange-light w-full  rounded-lg bg-orange-dark px-4 py-2 text-[13px] tracking-[1px] text-white"
+          className="mx hover:orange-light h-12 w-full bg-orange-dark px-4 py-2 text-[13px] tracking-[1px] text-white"
           onClick={onContinue}
         >
           CONTINUE
