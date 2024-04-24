@@ -1,7 +1,13 @@
 import { ReactNode } from 'react'
-import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import {
+  Outlet,
+  RouterProvider,
+  ScrollRestoration,
+  createBrowserRouter,
+} from 'react-router-dom'
 
 import Checkout from './components/Checkout/Checkout'
+import Footer from './components/Footer'
 import NavBar from './components/NavBar'
 import Earphones from './pages/Earphones'
 import Headphones from './pages/Headphones'
@@ -13,6 +19,7 @@ function Layout({ children }: { children: ReactNode }) {
   return (
     <>
       <NavBar /> {children}
+      <Footer />
     </>
   )
 }
@@ -20,52 +27,21 @@ function Layout({ children }: { children: ReactNode }) {
 export default function Router() {
   const router = createBrowserRouter([
     {
+      children: [
+        { element: <Home />, index: true },
+        { element: <Headphones />, path: 'headphones' },
+        { element: <Speakers />, path: 'speakers' },
+        { element: <Earphones />, path: 'earphones' },
+        { element: <Checkout />, path: 'checkout' },
+        { element: <Headphones />, path: 'headphones' },
+        { element: <ProductInfoPage />, path: ':slug' },
+      ],
       element: (
         <Layout>
-          <Home />
+          <ScrollRestoration />
+          <Outlet />
         </Layout>
       ),
-      path: '/',
-    },
-    {
-      element: (
-        <Layout>
-          <Headphones />
-        </Layout>
-      ),
-      path: 'headphones',
-    },
-    {
-      element: (
-        <Layout>
-          <Speakers />
-        </Layout>
-      ),
-      path: 'speakers',
-    },
-    {
-      element: (
-        <Layout>
-          <Earphones />
-        </Layout>
-      ),
-      path: 'earphones',
-    },
-    {
-      element: (
-        <Layout>
-          <ProductInfoPage />
-        </Layout>
-      ),
-      path: ':slug',
-    },
-    {
-      element: (
-        <Layout>
-          <Checkout />
-        </Layout>
-      ),
-      path: '/checkout',
     },
   ])
   return <RouterProvider router={router} />
