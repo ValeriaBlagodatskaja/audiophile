@@ -16,16 +16,15 @@ const InputComponent = (
   return (
     <label className={clsx('w-full', rootClassName)}>
       <div className="flex flex-col gap-[9px]">
-        <div
-          className={clsx(
-            'flex justify-between gap-2',
-            error && 'text-red-600'
-          )}
-        >
+        <div className="flex justify-between gap-2">
           <Typography as="p" variant="12px">
             {label}
           </Typography>
-          <Typography as="p" variant="12px">
+          <Typography
+            as="p"
+            className={error ? 'text-red-600' : ''}
+            variant="12px"
+          >
             {error}
           </Typography>
         </div>
