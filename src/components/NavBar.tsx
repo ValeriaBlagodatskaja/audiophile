@@ -96,7 +96,7 @@ function NavBar() {
           )}
         </button>
         <Modal open={isModalOpen} setOpen={setIsModalOpen}>
-          <Cart />
+          <Cart onClose={() => setIsModalOpen(false)} />
         </Modal>
       </Container>
       {isOpen && (
