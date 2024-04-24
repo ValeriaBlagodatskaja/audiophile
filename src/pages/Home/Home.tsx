@@ -1,4 +1,3 @@
-import Footer from '../../components/Footer'
 import Earphones from './components/Earphones'
 import Hero from './components/Hero'
 import ProductLinks from './components/ProductLinks'
@@ -18,10 +17,7 @@ export default function Home() {
         <SpeakerTwo />
         <Earphones />
       </div>
-      <div className="flex flex-col gap-[120px] md:gap-24 lg:gap-[200px] ">
-        <Store />
-        <Footer />
-      </div>
+      <Store />
     </>
   )
 }
