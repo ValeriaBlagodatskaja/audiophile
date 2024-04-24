@@ -1,7 +1,6 @@
 import { useParams } from 'react-router-dom'
 
 import data from '../../../data.json'
-import Footer from '../../components/Footer'
 import GoBackLink from '../../components/GoBackLink'
 import ProductLinks from '../Home/components/ProductLinks'
 import Store from '../Home/components/Store'
@@ -76,13 +75,12 @@ export default function ProductInfoPage() {
   return (
     <>
       <GoBackLink>Go Back</GoBackLink>
-      <div className="flex flex-col gap-14 md:gap-[172px] lg:gap-60">
+      <div className="flex flex-col gap-[172px] lg:gap-60">
         <ProductDetails {...remappedData} />
         <div className="flex flex-col gap-[120px] lg:gap-40">
           <ProductLinks />
         </div>
         <Store />
-        <Footer />
       </div>
     </>
   )
