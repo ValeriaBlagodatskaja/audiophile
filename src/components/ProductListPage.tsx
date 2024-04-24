@@ -1,5 +1,4 @@
 import Container from '../components/Container'
-import Footer from '../components/Footer'
 import Product, { ProductProps } from '../components/Product'
 import Typography from '../components/Typography'
 import ProductLinks from '../pages/Home/components/ProductLinks'
@@ -36,7 +35,6 @@ export default function ProductListPage({
       <div className="flex flex-col gap-[120px] lg:gap-40">
         <ProductLinks />
         <Store />
-        <Footer />
       </div>
     </>
   )
