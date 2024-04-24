@@ -4,7 +4,11 @@ import Button, { LinkButton } from '../Button'
 import Typography from '../Typography'
 import { useCart } from './useCart'
 
-const Cart = () => {
+interface CartProps {
+  onClose: () => void
+}
+
+const Cart = ({ onClose }: CartProps) => {
   const {
     cartItems,
     removeAllFromCart,
@@ -19,6 +23,10 @@ const Cart = () => {
   const totalItems = cartItems.reduce((accumulator, { quantity }) => {
     return accumulator + quantity
   }, 0)
+
+  const handleCheckout = () => {
+    onClose()
+  }
 
   return (
     <>
@@ -81,7 +89,12 @@ const Cart = () => {
             $ {subtotal}
           </Typography>
         </div>
-        <LinkButton className="mx w-full" color="orange" to="/checkout">
+        <LinkButton
+          className="mx w-full"
+          color="orange"
+          onClick={handleCheckout}
+          to="/checkout"
+        >
           Checkout
         </LinkButton>
       </div>
