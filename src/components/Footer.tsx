@@ -27,7 +27,7 @@ export default function Footer() {
     },
   ]
   return (
-    <div className="h-[654px] bg-[#191919] md:h-[400px] lg:h-[365px]">
+    <div className="mb:mt-[120px] mt-24 h-[654px] bg-[#191919] md:h-[400px] lg:mt-40 lg:h-[365px]">
       <Container className=" flex flex-col items-center justify-center md:items-start lg:items-stretch">
         <div className="h-[4px] w-[101px] bg-orange-dark" />
         <div className="mb-[48px] md:mb-[32px] lg:mb-[36px] lg:mt-[75px] lg:flex lg:flex-row lg:justify-between ">
