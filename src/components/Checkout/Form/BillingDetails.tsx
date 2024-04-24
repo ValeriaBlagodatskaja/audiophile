@@ -34,7 +34,11 @@ export default function BillingDetails({
           error={errors.mail && (errors.mail.message as string)}
           placeholder="johndoe@example.com"
           {...register('mail', {
-            required: 'Email Address is required',
+            pattern: {
+              message: 'Invalid email address format',
+              value: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$/,
+            },
+            required: 'Required field',
           })}
           label="Email Address"
           type="email"
@@ -47,7 +51,7 @@ export default function BillingDetails({
               message: 'Invalid phone number format',
               value: /^\+(?:[0-9] ?){6,14}[0-9]$/,
             },
-            required: 'Phone Number is required',
+            required: 'Required field',
           })}
           label="Phone Number"
           type="tel"
