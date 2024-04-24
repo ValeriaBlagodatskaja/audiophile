@@ -33,7 +33,13 @@ export default function ShippingDetails({
           <Input
             error={errors.zip && (errors.zip.message as string)}
             placeholder="10001"
-            {...register('zip', { required: 'Required field' })}
+            {...register('zip', {
+              pattern: {
+                message: 'Use only numbers',
+                value: /^[0-9]+$/,
+              },
+              required: 'Required field',
+            })}
             label="ZIP Code"
           />
           <Input
