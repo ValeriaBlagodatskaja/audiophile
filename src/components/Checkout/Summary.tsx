@@ -1,8 +1,7 @@
-import { LinkButton } from '../Button'
 import { useCart } from '../Cart/useCart'
 import Typography from '../Typography'
 
-export default function Summary() {
+export default function Summary({ onContinue }: { onContinue: () => void }) {
   const { cartItems } = useCart()
 
   const subtotal = cartItems.reduce((accumulator, { price, quantity }) => {
@@ -98,13 +97,12 @@ export default function Summary() {
             </Typography>
           </div>
         </div>
-        <LinkButton
-          className="mx w-full text-[13px] tracking-[1px]"
-          color="orange"
-          to="/"
+        <button
+          className="mx hover:orange-light w-full  rounded-lg bg-orange-dark px-4 py-2 text-[13px] tracking-[1px] text-white"
+          onClick={onContinue}
         >
           CONTINUE
-        </LinkButton>
+        </button>
       </div>
     </>
   )
