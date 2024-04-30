@@ -1,18 +1,14 @@
 import { useState } from 'react'
-import {
-  FieldErrors,
-  FieldValues,
-  RegisterOptions,
-  UseFormRegisterReturn,
-} from 'react-hook-form'
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 import IconCash from '../../../assets/checkout/icon-cash-on-delivery.svg?react'
 import Typography from '../../Typography'
+import { CheckoutFormData } from '../Checkout'
 import Input from '../Input'
 
 interface PaymentDetailsProps {
   errors: FieldErrors<FieldValues>
-  register: (name: string, options?: RegisterOptions) => UseFormRegisterReturn
+  register: UseFormRegister<CheckoutFormData>
 }
 
 export default function PaymentDetails({

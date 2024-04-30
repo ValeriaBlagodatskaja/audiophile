@@ -1,16 +1,12 @@
-import {
-  FieldErrors,
-  FieldValues,
-  RegisterOptions,
-  UseFormRegisterReturn,
-} from 'react-hook-form'
+import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 import Typography from '../../Typography'
+import { CheckoutFormData } from '../Checkout'
 import Input from '../Input'
 
 interface ShippingDetailsProps {
   errors: FieldErrors<FieldValues>
-  register: (name: string, options?: RegisterOptions) => UseFormRegisterReturn
+  register: UseFormRegister<CheckoutFormData>
 }
 
 export default function ShippingDetails({
