@@ -89,14 +89,20 @@ const Cart = ({ onClose }: CartProps) => {
             $ {subtotal}
           </Typography>
         </div>
-        <LinkButton
-          className="mx w-full"
-          color="orange"
-          onClick={handleCheckout}
-          to="/checkout"
-        >
-          Checkout
-        </LinkButton>
+        {cartItems.length > 0 ? (
+          <LinkButton
+            className="mx w-full"
+            color="orange"
+            onClick={handleCheckout}
+            to="/checkout"
+          >
+            Checkout
+          </LinkButton>
+        ) : (
+          <Button className="mx w-full" color="gray-200">
+            Checkout
+          </Button>
+        )}
       </div>
     </>
   )
