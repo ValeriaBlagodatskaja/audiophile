@@ -2,7 +2,7 @@ import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 import Typography from '../../Typography'
 import { CheckoutFormData } from '../Checkout'
-import Input from '../Input'
+import Input from './Input'
 
 interface BillingDetailsProps {
   errors: FieldErrors<FieldValues>

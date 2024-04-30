@@ -4,7 +4,7 @@ import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 import IconCash from '../../../assets/checkout/icon-cash-on-delivery.svg?react'
 import Typography from '../../Typography'
 import { CheckoutFormData } from '../Checkout'
-import Input from '../Input'
+import Input from './Input'
 
 interface PaymentDetailsProps {
   errors: FieldErrors<FieldValues>

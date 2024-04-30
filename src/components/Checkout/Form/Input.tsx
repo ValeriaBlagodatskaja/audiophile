@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 import { InputHTMLAttributes, Ref, forwardRef } from 'react'
 
-import Typography from '../Typography'
+import Typography from '../../Typography'
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
   error?: string
