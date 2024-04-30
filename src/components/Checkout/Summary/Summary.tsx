@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import Button from '../Button'
-import { useCart } from '../Cart/useCart'
-import Typography from '../Typography'
+import Button from '../../Button'
+import { useCart } from '../../Cart/useCart'
+import Typography from '../../Typography'
 import OrderConfirmationModal from './OrderConfirmationModal'
 
 export default function Summary({
