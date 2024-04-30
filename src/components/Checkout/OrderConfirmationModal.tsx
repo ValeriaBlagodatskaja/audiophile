@@ -2,6 +2,7 @@ import { useState } from 'react'
 
 import OrderConfirmationIcon from '../../assets/checkout/icon-order-confirmation.svg?react'
 import { LinkButton } from '../Button'
+import { useCart } from '../Cart/useCart'
 import { CartItem } from '../Cart/useCartProvider'
 import Modal from '../Modal'
 import Typography from '../Typography'
@@ -19,6 +20,8 @@ export default function OrderConfirmationModal({
   isOpen,
   onClose,
 }: OrderConfirmationModalProps) {
+  const { removeAllFromCart } = useCart()
+
   const [showAllItems, setShowAllItems] = useState(false)
 
   const toggleShowAllItems = () => {
@@ -29,7 +32,8 @@ export default function OrderConfirmationModal({
 
   return (
     <Modal
-      className="-translate-y-[54%] md:w-[540px]"
+      className="-translate-y-[340px] md:w-[540px]"
+      closeOnClickOutside={false}
       open={isOpen}
       setOpen={onClose}
     >
@@ -106,7 +110,7 @@ export default function OrderConfirmationModal({
               </button>
             )}
           </ul>
-          <div className="flex flex-col  justify-center gap-2 bg-black py-[15px] pl-6 pr-[26px] md:pl-8">
+          <div className="flex flex-col justify-center gap-2 bg-black py-[15px] pl-6 pr-[26px] md:pl-8">
             <Typography
               as="h3"
               className="whitespace-nowrap text-white opacity-50"
@@ -119,7 +123,12 @@ export default function OrderConfirmationModal({
             </Typography>
           </div>
         </div>
-        <LinkButton className="mx w-full" color="orange" to="/">
+        <LinkButton
+          className="mx w-full"
+          color="orange"
+          onClick={removeAllFromCart}
+          to="/"
+        >
           <Typography as="h4" className="uppercase" variant="13px">
             back to home
           </Typography>
