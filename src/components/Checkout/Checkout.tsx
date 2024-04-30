@@ -9,16 +9,29 @@ import PaymentDetails from './Form/PaymentDetails'
 import ShippingInfo from './Form/ShippingInfo'
 import Summary from './Summary'
 
+export interface CheckoutFormData {
+  address: string
+  city: string
+  country: string
+  eMoneyNumber?: string
+  eMoneyPin?: string
+  mail: string
+  name: string
+  payment: string
+  tel: string
+  zip: string
+}
+
 export default function Checkout() {
   const {
     formState: { errors },
     handleSubmit,
     register,
-  } = useForm()
+  } = useForm<CheckoutFormData>()
 
   const [isFormCompleted, setIsFormCompleted] = useState(false)
 
-  const onSubmit = (data: any) => {
+  const onSubmit = (data: CheckoutFormData) => {
     console.log('Form submitted with data:', data)
     setIsFormCompleted(Object.keys(errors).length === 0)
   }
