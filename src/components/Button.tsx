@@ -4,8 +4,8 @@ import { Link } from 'react-router-dom'
 interface ButtonProps {
   children: ReactNode
   className?: string
-  color: 'black' | 'gray' | 'orange' | 'white'
-  onClick: () => void
+  color: 'black' | 'gray' | 'gray-200' | 'orange' | 'white'
+  onClick?: () => void
 }
 
 interface LinkButtonProps {
@@ -20,6 +20,8 @@ const commonClasses = {
   black:
     'flex justify-center items-center  h-12 w-40 hover:border hover:border-0 hover:bg-gray-800 hover:text-white bg-black text-white',
   gray: 'gap-[13px] text-black opacity-50 flex items-center justify-center hover:text-orange-dark bg-transparent',
+  'gray-200':
+    'cursor-not-allowed bg-gray-light text-gray-500 flex justify-center items-center  h-12 w-40 border-0 px-[30px] py-[15px]',
   orange:
     'flex justify-center items-center  h-12 w-40 bg-orange-dark hover:bg-orange-light border-0 px-[30px] py-[15px] text-white',
   white:
