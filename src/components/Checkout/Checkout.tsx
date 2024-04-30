@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 import Container from '../Container'
@@ -15,8 +16,11 @@ export default function Checkout() {
     register,
   } = useForm()
 
+  const [isFormCompleted, setIsFormCompleted] = useState(false)
+
   const onSubmit = (data: any) => {
     console.log('Form submitted with data:', data)
+    setIsFormCompleted(Object.keys(errors).length === 0)
   }
   return (
     <>
@@ -33,7 +37,10 @@ export default function Checkout() {
             <ShippingInfo errors={errors} register={register} />
             <PaymentDetails errors={errors} register={register} />
           </form>
-          <Summary onContinue={handleSubmit(onSubmit)} />
+          <Summary
+            isFormCompleted={isFormCompleted}
+            onContinue={handleSubmit(onSubmit)}
+          />
         </div>
       </Container>
     </>
