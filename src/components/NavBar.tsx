@@ -95,7 +95,11 @@ function NavBar() {
             <div className="absolute right-0 top-0 h-2 w-2 -translate-y-1/2 translate-x-1/2 transform rounded-full bg-red-500"></div>
           )}
         </button>
-        <Modal open={isModalOpen} setOpen={setIsModalOpen}>
+        <Modal
+          className="-translate-y-[82%] md:left-auto md:right-10 md:-translate-x-0"
+          open={isModalOpen}
+          setOpen={setIsModalOpen}
+        >
           <Cart onClose={() => setIsModalOpen(false)} />
         </Modal>
       </Container>
