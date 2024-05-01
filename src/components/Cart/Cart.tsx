@@ -4,7 +4,11 @@ import Button, { LinkButton } from '../Button'
 import Typography from '../Typography'
 import { useCart } from './useCart'
 
-const Cart = () => {
+interface CartProps {
+  onClose: () => void
+}
+
+const Cart = ({ onClose }: CartProps) => {
   const {
     cartItems,
     removeAllFromCart,
@@ -19,6 +23,10 @@ const Cart = () => {
   const totalItems = cartItems.reduce((accumulator, { quantity }) => {
     return accumulator + quantity
   }, 0)
+
+  const handleCheckout = () => {
+    onClose()
+  }
 
   return (
     <>
@@ -37,7 +45,9 @@ const Cart = () => {
             key={item.id}
           >
             <div className="md-custom:gap-4 flex flex-row items-center gap-1">
-              <img className="h-16 w-16 rounded-lg" srcSet={item.srcSet.sm} />
+              {item.srcSet && item.srcSet.sm && (
+                <img className="h-16 w-16 rounded-lg" srcSet={item.srcSet.sm} />
+              )}
               <div>
                 <Typography
                   as="p"
@@ -79,9 +89,20 @@ const Cart = () => {
             $ {subtotal}
           </Typography>
         </div>
-        <LinkButton className="mx- w-full" color="orange">
-          Checkout
-        </LinkButton>
+        {cartItems.length > 0 ? (
+          <LinkButton
+            className="mx w-full"
+            color="orange"
+            onClick={handleCheckout}
+            to="/checkout"
+          >
+            Checkout
+          </LinkButton>
+        ) : (
+          <Button className="mx w-full" color="gray-200">
+            Checkout
+          </Button>
+        )}
       </div>
     </>
   )

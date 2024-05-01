@@ -27,12 +27,12 @@ export default function Footer() {
     },
   ]
   return (
-    <div className="h-[654px] bg-[#191919] md:h-[400px] lg:h-[365px]">
+    <div className="mb:mt-[120px] mt-24 h-[654px] bg-[#191919] md:h-[400px] lg:mt-40 lg:h-[365px]">
       <Container className=" flex flex-col items-center justify-center md:items-start lg:items-stretch">
-        <div className="h-[4px] w-[101px] bg-orange-dark" />
-        <div className="mb-[48px] md:mb-[32px] lg:mb-[36px] lg:mt-[75px] lg:flex lg:flex-row lg:justify-between ">
+        <div className="h-1 w-[101px] bg-orange-dark" />
+        <div className="mb-12 md:mb-8 lg:mb-9 lg:mt-[75px] lg:flex lg:flex-row lg:justify-between ">
           <Link className="flex items-center" to="/">
-            <Logo className="mb-[48px] mt-[52px] md:mb-[32px] md:mt-[60px] lg:my-0" />
+            <Logo className="mb-12 mt-[52px] md:mb-8 md:mt-[60px] lg:my-0" />
           </Link>
           <div className="flex flex-col gap-[16px] text-center text-white md:flex-row md:gap-[34px]">
             {links.map((link) => (
@@ -49,7 +49,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="relative flex flex-col gap-[48px] text-center md:gap-[80px] md:text-start lg:gap-[56px]">
+        <div className="relative flex flex-col gap-12 text-center md:gap-20 md:text-start lg:gap-14">
           <Typography
             as="p"
             className=" text-white opacity-50 lg:max-w-[540px]"
@@ -60,7 +60,7 @@ export default function Footer() {
             to helping you get the most out of personal audio. Come and visit
             our demo facility - we’re open 7 days a week.
           </Typography>
-          <div className="flex flex-col gap-[48px] md:flex md:flex-row md:items-start md:justify-between ">
+          <div className="flex flex-col gap-12 md:flex md:flex-row md:items-start md:justify-between ">
             <Typography
               as="p"
               className=" text-white opacity-50 "
@@ -68,7 +68,7 @@ export default function Footer() {
             >
               Copyright 2024. All Rights Reserved
             </Typography>
-            <div className="flex justify-center gap-[16px] lg:absolute lg:right-[.30px] lg:top-[68px]">
+            <div className="flex justify-center gap-4 lg:absolute lg:right-[.30px] lg:top-[68px]">
               <a href="#">
                 <Facebook className="fill-white transition-colors hover:fill-orange-dark" />
               </a>

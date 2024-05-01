@@ -32,8 +32,8 @@ export default function SpeakerOne() {
             </div>
           </div>
         </div>
-        <div className="relative mb-[58px] flex flex-col items-center justify-center gap-[24px] text-center md:mb-[150px] lg:mb-0 lg:flex lg:items-start lg:text-left">
-          <Typography as="h1" className=" text-white" variant="h1">
+        <div className="relative mb-[58px] flex flex-col items-center justify-center gap-6 text-center md:mb-[150px] lg:mb-0 lg:flex lg:items-start lg:text-left">
+          <Typography as="h1" className=" text-white" variant="36px-56px">
             ZX9 <br />
             SPEAKER
           </Typography>
@@ -45,7 +45,7 @@ export default function SpeakerOne() {
             Upgrade to premium speakers that are phenomenally built to deliver
             truly remarkable sound.
           </Typography>
-          <LinkButton color="black" to="/">
+          <LinkButton color="black" to="/zx9-speaker">
             <Typography as="p" variant="13px">
               SEE PRODUCT
             </Typography>

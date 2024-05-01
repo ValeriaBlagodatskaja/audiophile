@@ -22,7 +22,7 @@ function MenuLink({ children, onClick, src, to }: MenuLinkProps) {
           width: isLGScreen ? '205px' : '160px',
         }}
       >
-        <img src={src} style={{ height: '100%', width: '100%' }} />
+        <img src={src} style={{ height: '95%', width: '100%' }} />
       </picture>
       <div className="mt-[62px] flex flex-col gap-[17px] lg:mt-[72px] lg:gap-[15px] lg:pt-[20px]">
         <Typography

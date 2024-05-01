@@ -87,16 +87,20 @@ function NavBar() {
           ))}
         </div>
         <button
-          className="md:ml-auto lg:ml-0"
+          className="relative md:ml-auto lg:ml-0"
           onClick={() => setIsModalOpen(true)}
         >
           <CartIcon />
           {cartItems.length > 0 && (
-            <div className="absolute right-[17px] top-[31px] h-2 w-2 rounded-full bg-red-500"></div>
+            <div className="absolute right-0 top-0 h-2 w-2 -translate-y-1/2 translate-x-1/2 transform rounded-full bg-red-500"></div>
           )}
         </button>
-        <Modal open={isModalOpen} setOpen={setIsModalOpen}>
-          <Cart />
+        <Modal
+          className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
+          open={isModalOpen}
+          setOpen={setIsModalOpen}
+        >
+          <Cart onClose={() => setIsModalOpen(false)} />
         </Modal>
       </Container>
       {isOpen && (

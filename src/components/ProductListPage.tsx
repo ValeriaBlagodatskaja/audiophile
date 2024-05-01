@@ -1,5 +1,4 @@
 import Container from '../components/Container'
-import Footer from '../components/Footer'
 import Product, { ProductProps } from '../components/Product'
 import Typography from '../components/Typography'
 import ProductLinks from '../pages/Home/components/ProductLinks'
@@ -16,7 +15,7 @@ export default function ProductListPage({
   return (
     <>
       <div className="flex h-[102px] items-center justify-center bg-[#191919] md:h-[246px] lg:h-[239px]">
-        <Typography as="h2" className="text-white" variant="h2">
+        <Typography as="h2" className="text-white" variant="28px-40px">
           {title}
         </Typography>
       </div>
@@ -36,7 +35,6 @@ export default function ProductListPage({
       <div className="flex flex-col gap-[120px] lg:gap-40">
         <ProductLinks />
         <Store />
-        <Footer />
       </div>
     </>
   )

@@ -22,9 +22,9 @@ export default function Store() {
         <Typography
           as="h2"
           className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
-          variant="h2"
+          variant="28px-40px"
         >
-          Bringing you the{' '}
+          Bringing you the
           <span className="font-bold text-orange-dark">best</span> audio gear
         </Typography>
         <Typography
