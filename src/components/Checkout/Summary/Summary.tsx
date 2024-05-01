@@ -37,7 +37,7 @@ export default function Summary({
 
   return (
     <>
-      <div className="flex flex-col gap-8 rounded-lg bg-white px-[28px] py-[30px] lg:h-fit lg:w-[350px]">
+      <div className="flex flex-col gap-8 rounded-lg bg-white px-7 py-[30px] lg:h-fit lg:w-[350px]">
         <Typography as="h4" variant="18px">
           summary
         </Typography>

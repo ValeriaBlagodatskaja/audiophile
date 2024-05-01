@@ -81,7 +81,7 @@ export default function ProductDetails({
 
   return (
     <Container>
-      <div className="flex flex-col items-center gap-[88px] text-left md:gap-[120px] lg:gap-[160px]">
+      <div className="flex flex-col items-center gap-[88px] text-left md:gap-[120px] lg:gap-40">
         <div className="flex flex-col gap-8 md:flex md:flex-row md:items-center md:gap-[70px] lg:gap-[124px]">
           <picture>
             <source media="(min-width:1100px)" srcSet={srcSet.lg} />

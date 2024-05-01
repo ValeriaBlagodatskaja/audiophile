@@ -40,7 +40,7 @@ export default function Checkout() {
       <GoBackLink>Go Back</GoBackLink>
       <Container>
         <div className="flex flex-col gap-8 lg:flex-row">
-          <form className="flex flex-1 flex-col justify-evenly gap-8 rounded-lg bg-white px-[28px] py-[30px] md:gap-[54px] lg:px-12 lg:py-[54px]">
+          <form className="flex flex-1 flex-col justify-evenly gap-8 rounded-lg bg-white px-7 py-[30px] md:gap-[54px] lg:px-12 lg:py-[54px]">
             <div className="flex flex-col gap-8 md:gap-10">
               <Typography as="h2" variant="28px-32px">
                 Checkout

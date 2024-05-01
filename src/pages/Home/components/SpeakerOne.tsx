@@ -32,7 +32,7 @@ export default function SpeakerOne() {
             </div>
           </div>
         </div>
-        <div className="relative mb-[58px] flex flex-col items-center justify-center gap-[24px] text-center md:mb-[150px] lg:mb-0 lg:flex lg:items-start lg:text-left">
+        <div className="relative mb-[58px] flex flex-col items-center justify-center gap-6 text-center md:mb-[150px] lg:mb-0 lg:flex lg:items-start lg:text-left">
           <Typography as="h1" className=" text-white" variant="36px-56px">
             ZX9 <br />
             SPEAKER
