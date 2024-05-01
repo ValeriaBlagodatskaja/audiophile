@@ -21,7 +21,7 @@ export default function Hero() {
           <Typography
             as="h1"
             className="mb-6 mt-4 text-white md:my-6"
-            variant="h1"
+            variant="36px-56px"
           >
             XX99 Mark II Headphones
           </Typography>

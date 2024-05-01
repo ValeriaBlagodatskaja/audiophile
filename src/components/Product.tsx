@@ -47,7 +47,11 @@ export default function Product({
               new product
             </Typography>
           )}
-          <Typography as="h1" className="text-center lg:text-left" variant="h2">
+          <Typography
+            as="h1"
+            className="text-center lg:text-left"
+            variant="28px-40px"
+          >
             {title}
           </Typography>
           <Typography

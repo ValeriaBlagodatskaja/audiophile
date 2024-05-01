@@ -17,7 +17,7 @@ export default function FeaturesSection({ features }: FeaturesSectionProps) {
   }
   return (
     <div>
-      <Typography as="h3" variant="h3">
+      <Typography as="h3" variant="24px-32px">
         Features
       </Typography>
 

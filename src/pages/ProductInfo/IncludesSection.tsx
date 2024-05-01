@@ -7,7 +7,7 @@ interface IncludesSectionProps {
 export default function IncludesSection({ includes }: IncludesSectionProps) {
   return (
     <div className="flex flex-col gap-6  md:flex-row md:gap-[170px]  lg:w-full lg:flex-col lg:gap-8 ">
-      <Typography as="h3" variant="h3">
+      <Typography as="h3" variant="24px-32px">
         In the box
       </Typography>
       <ul>

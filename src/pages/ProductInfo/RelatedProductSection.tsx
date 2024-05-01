@@ -17,7 +17,7 @@ export default function RelatedProductSection({
 }: RelatedProductSectionProps) {
   return (
     <div className="flex flex-col items-center gap-10 md:gap-14 lg:gap-16">
-      <Typography as="h3" variant="h3">
+      <Typography as="h3" variant="24px-32px">
         You may also like
       </Typography>
       <div className="flex flex-col gap-14 md:flex-row md:gap-3 lg:gap-[30px]">

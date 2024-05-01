@@ -15,7 +15,7 @@ export default function ProductListPage({
   return (
     <>
       <div className="flex h-[102px] items-center justify-center bg-[#191919] md:h-[246px] lg:h-[239px]">
-        <Typography as="h2" className="text-white" variant="h2">
+        <Typography as="h2" className="text-white" variant="28px-40px">
           {title}
         </Typography>
       </div>

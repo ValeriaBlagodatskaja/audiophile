@@ -102,7 +102,7 @@ export default function ProductDetails({
               </Typography>
             )}
             <div className="flex flex-col gap-6 md:gap-8">
-              <Typography as="h1" variant="h2">
+              <Typography as="h1" variant="28px-40px">
                 {title}
               </Typography>
               <Typography as="p" className="opacity-50 " variant="15px">
