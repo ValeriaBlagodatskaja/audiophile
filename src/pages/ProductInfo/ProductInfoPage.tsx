@@ -4,7 +4,9 @@ import data from '../../../data.json'
 import GoBackLink from '../../components/GoBackLink'
 import ProductLinks from '../Home/components/ProductLinks'
 import Store from '../Home/components/Store'
-import ProductDetails, { ProductDetailsProps } from './ProductDetails'
+import ProductDetails, {
+  ProductDetailsProps,
+} from './components/ProductDetails'
 
 interface OtherProduct {
   image: {

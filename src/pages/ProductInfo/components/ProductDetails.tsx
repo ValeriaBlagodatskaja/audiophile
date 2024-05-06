@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-import Button from '../../components/Button'
-import { useCart } from '../../components/Cart/useCart'
-import { CartItem } from '../../components/Cart/useCartProvider'
-import Container from '../../components/Container'
-import Typography from '../../components/Typography'
+import Button from '../../../components/Button'
+import { useCart } from '../../../components/Cart/useCart'
+import { CartItem } from '../../../components/Cart/useCartProvider'
+import Container from '../../../components/Container'
+import Typography from '../../../components/Typography'
 import FeaturesSection from './FeaturesSection'
 import GallerySection from './GallerySection'
 import IncludesSection from './IncludesSection'
@@ -127,6 +127,7 @@ export default function ProductDetails({
           <IncludesSection includes={includes} />
         </div>
         <GallerySection
+          // TODO: Miks sul on galleryImages ja galleryImageThird? Tõsta lihtsalt galleryImageThird galleryImages array sisse?
           galleryImageThird={galleryImageThird}
           galleryImages={galleryImages}
         />
