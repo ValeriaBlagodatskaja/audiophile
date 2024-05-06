@@ -30,13 +30,15 @@ export default function ShippingDetails({
             error={errors.zip && (errors.zip.message as string)}
             placeholder="10001"
             {...register('zip', {
+              min: 0,
               pattern: {
-                message: 'Use only numbers',
-                value: /^[0-9]+$/,
+                message: 'Please enter a 5-digit positive number',
+                value: /^\d{5}$/,
               },
               required: 'Required field',
             })}
             label="ZIP Code"
+            type="number"
           />
           <Input
             error={errors.city && (errors.city.message as string)}
