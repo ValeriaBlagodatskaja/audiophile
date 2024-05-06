@@ -69,6 +69,11 @@ export default function PaymentDetails({
             error={errors.eMoneyPin && (errors.eMoneyPin.message as string)}
             placeholder="6891"
             {...register('eMoneyPin', {
+              min: 0,
+              pattern: {
+                message: 'Please enter a 4-digit positive number',
+                value: /^\d{4}$/,
+              },
               required: 'Required field',
             })}
             label="e-Money PIN"
