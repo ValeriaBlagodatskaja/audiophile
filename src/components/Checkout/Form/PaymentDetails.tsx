@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 import IconCash from '../../../assets/checkout/icon-cash-on-delivery.svg?react'
+import RadioInput from '../../RadioInput'
 import Typography from '../../Typography'
 import { CheckoutFormData } from '../Checkout'
 import Input from './Input'
@@ -24,7 +25,7 @@ export default function PaymentDetails({
     <>
       <div className="grid gap-4">
         <Typography as="p" className="text-orange-dark" variant="13px">
-          payment details
+          Payment Details
         </Typography>
         <div className="grid gap-4 md:grid-cols-2">
           <Typography as="label" className="grow" variant="12px">
@@ -32,26 +33,22 @@ export default function PaymentDetails({
           </Typography>
 
           <div className="grid gap-4 text-[14px] font-bold tracking-[-0.25px]">
-            <label className="input-wrapper">
-              <input
-                {...register('payment', { required: true })}
-                checked={selectedPayment === 'e-money'}
-                onChange={handlePaymentChange}
-                type="radio"
-                value="e-money"
-              />
-              e-Money
-            </label>
-            <label className="input-wrapper">
-              <input
-                {...register('payment', { required: true })}
-                checked={selectedPayment === 'cash'}
-                onChange={handlePaymentChange}
-                type="radio"
-                value="cash"
-              />
-              Cash on Delivery
-            </label>
+            <RadioInput
+              {...register('payment', { required: true })}
+              checked={selectedPayment === 'e-money'}
+              label="e-Money"
+              onChange={handlePaymentChange}
+              type="radio"
+              value="e-money"
+            />
+            <RadioInput
+              {...register('payment', { required: true })}
+              checked={selectedPayment === 'cash'}
+              label="Cash on Delivery"
+              onChange={handlePaymentChange}
+              type="radio"
+              value="cash"
+            />
           </div>
         </div>
       </div>
@@ -63,25 +60,19 @@ export default function PaymentDetails({
             }
             placeholder="238521993"
             {...register('eMoneyNumber', {
-              pattern: {
-                message: 'Use only numbers',
-                value: /^[0-9]+$/,
-              },
               required: 'Required field',
             })}
             label="e-Money Number"
+            type="number"
           />
           <Input
             error={errors.eMoneyPin && (errors.eMoneyPin.message as string)}
             placeholder="6891"
             {...register('eMoneyPin', {
-              pattern: {
-                message: 'Use only numbers',
-                value: /^[0-9]+$/,
-              },
               required: 'Required field',
             })}
             label="e-Money PIN"
+            type="number"
           />
         </div>
       )}
