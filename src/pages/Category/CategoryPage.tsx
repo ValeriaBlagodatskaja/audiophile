@@ -1,6 +1,6 @@
-import data from '../../data.json'
-import { ProductProps } from '../components/Product'
-import ProductListPage from '../components/ProductListPage'
+import data from '../../../data.json'
+import ProductListPage from './components/CategoryTemplate'
+import { ProductProps } from './components/Product'
 
 interface CategoryPageProps {
   category: string

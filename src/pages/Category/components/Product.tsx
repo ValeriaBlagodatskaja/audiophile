@@ -1,7 +1,7 @@
 import clsx from 'clsx'
 
-import { LinkButton } from '../components/Button'
-import Typography from '../components/Typography'
+import { LinkButton } from '../../../components/Button'
+import Typography from '../../../components/Typography'
 
 export interface ProductProps {
   alignment?: string

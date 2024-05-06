@@ -1,8 +1,8 @@
-import Container from '../components/Container'
-import Product, { ProductProps } from '../components/Product'
-import Typography from '../components/Typography'
-import ProductLinks from '../pages/Home/components/ProductLinks'
-import Store from '../pages/Home/components/Store'
+import Container from '../../../components/Container'
+import Typography from '../../../components/Typography'
+import ProductLinks from '../../Home/components/ProductLinks'
+import Store from '../../Home/components/Store'
+import Product, { ProductProps } from './Product'
 interface ProductListPageProps {
   products: ProductProps[]
   title: string
