@@ -2,14 +2,20 @@ import data from '../../data.json'
 import { ProductProps } from '../components/Product'
 import ProductListPage from '../components/ProductListPage'
 
-export default function Headphones() {
-  const headphones = data.filter(({ category }) => category === 'headphones')
+interface CategoryPageProps {
+  category: string
+}
+
+export default function CategoryPage({ category }: CategoryPageProps) {
+  const filteredProducts = data.filter(
+    (product) => product.category === category
+  )
 
   const remapDataToMatchProps = () => {
-    const sortedHeadphones = [...headphones].sort((a, b) =>
+    const sortedProducts = [...filteredProducts].sort((a, b) =>
       a.new === b.new ? 0 : a.new ? -1 : 1
     )
-    return sortedHeadphones.map((product) => {
+    return sortedProducts.map((product) => {
       const productObject: ProductProps = {
         description: product.description,
         newProduct: product.new,
@@ -26,5 +32,10 @@ export default function Headphones() {
   }
   const remappedData = remapDataToMatchProps()
 
-  return <ProductListPage products={remappedData} title="Headphones" />
+  return (
+    <ProductListPage
+      products={remappedData}
+      title={category.charAt(0).toUpperCase() + category.slice(1)}
+    />
+  )
 }
