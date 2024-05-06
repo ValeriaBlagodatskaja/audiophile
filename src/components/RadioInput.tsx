@@ -13,7 +13,7 @@ const RadioInputComponent = ({
   return (
     <label
       className={clsx(
-        'flex h-14 w-full items-center gap-4 rounded-lg border pl-6 focus-within:border-orange-dark',
+        'border-gray-light-200 flex h-14 w-full items-center gap-4 rounded-lg border pl-6 focus-within:border-orange-dark',
         rootClassName
       )}
     >
