@@ -1,11 +1,11 @@
 import { useState } from 'react'
 
 import OrderConfirmationIcon from '../../../assets/checkout/icon-order-confirmation.svg?react'
-import { LinkButton } from '../../Button'
-import { useCart } from '../../Cart/useCart'
-import { CartItem } from '../../Cart/useCartProvider'
-import Modal from '../../Modal'
-import Typography from '../../Typography'
+import { LinkButton } from '../../../components/Button'
+import { useCart } from '../../../components/Cart/useCart'
+import { CartItem } from '../../../components/Cart/useCartProvider'
+import Modal from '../../../components/Modal'
+import Typography from '../../../components/Typography'
 
 interface OrderConfirmationModalProps {
   cartItems: CartItem[]
@@ -88,7 +88,8 @@ export default function OrderConfirmationModal({
                 <div className="flex flex-col gap-6">
                   {index === displayedItems.length - 1 &&
                     cartItems.length > 1 && (
-                      <div className="h-[1px] bg-black opacity-[0.08]"></div>
+                      // TODO: kas on vaja eraldi elementi teha et border tekitada, oleks ilusam kui kasutad clsx kuskil olemasoleva elemendi küljes.
+                      <div className="h-[1px] bg-black opacity-[0.08]" />
                     )}
 
                   {!showAllItems && index === 0 && cartItems.length > 1 && (
@@ -114,10 +115,10 @@ export default function OrderConfirmationModal({
           <div className="flex flex-col justify-center gap-2 bg-black py-[15px] pl-6 pr-[26px]">
             <Typography
               as="h3"
-              className="whitespace-nowrap text-white opacity-50"
+              className="whitespace-nowrap uppercase text-white opacity-50"
               variant="15px"
             >
-              GRAND TOTAL
+              Grand total
             </Typography>
             <Typography as="h3" className="text-white" variant="18px">
               $ {grandTotal}
@@ -131,7 +132,7 @@ export default function OrderConfirmationModal({
           to="/"
         >
           <Typography as="h4" className="uppercase" variant="13px">
-            back to home
+            Back to home
           </Typography>
         </LinkButton>
       </div>

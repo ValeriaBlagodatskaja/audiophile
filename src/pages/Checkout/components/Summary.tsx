@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react'
 
-import Button from '../../Button'
-import { useCart } from '../../Cart/useCart'
-import Typography from '../../Typography'
+import Button from '../../../components/Button'
+import { useCart } from '../../../components/Cart/useCart'
+import Typography from '../../../components/Typography'
 import OrderConfirmationModal from './OrderConfirmationModal'
 
 export default function Summary({
@@ -118,6 +118,7 @@ export default function Summary({
             </Typography>
           </div>
         </div>
+        {/* Ainult üks nupp, component Button, see component võtab vastu propi nimega disabled. */}
         {cartItems.length > 0 ? (
           <button
             className="mx hover:orange-light h-12 w-full bg-orange-dark px-4 py-2 text-[13px] tracking-[1px] text-white"

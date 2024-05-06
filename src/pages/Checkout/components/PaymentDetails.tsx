@@ -2,10 +2,10 @@ import { useState } from 'react'
 import { FieldErrors, FieldValues, UseFormRegister } from 'react-hook-form'
 
 import IconCash from '../../../assets/checkout/icon-cash-on-delivery.svg?react'
-import RadioInput from '../../RadioInput'
-import Typography from '../../Typography'
-import { CheckoutFormData } from '../Checkout'
-import Input from './Input'
+import Input from '../../../components/Input'
+import RadioInput from '../../../components/RadioInput'
+import Typography from '../../../components/Typography'
+import { CheckoutFormData } from '../CheckoutPage'
 
 interface PaymentDetailsProps {
   errors: FieldErrors<FieldValues>

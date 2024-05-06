@@ -1,13 +1,13 @@
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
 
-import Container from '../Container'
-import GoBackLink from '../GoBackLink'
-import Typography from '../Typography'
-import BillingDetails from './Form/BillingDetails'
-import PaymentDetails from './Form/PaymentDetails'
-import ShippingInfo from './Form/ShippingInfo'
-import Summary from './Summary/Summary'
+import Container from '../../components/Container'
+import GoBackLink from '../../components/GoBackLink'
+import Typography from '../../components/Typography'
+import BillingDetails from './components/BillingDetails'
+import PaymentDetails from './components/PaymentDetails'
+import ShippingInfo from './components/ShippingInfo'
+import Summary from './components/Summary'
 
 export interface CheckoutFormData {
   address: string
