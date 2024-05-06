@@ -5,12 +5,14 @@ import Typography from '../../Typography'
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
   error?: string
-  label?: string
+  inputType?: 'number' | 'text'
+  // TODO: see peaks olema required?
+  label: string
   rootClassName?: string
 }
 
 const InputComponent = (
-  { error, label, rootClassName, ...inputAttributes }: InputProps,
+  { error, inputType, label, rootClassName, ...inputAttributes }: InputProps,
   ref: Ref<HTMLInputElement>
 ) => {
   return (
@@ -20,22 +22,23 @@ const InputComponent = (
           <Typography as="p" variant="12px">
             {label}
           </Typography>
-          <Typography
-            as="p"
-            className={error ? 'text-red-600' : ''}
-            variant="12px"
-          >
+          <Typography as="p" className={error && 'text-red-600'} variant="12px">
             {error}
           </Typography>
         </div>
         <input
           {...inputAttributes}
           className={clsx(
-            'h-14 w-full rounded-lg border-[1px] pl-6 text-[14px] tracking-[-0.25px] outline-none focus:border-orange-dark',
+            'border-gray-light-200 h-14 w-full rounded-lg border-[1px] pl-6 text-[14px] tracking-[-0.25px] placeholder-black placeholder-opacity-40 outline-none focus:border-orange-dark',
             inputAttributes.className,
+            inputType === 'number' &&
+              '[-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none',
+
             error && 'border-red-600'
           )}
+          pattern={inputType === 'number' ? '[0-9]*' : undefined}
           ref={ref}
+          type={inputType}
         />
       </div>
     </label>
