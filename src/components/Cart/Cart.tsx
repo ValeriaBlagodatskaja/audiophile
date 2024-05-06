@@ -1,4 +1,4 @@
-import DeleteIcon4 from '../../assets/icon-x.png'
+import DeleteIcon4 from '../../assets/shared/desktop/icon-x.png'
 import ItemAmount from '../../pages/ProductInfo/ItemAmount'
 import Button, { LinkButton } from '../Button'
 import Typography from '../Typography'

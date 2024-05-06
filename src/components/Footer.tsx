@@ -1,8 +1,8 @@
 import { Link } from 'react-router-dom'
 
-import Facebook from '../assets/exported-figma/facebook.svg?react'
-import Instagram from '../assets/exported-figma/instagram.svg?react'
-import Twitter from '../assets/exported-figma/twitter.svg?react'
+import Facebook from '../assets/shared/desktop/icon-facebook.svg?react'
+import Instagram from '../assets/shared/desktop/icon-instagram.svg?react'
+import Twitter from '../assets/shared/desktop/icon-twitter.svg?react'
 import Logo from '../assets/shared/desktop/logo.svg?react'
 import Container from './Container'
 import Typography from './Typography'
