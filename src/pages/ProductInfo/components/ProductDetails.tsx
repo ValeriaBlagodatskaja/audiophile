@@ -14,11 +14,7 @@ import RelatedProductSection from './RelatedProductSection'
 export interface ProductDetailsProps {
   description: string
   features: string
-  galleryImageThird: {
-    lg: string
-    md: string
-    sm: string
-  }
+
   galleryImages: {
     lg: string
     md: string
@@ -49,7 +45,7 @@ export interface ProductDetailsProps {
 export default function ProductDetails({
   description,
   features,
-  galleryImageThird,
+
   galleryImages,
   id,
   includes,
@@ -72,7 +68,6 @@ export default function ProductDetails({
       title: title,
     }
     addToCart(newItem)
-    console.log('Products amount added to cart:', amount)
   }
 
   const updateQuantity = (newQuantity: number) => {
@@ -126,11 +121,7 @@ export default function ProductDetails({
           <FeaturesSection features={features} />
           <IncludesSection includes={includes} />
         </div>
-        <GallerySection
-          // TODO: Miks sul on galleryImages ja galleryImageThird? Tõsta lihtsalt galleryImageThird galleryImages array sisse?
-          galleryImageThird={galleryImageThird}
-          galleryImages={galleryImages}
-        />
+        <GallerySection galleryImages={galleryImages} />
         <RelatedProductSection others={others} />
       </div>
     </Container>
