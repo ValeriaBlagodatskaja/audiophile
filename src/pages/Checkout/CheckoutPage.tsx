@@ -31,8 +31,7 @@ export default function Checkout() {
 
   const [isFormCompleted, setIsFormCompleted] = useState(false)
 
-  const onSubmit = (data: CheckoutFormData) => {
-    console.log('Form submitted with data:', data)
+  const onSubmit = () => {
     setIsFormCompleted(Object.keys(errors).length === 0)
   }
   return (
