@@ -1,15 +1,14 @@
 import clsx from 'clsx'
-import { InputHTMLAttributes, forwardRef } from 'react'
+import { InputHTMLAttributes, Ref, forwardRef } from 'react'
 
 interface RadioInputProps extends InputHTMLAttributes<HTMLElement> {
   label: string
   rootClassName?: string
 }
-const RadioInputComponent = ({
-  label,
-  rootClassName,
-  ...inputAttributes
-}: RadioInputProps) => {
+const RadioInputComponent = (
+  { label, rootClassName, ...inputAttributes }: RadioInputProps,
+  ref: Ref<HTMLInputElement>
+) => {
   return (
     <label
       className={clsx(
@@ -20,6 +19,7 @@ const RadioInputComponent = ({
       <input
         {...inputAttributes}
         className="outline-gray-light-200 size-4 appearance-none rounded-full border-4 border-white outline outline-1 checked:bg-orange-dark"
+        ref={ref}
         type="radio"
       />
       {label}
