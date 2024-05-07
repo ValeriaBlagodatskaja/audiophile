@@ -6,10 +6,10 @@ import {
   createBrowserRouter,
 } from 'react-router-dom'
 
-import Checkout from './components/Checkout/Checkout'
 import Footer from './components/Footer'
 import NavBar from './components/NavBar'
-import CategoryPage from './pages/CategoryPage'
+import CategoryPage from './pages/Category/CategoryPage'
+import Checkout from './pages/Checkout/CheckoutPage'
 import Home from './pages/Home/Home'
 import ProductInfoPage from './pages/ProductInfo/ProductInfoPage'
 
