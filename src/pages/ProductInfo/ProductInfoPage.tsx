@@ -41,11 +41,6 @@ export default function ProductInfoPage() {
     const productObject: ProductDetailsProps = {
       description: product.description,
       features: product.features,
-      galleryImageThird: {
-        lg: product.gallery.third.desktop,
-        md: product.gallery.third.tablet,
-        sm: product.gallery.third.mobile,
-      },
       galleryImages: [
         {
           lg: product.gallery.first.desktop,
@@ -56,6 +51,11 @@ export default function ProductInfoPage() {
           lg: product.gallery.second.desktop,
           md: product.gallery.second.tablet,
           sm: product.gallery.second.mobile,
+        },
+        {
+          lg: product.gallery.third.desktop,
+          md: product.gallery.third.tablet,
+          sm: product.gallery.third.mobile,
         },
       ],
       id: product.id,
