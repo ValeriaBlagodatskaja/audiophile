@@ -1,7 +1,5 @@
 import clsx from 'clsx'
 
-import Button from '../../../components/Button'
-
 interface ItemAmountProps {
   amount: number
   className?: string
@@ -31,21 +29,19 @@ export default function ItemAmount({
         className
       )}
     >
-      <Button
-        className="h-12 w-[60px] text-[20px]"
-        color="gray"
+      <button
+        className="flex h-12 w-[60px] items-center justify-center gap-[13px] bg-transparent text-[20px] text-black opacity-50 hover:text-orange-dark"
         onClick={decreaseAmount}
       >
         -
-      </Button>
+      </button>
       <span className="text-[15px] font-bold">{amount}</span>
-      <Button
-        className="h-12 w-[60px] text-[20px]"
-        color="gray"
+      <button
+        className="flex h-12 w-[60px] items-center justify-center gap-[13px] bg-transparent text-[20px] text-black opacity-50 hover:text-orange-dark"
         onClick={increaseAmount}
       >
         +
-      </Button>
+      </button>
     </div>
   )
 }
