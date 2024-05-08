@@ -4,10 +4,10 @@ import { useState } from 'react'
 
 import OrderConfirmationIcon from '../../../assets/checkout/icon-order-confirmation.svg?react'
 import { LinkButton } from '../../../components/Button'
-import { useCart } from '../../../components/Cart/useCart'
 import { CartItem } from '../../../components/Cart/useCartProvider'
 import Modal from '../../../components/Modal'
 import Typography from '../../../components/Typography'
+import { useCart } from '../../../hooks/useCart'
 
 interface OrderConfirmationModalProps {
   cartItems: CartItem[]

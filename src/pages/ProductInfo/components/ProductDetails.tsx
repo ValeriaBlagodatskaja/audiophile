@@ -2,7 +2,7 @@ import numbro from 'numbro'
 import { useEffect, useState } from 'react'
 
 import Button from '../../../components/Button'
-import { useCart } from '../../../components/Cart/useCart'
+import { useCart } from '../../../hooks/useCart'
 import { CartItem } from '../../../components/Cart/useCartProvider'
 import Container from '../../../components/Container'
 import Typography from '../../../components/Typography'
