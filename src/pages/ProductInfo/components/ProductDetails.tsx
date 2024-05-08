@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react'
 
 import Button from '../../../components/Button'
 import { useCart } from '../../../hooks/useCart'
-import { CartItem } from '../../../components/Cart/useCartProvider'
+import { CartItem } from '../../../components/Cart/context/CartContext'
 import Container from '../../../components/Container'
 import Typography from '../../../components/Typography'
 import FeaturesSection from './FeaturesSection'

@@ -1,4 +1,4 @@
-import { CartProvider } from './components/Cart/useCartProvider'
+import { CartProvider } from './components/Cart/context/CartContext'
 import Router from './router'
 
 function App() {
