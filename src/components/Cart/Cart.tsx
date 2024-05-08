@@ -1,5 +1,5 @@
 import DeleteIcon4 from '../../assets/shared/desktop/icon-x.png'
-import ItemAmount from '../../pages/ProductInfo/ItemAmount'
+import ItemAmount from '../../pages/ProductInfo/components/ItemAmount'
 import Button, { LinkButton } from '../Button'
 import Typography from '../Typography'
 import { useCart } from './useCart'
@@ -44,7 +44,7 @@ const Cart = ({ onClose }: CartProps) => {
             className="flex flex-row items-center justify-between"
             key={item.id}
           >
-            <div className="md-custom:gap-4 flex flex-row items-center gap-1">
+            <div className="flex flex-row items-center gap-1 md-custom:gap-4">
               {item.srcSet && item.srcSet.sm && (
                 <img className="h-16 w-16 rounded-lg" srcSet={item.srcSet.sm} />
               )}
@@ -89,20 +89,15 @@ const Cart = ({ onClose }: CartProps) => {
             $ {subtotal}
           </Typography>
         </div>
-        {cartItems.length > 0 ? (
-          <LinkButton
-            className="mx w-full"
-            color="orange"
-            onClick={handleCheckout}
-            to="/checkout"
-          >
-            Checkout
-          </LinkButton>
-        ) : (
-          <Button className="mx w-full" color="gray-200">
-            Checkout
-          </Button>
-        )}
+        <LinkButton
+          className="w-full"
+          color="orange"
+          disabled={!cartItems || cartItems.length === 0}
+          onClick={handleCheckout}
+          to="/checkout"
+        >
+          Checkout
+        </LinkButton>
       </div>
     </>
   )
