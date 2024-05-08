@@ -5,7 +5,7 @@
 body,
 html {
   @apply min-h-screen;
-  @apply bg-smokewhite;
+  @apply bg-neutral-50;
 }
 
 @media (min-width: 390px) {
