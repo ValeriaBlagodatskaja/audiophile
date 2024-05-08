@@ -2,8 +2,8 @@ import numbro from 'numbro'
 import { useEffect, useState } from 'react'
 
 import Button from '../../../components/Button'
-import { useCart } from '../../../hooks/useCart'
 import Typography from '../../../components/Typography'
+import { useCart } from '../../../hooks/useCart'
 import OrderConfirmationModal from './OrderConfirmationModal'
 
 export default function Summary({
