@@ -118,22 +118,14 @@ export default function Summary({
             </Typography>
           </div>
         </div>
-        {/* Ainult üks nupp, component Button, see component võtab vastu propi nimega disabled. */}
-        {cartItems.length > 0 ? (
-          <button
-            className="mx hover:orange-light h-12 w-full bg-orange-dark px-4 py-2 text-[13px] tracking-[1px] text-white"
-            onClick={handleContinue}
-          >
-            CONTINUE
-          </button>
-        ) : (
-          <Button
-            className="x-4 h-12 w-full py-2 text-[13px] tracking-[1px]"
-            color="gray-200"
-          >
-            CONTINUE
-          </Button>
-        )}
+        <Button
+          className="w-full"
+          color="orange"
+          disabled={!cartItems || cartItems.length === 0}
+          onClick={handleContinue}
+        >
+          CONTINUE
+        </Button>
       </div>
       {isModalOpen && (
         <OrderConfirmationModal
