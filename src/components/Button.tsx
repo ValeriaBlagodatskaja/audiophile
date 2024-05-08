@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 interface ButtonProps {
   children: ReactNode
   className?: string
-  color: 'black' | 'gray' | 'gray-200' | 'orange' | 'white'
+  color: 'black' | 'gray' | 'orange' | 'white'
+  disabled?: boolean
   onClick?: () => void
 }
 
@@ -12,16 +13,17 @@ interface LinkButtonProps {
   children: ReactNode
   className?: string
   color: 'black' | 'gray' | 'orange' | 'white'
+  disabled?: boolean
   onClick?: () => void
-  to?: string
+  to: string
 }
 
 const commonClasses = {
   black:
     'flex justify-center items-center  h-12 w-40 hover:border hover:border-0 hover:bg-gray-800 hover:text-white bg-black text-white',
-  gray: 'gap-[13px] text-black opacity-50 flex items-center justify-center hover:text-orange-dark bg-transparent',
-  'gray-200':
+  disabled:
     'cursor-not-allowed bg-gray-light text-gray-500 flex justify-center items-center  h-12 w-40 border-0 px-[30px] py-[15px]',
+  gray: 'gap-[13px] text-black opacity-50 flex items-center justify-center hover:text-orange-dark bg-transparent',
   orange:
     'flex justify-center items-center  h-12 w-40 bg-orange-dark hover:bg-orange-light border-0 px-[30px] py-[15px] text-white',
   white:
@@ -32,10 +34,19 @@ export default function Button({
   children,
   className,
   color,
+  disabled,
   onClick,
 }: ButtonProps) {
   return (
-    <button className={clsx(commonClasses[color], className)} onClick={onClick}>
+    <button
+      className={clsx(
+        color && !disabled && commonClasses[color],
+        disabled && commonClasses.disabled,
+        className
+      )}
+      disabled={disabled}
+      onClick={onClick}
+    >
       <span>{children}</span>
     </button>
   )
@@ -45,9 +56,22 @@ export function LinkButton({
   children,
   className,
   color,
+  disabled,
   onClick,
   to = '',
 }: LinkButtonProps) {
+  if (disabled) {
+    return (
+      <button
+        className={clsx(commonClasses.disabled, className)}
+        disabled={disabled}
+        onClick={onClick}
+      >
+        <span>{children}</span>
+      </button>
+    )
+  }
+
   return (
     <Link
       className={clsx(commonClasses[color], className)}
