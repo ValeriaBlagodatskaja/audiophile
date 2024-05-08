@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import Button from '../../../components/Button'
 import { useCart } from '../../../components/Cart/useCart'
@@ -57,6 +57,10 @@ export default function ProductDetails({
 }: ProductDetailsProps) {
   const [amount, setAmount] = useState(1)
   const { addToCart } = useCart()
+
+  useEffect(() => {
+    setAmount(1)
+  }, [id])
 
   const handleAddToCart = () => {
     const newItem: CartItem = {
