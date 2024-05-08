@@ -1,3 +1,4 @@
+import clsx from 'clsx'
 import { useState } from 'react'
 
 import OrderConfirmationIcon from '../../../assets/checkout/icon-order-confirmation.svg?react'
@@ -52,7 +53,14 @@ export default function OrderConfirmationModal({
           <ul className="flex grow flex-col gap-6 bg-gray-light p-6">
             {displayedItems.map((item, index) => (
               <li key={item.id}>
-                <div className="flex flex-row items-center justify-between">
+                <div
+                  className={clsx(
+                    'flex flex-row items-center justify-between',
+                    index === displayedItems.length - 1 &&
+                      cartItems.length > 1 &&
+                      'border-b border-gray-light-200'
+                  )}
+                >
                   <div className="flex flex-row gap-4">
                     {item.srcSet && item.srcSet.sm && (
                       <img
@@ -86,12 +94,6 @@ export default function OrderConfirmationModal({
                   </Typography>
                 </div>
                 <div className="flex flex-col gap-6">
-                  {index === displayedItems.length - 1 &&
-                    cartItems.length > 1 && (
-                      // TODO: kas on vaja eraldi elementi teha et border tekitada, oleks ilusam kui kasutad clsx kuskil olemasoleva elemendi küljes.
-                      <div className="h-[1px] bg-black opacity-[0.08]" />
-                    )}
-
                   {!showAllItems && index === 0 && cartItems.length > 1 && (
                     <button
                       className="text-[13px] font-bold opacity-50"
