@@ -1,7 +1,7 @@
 import { ReactNode } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-import { LinkButton } from '../components/Button'
+import Button from '../components/Button'
 import Typography from '../components/Typography'
 import Container from './Container'
 
@@ -22,9 +22,9 @@ export default function GoBackLink({ children }: GoBackLinkProps) {
         className="flex items-start pb-6 pt-4 md:pt-8 lg:pb-14 lg:pt-20"
         variant="15px"
       >
-        <LinkButton color="gray" onClick={handleGoBack}>
+        <Button color="gray" onClick={handleGoBack}>
           {children}{' '}
-        </LinkButton>
+        </Button>
       </Typography>
     </Container>
   )
