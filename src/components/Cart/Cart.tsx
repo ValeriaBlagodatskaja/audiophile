@@ -1,3 +1,5 @@
+import numbro from 'numbro'
+
 import DeleteIcon4 from '../../assets/shared/desktop/icon-x.png'
 import ItemAmount from '../../pages/ProductInfo/components/ItemAmount'
 import Button, { LinkButton } from '../Button'
@@ -61,7 +63,7 @@ const Cart = ({ onClose }: CartProps) => {
                   className="text-[14px] opacity-50"
                   variant="15px"
                 >
-                  $ {item.price}
+                  {numbro(item.price).formatCurrency('$ 0,0')}
                 </Typography>
               </div>
             </div>
@@ -86,7 +88,7 @@ const Cart = ({ onClose }: CartProps) => {
             TOTAL
           </Typography>
           <Typography as="h3" variant="18px">
-            $ {subtotal}
+            {numbro(subtotal).formatCurrency('$ 0,0')}
           </Typography>
         </div>
         <LinkButton

@@ -1,4 +1,5 @@
 import clsx from 'clsx'
+import numbro from 'numbro'
 import { useState } from 'react'
 
 import OrderConfirmationIcon from '../../../assets/checkout/icon-order-confirmation.svg?react'
@@ -81,7 +82,7 @@ export default function OrderConfirmationModal({
                         className="text-[14px] opacity-50"
                         variant="15px"
                       >
-                        $ {item.price}
+                        {numbro(item.price).formatCurrency('$ 0,0')}
                       </Typography>
                     </div>
                   </div>
@@ -123,7 +124,7 @@ export default function OrderConfirmationModal({
               Grand total
             </Typography>
             <Typography as="h3" className="text-white" variant="18px">
-              $ {grandTotal}
+              {numbro(grandTotal).formatCurrency('$ 0,0')}
             </Typography>
           </div>
         </div>

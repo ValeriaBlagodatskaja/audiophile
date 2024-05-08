@@ -1,3 +1,4 @@
+import numbro from 'numbro'
 import { useEffect, useState } from 'react'
 
 import Button from '../../../components/Button'
@@ -108,7 +109,7 @@ export default function ProductDetails({
                 {description}
               </Typography>
               <Typography as="h3" variant="18px">
-                $ {price}
+                {numbro(price).formatCurrency('$ 0,0')}
               </Typography>
               <div className="flex gap-4">
                 <ItemAmount amount={amount} updateQuantity={updateQuantity} />

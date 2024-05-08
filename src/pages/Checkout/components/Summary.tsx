@@ -1,3 +1,4 @@
+import numbro from 'numbro'
 import { useEffect, useState } from 'react'
 
 import Button from '../../../components/Button'
@@ -65,7 +66,7 @@ export default function Summary({
                       className="text-[14px] opacity-50"
                       variant="15px"
                     >
-                      $ {item.price}
+                      {numbro(item.price).formatCurrency('$ 0,0')}
                     </Typography>
                   </div>
                 </div>
@@ -87,7 +88,7 @@ export default function Summary({
                 TOTAL
               </Typography>
               <Typography as="h3" variant="18px">
-                $ {subtotal}
+                {numbro(subtotal).formatCurrency('$ 0,0')}
               </Typography>
             </div>
 
@@ -96,7 +97,7 @@ export default function Summary({
                 SHIPPING
               </Typography>
               <Typography as="h3" variant="18px">
-                $ {shippingFee}
+                {numbro(shippingFee).formatCurrency('$ 0')}
               </Typography>
             </div>
 
@@ -105,7 +106,7 @@ export default function Summary({
                 VAT(22%)
               </Typography>
               <Typography as="h3" variant="18px">
-                $ {vat}
+                {numbro(vat).formatCurrency('$ 0,0')}
               </Typography>
             </div>
           </div>
@@ -114,7 +115,7 @@ export default function Summary({
               GRAND TOTAL
             </Typography>
             <Typography as="h3" className="text-orange-dark" variant="18px">
-              $ {grandTotal}
+              {numbro(grandTotal).formatCurrency('$ 0,0')}
             </Typography>
           </div>
         </div>
