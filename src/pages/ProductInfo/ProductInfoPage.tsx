@@ -1,12 +1,11 @@
-import { useParams } from 'react-router-dom'
-
-import data from '../../../data.json'
-import GoBackLink from '../../components/GoBackLink'
-import ProductLinks from '../Home/components/ProductLinks'
-import Store from '../Home/components/Store'
+import GoBackLink from '@/components/GoBackLink'
+import ProductLinks from '@/pages/Home/components/ProductLinks'
+import Store from '@/pages/Home/components/Store'
 import ProductDetails, {
   ProductDetailsProps,
-} from './components/ProductDetails'
+} from '@/pages/ProductInfo/components/ProductDetails'
+import data from 'data.json'
+import { useParams } from 'react-router-dom'
 
 interface OtherProduct {
   image: {

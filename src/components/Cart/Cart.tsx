@@ -1,10 +1,9 @@
+import DeleteIcon4 from '@/assets/shared/desktop/icon-x.png'
+import Button, { LinkButton } from '@/components/Button'
+import Typography from '@/components/Typography'
+import { useCart } from '@/hooks/useCart'
+import ItemAmount from '@/pages/ProductInfo/components/ItemAmount'
 import numbro from 'numbro'
-
-import DeleteIcon4 from '../../assets/shared/desktop/icon-x.png'
-import { useCart } from '../../hooks/useCart'
-import ItemAmount from '../../pages/ProductInfo/components/ItemAmount'
-import Button, { LinkButton } from '../Button'
-import Typography from '../Typography'
 
 interface CartProps {
   onClose: () => void

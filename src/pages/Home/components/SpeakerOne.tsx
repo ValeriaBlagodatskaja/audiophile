@@ -1,10 +1,10 @@
-import SpeakerImageZX9Desktop from '../../../assets/home/desktop/image-speaker-zx9.png'
-import Circles from '../../../assets/home/desktop/pattern-circles.svg?react'
-import SpeakerImageZX9Mobile from '../../../assets/home/mobile/image-speaker-zx9.png'
-import SpeakerImageZX9Tablet from '../../../assets/home/tablet/image-speaker-zx9.png'
-import { LinkButton } from '../../../components/Button'
-import Container from '../../../components/Container'
-import Typography from '../../../components/Typography'
+import SpeakerImageZX9Desktop from '@/assets/home/desktop/image-speaker-zx9.png'
+import Circles from '@/assets/home/desktop/pattern-circles.svg?react'
+import SpeakerImageZX9Mobile from '@/assets/home/mobile/image-speaker-zx9.png'
+import SpeakerImageZX9Tablet from '@/assets/home/tablet/image-speaker-zx9.png'
+import { LinkButton } from '@/components/Button'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
 
 export default function SpeakerOne() {
   return (

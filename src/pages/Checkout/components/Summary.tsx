@@ -1,10 +1,9 @@
+import Button from '@/components/Button'
+import Typography from '@/components/Typography'
+import { useCart } from '@/hooks/useCart'
+import OrderConfirmationModal from '@/pages/Checkout/components/OrderConfirmationModal'
 import numbro from 'numbro'
 import { useEffect, useState } from 'react'
-
-import Button from '../../../components/Button'
-import Typography from '../../../components/Typography'
-import { useCart } from '../../../hooks/useCart'
-import OrderConfirmationModal from './OrderConfirmationModal'
 
 export default function Summary({
   isFormCompleted,

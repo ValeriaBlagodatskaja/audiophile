@@ -1,16 +1,15 @@
+import Button from '@/components/Button'
+import { CartItem } from '@/components/Cart/context/CartContext'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
+import { useCart } from '@/hooks/useCart'
+import FeaturesSection from '@/pages/ProductInfo/components/FeaturesSection'
+import GallerySection from '@/pages/ProductInfo/components/GallerySection'
+import IncludesSection from '@/pages/ProductInfo/components/IncludesSection'
+import ItemAmount from '@/pages/ProductInfo/components/ItemAmount'
+import RelatedProductSection from '@/pages/ProductInfo/components/RelatedProductSection'
 import numbro from 'numbro'
 import { useEffect, useState } from 'react'
-
-import Button from '../../../components/Button'
-import { CartItem } from '../../../components/Cart/context/CartContext'
-import Container from '../../../components/Container'
-import Typography from '../../../components/Typography'
-import { useCart } from '../../../hooks/useCart'
-import FeaturesSection from './FeaturesSection'
-import GallerySection from './GallerySection'
-import IncludesSection from './IncludesSection'
-import ItemAmount from './ItemAmount'
-import RelatedProductSection from './RelatedProductSection'
 
 export interface ProductDetailsProps {
   description: string

@@ -1,5 +1,5 @@
-import { LinkButton } from '../../../components/Button'
-import Typography from '../../../components/Typography'
+import { LinkButton } from '@/components/Button'
+import Typography from '@/components/Typography'
 
 interface RelatedProductSectionProps {
   others: {

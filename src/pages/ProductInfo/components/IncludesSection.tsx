@@ -1,4 +1,4 @@
-import Typography from '../../../components/Typography'
+import Typography from '@/components/Typography'
 
 interface IncludesSectionProps {
   includes: { item: string; quantity: number }[]

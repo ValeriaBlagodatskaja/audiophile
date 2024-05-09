@@ -1,8 +1,7 @@
+import ArrowRightIcon from '@/assets/shared/desktop/icon-arrow-right.svg?react'
 import clsx from 'clsx'
 import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-
-import ArrowRightIcon from '../assets/shared/desktop/icon-arrow-right.svg?react'
 
 interface ShopLinkProps {
   children: ReactNode

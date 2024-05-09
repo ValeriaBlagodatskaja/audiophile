@@ -1,6 +1,6 @@
-import Container from '../../../components/Container'
-import MenuLink from '../../../components/MenuLink'
-import { links } from '../../../constants/links'
+import Container from '@/components/Container'
+import MenuLink from '@/components/MenuLink'
+import { links } from '@/constants/links'
 
 export default function ProductLinks() {
   return (

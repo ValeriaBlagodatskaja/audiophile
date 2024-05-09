@@ -1,7 +1,6 @@
+import Typography from '@/components/Typography'
 import clsx from 'clsx'
 import { InputHTMLAttributes, Ref, forwardRef } from 'react'
-
-import Typography from './Typography'
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
   error?: string
@@ -28,7 +27,7 @@ const InputComponent = (
         <input
           {...inputAttributes}
           className={clsx(
-            'border-gray-light-200 h-14 w-full rounded-lg border-[1px] pl-6 text-[14px] tracking-[-0.25px] placeholder-black placeholder-opacity-40 outline-none focus:border-orange-dark',
+            'h-14 w-full rounded-lg border-[1px] border-gray-light-200 pl-6 text-[14px] tracking-[-0.25px] placeholder-black placeholder-opacity-40 outline-none focus:border-orange-dark',
             inputAttributes.className,
             inputType === 'number' &&
               '[-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none',

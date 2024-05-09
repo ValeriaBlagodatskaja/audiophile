@@ -1,8 +1,8 @@
-import BestGearDesktop from '../../../assets/shared/desktop/image-best-gear.jpg'
-import BestGearMobile from '../../../assets/shared/mobile/image-best-gear.jpg'
-import BestGearTablet from '../../../assets/shared/tablet/image-best-gear.jpg'
-import Container from '../../../components/Container'
-import Typography from '../../../components/Typography'
+import BestGearDesktop from '@/assets/shared/desktop/image-best-gear.jpg'
+import BestGearMobile from '@/assets/shared/mobile/image-best-gear.jpg'
+import BestGearTablet from '@/assets/shared/tablet/image-best-gear.jpg'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
 
 export default function Store() {
   return (

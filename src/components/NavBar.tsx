@@ -1,17 +1,16 @@
+import CartIcon from '@/assets/shared/desktop/icon-cart.svg?react'
+import Logo from '@/assets/shared/desktop/logo.svg?react'
+import Cart from '@/components/Cart/Cart'
+import Container from '@/components/Container'
+import MenuLink from '@/components/MenuLink'
+import Modal from '@/components/Modal'
+import Typography from '@/components/Typography'
+import { links } from '@/constants/links'
+import { useCart } from '@/hooks/useCart'
+import useClickOutside from '@/hooks/useClickOutside'
 import { Spin as Hamburger } from 'hamburger-react'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
-
-import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
-import Logo from '../assets/shared/desktop/logo.svg?react'
-import Cart from '../components/Cart/Cart'
-import { links } from '../constants/links'
-import { useCart } from '../hooks/useCart'
-import useClickOutside from '../hooks/useClickOutside'
-import Container from './Container'
-import MenuLink from './MenuLink'
-import Modal from './Modal'
-import Typography from './Typography'
 
 interface NavBarProps {
   closeOnClickOutside?: boolean

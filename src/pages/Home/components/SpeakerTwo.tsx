@@ -1,9 +1,9 @@
-import SpeakerZX7Desktop from '../../../assets/home/desktop/image-speaker-zx7.jpg'
-import SpeakerZX7Mobile from '../../../assets/home/mobile/image-speaker-zx7.jpg'
-import SpeakerZX7Tablet from '../../../assets/home/tablet/image-speaker-zx7.jpg'
-import { LinkButton } from '../../../components/Button'
-import Container from '../../../components/Container'
-import Typography from '../../../components/Typography'
+import SpeakerZX7Desktop from '@/assets/home/desktop/image-speaker-zx7.jpg'
+import SpeakerZX7Mobile from '@/assets/home/mobile/image-speaker-zx7.jpg'
+import SpeakerZX7Tablet from '@/assets/home/tablet/image-speaker-zx7.jpg'
+import { LinkButton } from '@/components/Button'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
 
 export default function SpeakerTwo() {
   return (

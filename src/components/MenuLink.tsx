@@ -1,5 +1,5 @@
-import ShopLink from '../components/ShopLink'
-import Typography from './Typography'
+import ShopLink from '@/components/ShopLink'
+import Typography from '@/components/Typography'
 
 interface MenuLinkProps {
   children?: string

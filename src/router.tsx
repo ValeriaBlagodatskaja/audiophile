@@ -1,3 +1,9 @@
+import Footer from '@/components/Footer'
+import NavBar from '@/components/NavBar'
+import CategoryPage from '@/pages/Category/CategoryPage'
+import Checkout from '@/pages/Checkout/CheckoutPage'
+import Home from '@/pages/Home/Home'
+import ProductInfoPage from '@/pages/ProductInfo/ProductInfoPage'
 import { ReactNode } from 'react'
 import {
   Outlet,
@@ -5,13 +11,6 @@ import {
   ScrollRestoration,
   createBrowserRouter,
 } from 'react-router-dom'
-
-import Footer from './components/Footer'
-import NavBar from './components/NavBar'
-import CategoryPage from './pages/Category/CategoryPage'
-import Checkout from './pages/Checkout/CheckoutPage'
-import Home from './pages/Home/Home'
-import ProductInfoPage from './pages/ProductInfo/ProductInfoPage'
 
 function Layout({ children }: { children: ReactNode }) {
   return (

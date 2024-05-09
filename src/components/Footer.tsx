@@ -1,12 +1,11 @@
+import Facebook from '@/assets/shared/desktop/icon-facebook.svg?react'
+import Instagram from '@/assets/shared/desktop/icon-instagram.svg?react'
+import Twitter from '@/assets/shared/desktop/icon-twitter.svg?react'
+import Logo from '@/assets/shared/desktop/logo.svg?react'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
+import { links } from '@/constants/links'
 import { Link } from 'react-router-dom'
-
-import Facebook from '../assets/shared/desktop/icon-facebook.svg?react'
-import Instagram from '../assets/shared/desktop/icon-instagram.svg?react'
-import Twitter from '../assets/shared/desktop/icon-twitter.svg?react'
-import Logo from '../assets/shared/desktop/logo.svg?react'
-import { links } from '../constants/links'
-import Container from './Container'
-import Typography from './Typography'
 
 export default function Footer() {
   return (

@@ -1,8 +1,7 @@
+import Button from '@/components/Button'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
 import { useNavigate } from 'react-router-dom'
-
-import Button from '../components/Button'
-import Typography from '../components/Typography'
-import Container from './Container'
 
 export default function GoBackLink() {
   const navigate = useNavigate()

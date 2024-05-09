@@ -1,8 +1,7 @@
+import useClickOutside from '@/hooks/useClickOutside'
 import clsx from 'clsx'
 import { ReactNode, useRef } from 'react'
 import ReactDom from 'react-dom'
-
-import useClickOutside from '../hooks/useClickOutside'
 
 interface ModalProps {
   children: ReactNode
