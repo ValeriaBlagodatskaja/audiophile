@@ -4,28 +4,11 @@ import Facebook from '../assets/shared/desktop/icon-facebook.svg?react'
 import Instagram from '../assets/shared/desktop/icon-instagram.svg?react'
 import Twitter from '../assets/shared/desktop/icon-twitter.svg?react'
 import Logo from '../assets/shared/desktop/logo.svg?react'
+import { links } from '../constants/links'
 import Container from './Container'
 import Typography from './Typography'
 
 export default function Footer() {
-  const links = [
-    {
-      href: '/',
-      label: 'Home',
-    },
-    {
-      href: '/headphones',
-      label: 'Headphones',
-    },
-    {
-      href: '/speakers',
-      label: 'Speakers',
-    },
-    {
-      href: '/earphones',
-      label: 'Earphones',
-    },
-  ]
   return (
     <div className="mb:mt-[120px] mt-24 h-[654px] bg-[#191919] md:h-[400px] lg:mt-40 lg:h-[365px]">
       <Container className=" flex flex-col items-center justify-center md:items-start lg:items-stretch">

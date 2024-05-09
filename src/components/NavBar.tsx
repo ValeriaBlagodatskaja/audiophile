@@ -1,21 +1,27 @@
 import { Spin as Hamburger } from 'hamburger-react'
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
-import ShadowEarphones from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
-import ShadowHeadphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
-import ShadowSpeakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
 import Logo from '../assets/shared/desktop/logo.svg?react'
 import Cart from '../components/Cart/Cart'
-import { useCart } from './Cart/useCart'
+import { links } from '../constants/links'
+import { useCart } from '../hooks/useCart'
+import useClickOutside from '../hooks/useClickOutside'
 import Container from './Container'
 import MenuLink from './MenuLink'
 import Modal from './Modal'
 import Typography from './Typography'
 
-function NavBar() {
+interface NavBarProps {
+  closeOnClickOutside?: boolean
+}
+
+function NavBar({ closeOnClickOutside = true }: NavBarProps) {
+  const menuRef = useRef(null)
   const [isOpen, setOpen] = useState(false)
+
+  useClickOutside(menuRef, closeOnClickOutside, () => setOpen(false))
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { cartItems } = useCart()
@@ -31,28 +37,6 @@ function NavBar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const links = [
-    {
-      href: '/',
-      label: 'Home',
-    },
-    {
-      href: '/headphones',
-      label: 'Headphones',
-      src: ShadowHeadphones,
-    },
-    {
-      href: '/speakers',
-      label: 'Speakers',
-      src: ShadowSpeakers,
-    },
-    {
-      href: '/earphones',
-      label: 'Earphones',
-      src: ShadowEarphones,
-    },
-  ]
-
   return (
     <div className="sticky top-0 z-20 bg-[#191919]">
       <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
@@ -64,7 +48,7 @@ function NavBar() {
             duration={0.4}
             easing="ease-in"
             size={20}
-            toggle={setOpen}
+            toggle={() => setOpen(!isOpen)}
             toggled={isOpen}
           />
         </div>
@@ -106,8 +90,11 @@ function NavBar() {
       {isOpen && (
         <>
           <div className="absolute top-[90px] z-10 h-full w-full"></div>
-          <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "></div>
-          <div className="absolute z-40 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] ">
+          <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 lg:hidden"></div>
+          <div
+            className="absolute z-40 flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] lg:hidden "
+            ref={menuRef}
+          >
             {links.map((link, index) => {
               if (link.label === 'Home' || !link.src) {
                 return null
