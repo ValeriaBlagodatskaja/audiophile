@@ -25,7 +25,7 @@ function MenuLink({ children, onClick, src, to }: MenuLinkProps) {
         </Typography>
         <ShopLink onClick={onClick} to={to}>
           <Typography as="h3" variant="13px">
-            SHOP
+            Shop
           </Typography>
         </ShopLink>
       </div>

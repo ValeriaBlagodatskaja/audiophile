@@ -36,7 +36,7 @@ export default function Checkout() {
   }
   return (
     <>
-      <GoBackLink>Go Back</GoBackLink>
+      <GoBackLink />
       <Container>
         <div className="flex flex-col gap-8 lg:flex-row">
           <form className="flex flex-1 flex-col justify-evenly gap-8 rounded-lg bg-white px-7 py-[30px] md:gap-[54px] lg:px-12 lg:py-[54px]">

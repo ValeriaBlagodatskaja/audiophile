@@ -35,7 +35,7 @@ export default function SpeakerOne() {
         <div className="relative mb-[58px] flex flex-col items-center justify-center gap-6 text-center md:mb-[150px] lg:mb-0 lg:flex lg:items-start lg:text-left">
           <Typography as="h1" className=" text-white" variant="36px-56px">
             ZX9 <br />
-            SPEAKER
+            speaker
           </Typography>
           <Typography
             as="p"
@@ -47,7 +47,7 @@ export default function SpeakerOne() {
           </Typography>
           <LinkButton color="black" to="/zx9-speaker">
             <Typography as="p" variant="13px">
-              SEE PRODUCT
+              See product
             </Typography>
           </LinkButton>
         </div>

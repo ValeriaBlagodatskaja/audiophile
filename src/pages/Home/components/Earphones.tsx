@@ -22,11 +22,11 @@ export default function Earphones() {
         <div className="flex h-[200px]  w-full rounded-lg bg-gray-light md:h-[320px] ">
           <div className="ml-6 flex w-full flex-col items-start justify-center gap-8 md:ml-[41px] lg:ml-[95px]">
             <Typography as="p" variant="28px">
-              YX1 EARPHONES
+              YX1 earphones
             </Typography>
             <LinkButton color="white" to="/yx1-earphones">
               <Typography as="p" variant="13px">
-                SEE PRODUCT
+                See product
               </Typography>
             </LinkButton>
           </div>

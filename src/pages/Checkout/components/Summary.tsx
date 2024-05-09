@@ -40,7 +40,7 @@ export default function Summary({
     <>
       <div className="flex flex-col gap-8 rounded-lg bg-white px-7 py-[30px] lg:h-fit lg:w-[350px]">
         <Typography as="h4" variant="18px">
-          summary
+          Summary
         </Typography>
         <ul className="flex flex-col gap-6">
           {cartItems.map((item) => (
@@ -84,8 +84,12 @@ export default function Summary({
         <div className="flex flex-col gap-6">
           <div className="flex flex-col gap-2">
             <div className="flex flex-row justify-between">
-              <Typography as="h3" className="opacity-50" variant="15px">
-                TOTAL
+              <Typography
+                as="h3"
+                className="uppercase opacity-50"
+                variant="15px"
+              >
+                Total
               </Typography>
               <Typography as="h3" variant="18px">
                 {numbro(subtotal).formatCurrency('$ 0,0')}
@@ -93,8 +97,12 @@ export default function Summary({
             </div>
 
             <div className="flex flex-row justify-between">
-              <Typography as="h3" className="opacity-50" variant="15px">
-                SHIPPING
+              <Typography
+                as="h3"
+                className="uppercase opacity-50"
+                variant="15px"
+              >
+                Shipping
               </Typography>
               <Typography as="h3" variant="18px">
                 {numbro(shippingFee).formatCurrency('$ 0')}
@@ -111,8 +119,8 @@ export default function Summary({
             </div>
           </div>
           <div className="flex flex-row justify-between">
-            <Typography as="h3" className="opacity-50" variant="15px">
-              GRAND TOTAL
+            <Typography as="h3" className="uppercase opacity-50" variant="15px">
+              Grand total
             </Typography>
             <Typography as="h3" className="text-orange-dark" variant="18px">
               {numbro(grandTotal).formatCurrency('$ 0,0')}
@@ -125,7 +133,9 @@ export default function Summary({
           disabled={!cartItems || cartItems.length === 0}
           onClick={handleContinue}
         >
-          CONTINUE
+          <Typography as="h4" className="font-medium" variant="13px">
+            Continue
+          </Typography>
         </Button>
       </div>
       {isModalOpen && (

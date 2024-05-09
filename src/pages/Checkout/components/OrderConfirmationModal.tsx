@@ -43,7 +43,7 @@ export default function OrderConfirmationModal({
         <OrderConfirmationIcon />
         <div className="flex flex-col gap-4 md:gap-6">
           <Typography as="h3" variant="24px-32px">
-            thank you for your order
+            Thank you for your order
           </Typography>
           <Typography as="p" className="opacity-50" variant="15px">
             You will receive an email confirmation shortly.

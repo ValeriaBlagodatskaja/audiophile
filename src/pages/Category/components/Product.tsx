@@ -44,7 +44,7 @@ export default function Product({
               className="mb-6 text-orange-dark"
               variant="14px"
             >
-              new product
+              New product
             </Typography>
           )}
           <Typography
@@ -63,7 +63,7 @@ export default function Product({
           </Typography>
           <LinkButton color="orange" to={to}>
             <Typography as="p" variant="13px">
-              SEE PRODUCT
+              See product
             </Typography>
           </LinkButton>
         </div>

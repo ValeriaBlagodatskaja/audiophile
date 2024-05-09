@@ -16,7 +16,7 @@ export default function ShippingDetails({
   return (
     <div className="flex flex-col gap-4">
       <Typography as="p" className="text-orange-dark" variant="13px">
-        shipping info
+        Shipping info
       </Typography>
       <div className="flex flex-col gap-6">
         <Input

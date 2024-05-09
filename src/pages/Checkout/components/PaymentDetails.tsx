@@ -25,11 +25,11 @@ export default function PaymentDetails({
     <>
       <div className="grid gap-4">
         <Typography as="p" className="text-orange-dark" variant="13px">
-          Payment Details
+          Payment details
         </Typography>
         <div className="grid gap-4 md:grid-cols-2">
-          <Typography as="label" className="grow" variant="12px">
-            Payment Method
+          <Typography as="label" className="grow capitalize" variant="12px">
+            Payment method
           </Typography>
 
           <div className="grid gap-4 text-[14px] font-bold tracking-[-0.25px]">

@@ -34,7 +34,7 @@ const Cart = ({ onClose }: CartProps) => {
     <>
       <div className="flex flex-row justify-between">
         <Typography as="h3" variant="18px">
-          CART ({totalItems})
+          Cart ({totalItems})
         </Typography>
         <Button color="gray" onClick={() => removeAllFromCart()}>
           Remove all
@@ -85,7 +85,7 @@ const Cart = ({ onClose }: CartProps) => {
       <div className="flex flex-col gap-6">
         <div className="flex flex-row justify-between">
           <Typography as="h3" className="opacity-50" variant="15px">
-            TOTAL
+            Total
           </Typography>
           <Typography as="h3" variant="18px">
             {numbro(subtotal).formatCurrency('$ 0,0')}
@@ -98,7 +98,9 @@ const Cart = ({ onClose }: CartProps) => {
           onClick={handleCheckout}
           to="/checkout"
         >
-          Checkout
+          <Typography as="h4" className="font-medium" variant="13px">
+            Checkout
+          </Typography>
         </LinkButton>
       </div>
     </>

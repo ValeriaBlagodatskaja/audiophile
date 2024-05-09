@@ -16,14 +16,14 @@ export default function Hero() {
         </picture>
         <div className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left">
           <Typography as="p" className="text-white opacity-50" variant="14px">
-            NEW PRODUCT
+            New product
           </Typography>
           <Typography
             as="h1"
             className="mb-6 mt-4 text-white md:my-6"
             variant="36px-56px"
           >
-            XX99 Mark II Headphones
+            XX99 Mark II headphones
           </Typography>
           <Typography
             as="p"
@@ -35,7 +35,7 @@ export default function Hero() {
           </Typography>
           <LinkButton color="orange" to="/xx99-mark-two-headphones">
             <Typography as="p" variant="13px">
-              SEE PRODUCT
+              See product
             </Typography>
           </LinkButton>
         </div>

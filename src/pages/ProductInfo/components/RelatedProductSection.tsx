@@ -33,7 +33,7 @@ export default function RelatedProductSection({
             </picture>
             <LinkButton color="orange" to={`/${other.slug}`}>
               <Typography as="p" variant="13px">
-                SEE PRODUCT
+                See product
               </Typography>
             </LinkButton>
           </div>
