@@ -29,7 +29,7 @@ export default function Store() {
         </Typography>
         <Typography
           as="p"
-          className="h-[250px] w-[327px] text-center opacity-50 md:h-[150px] md:w-[573px] lg:w-[445px] lg:text-left xl:h-[175px]"
+          className="h-[250px] w-full text-center opacity-50 md:h-[150px] md:max-w-[573px] lg:max-w-[445px] lg:text-left xl:h-[175px]"
           variant="15px"
         >
           Located at the heart of New York City, Audiophile is the premier store

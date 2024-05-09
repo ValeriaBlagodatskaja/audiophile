@@ -27,7 +27,7 @@ export default function Hero() {
           </Typography>
           <Typography
             as="p"
-            className="mb-7 w-[328px] text-white opacity-75 md:mb-10 md:w-[349px]"
+            className="mb-7 w-full max-w-[327px] text-white opacity-75 md:mb-10 md:max-w-[349px]"
             variant="15px"
           >
             Experience natural, lifelike audio and exceptional build quality

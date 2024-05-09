@@ -56,7 +56,7 @@ export default function Product({
           </Typography>
           <Typography
             as="p"
-            className="my-6 w-[327px] text-center opacity-50 md:mb-6 md:mt-8 md:w-[572px] lg:mb-10 lg:w-[445px] lg:text-left"
+            className="my-6 w-full text-center opacity-50 md:mb-6 md:mt-8 md:max-w-[572px] lg:mb-10 lg:max-w-none  lg:text-left"
             variant="15px"
           >
             {description}

@@ -39,7 +39,7 @@ export default function SpeakerOne() {
           </Typography>
           <Typography
             as="p"
-            className="w-[280px] text-white md:mb-[16px] md:w-[349px]"
+            className="w-full max-w-[280px] text-white md:mb-[16px] md:max-w-[349px]"
             variant="15px"
           >
             Upgrade to premium speakers that are phenomenally built to deliver

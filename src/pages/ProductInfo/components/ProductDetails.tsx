@@ -81,8 +81,8 @@ export default function ProductDetails({
 
   return (
     <Container>
-      <div className="flex flex-col items-center gap-[88px] text-left md:gap-[120px] lg:gap-40">
-        <div className="flex flex-col gap-8 md:flex md:flex-row md:items-center md:gap-[70px] lg:gap-[124px]">
+      <div className="flex flex-col gap-[88px] text-left md:gap-[120px] lg:gap-40">
+        <div className="flex flex-col gap-8 md:flex md:flex-row md:items-center md:gap-[70px] lg:gap-[125px]">
           <picture>
             <source media="(min-width:1100px)" srcSet={srcSet.lg} />
             <source media="(min-width:768px)" srcSet={srcSet.md} />
@@ -105,7 +105,7 @@ export default function ProductDetails({
               <Typography as="h1" variant="28px-40px">
                 {title}
               </Typography>
-              <Typography as="p" className="opacity-50 " variant="15px">
+              <Typography as="p" className="w-full opacity-50" variant="15px">
                 {description}
               </Typography>
               <Typography as="h3" variant="18px">

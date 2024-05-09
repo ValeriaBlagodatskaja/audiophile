@@ -21,7 +21,7 @@ export default function FeaturesSection({ features }: FeaturesSectionProps) {
         Features
       </Typography>
 
-      <Typography as="p" className="pt-6 opacity-50" variant="15px">
+      <Typography as="p" className="w-full pt-6 opacity-50" variant="15px">
         {renderFeatures(features)}
       </Typography>
     </div>
