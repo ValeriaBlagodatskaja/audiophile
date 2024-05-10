@@ -26,9 +26,12 @@ export default function Modal({
     const isHamburgerMenuClicked =
       (event.target as Element).closest('.hamburger-menu') !== null
 
-    if (isHamburgerMenuClicked) return
+    const isCartIconClicked =
+      (event.target as Element).closest('.cart-icon') !== null
 
-    setOpen(false)
+    if (!isHamburgerMenuClicked && !isCartIconClicked) {
+      setOpen(false)
+    }
   })
 
   if (!open) {

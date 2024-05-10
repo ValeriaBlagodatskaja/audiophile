@@ -15,6 +15,8 @@ import { Link } from 'react-router-dom'
 function NavBar() {
   const menuRef = useRef(null)
   const [isOpen, setOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false)
+  const { cartItems } = useCart()
 
   useClickOutside(menuRef, isOpen, (event) => {
     const target = event.target as HTMLElement
@@ -26,8 +28,9 @@ function NavBar() {
     setOpen(false)
   })
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const { cartItems } = useCart()
+  const toggleCart = () => {
+    setIsCartOpen(!isCartOpen)
+  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -74,8 +77,8 @@ function NavBar() {
           ))}
         </div>
         <button
-          className="relative md:ml-auto lg:ml-0"
-          onClick={() => setIsModalOpen(true)}
+          className="cart-icon relative md:ml-auto lg:ml-0"
+          onClick={toggleCart}
         >
           <CartIcon />
           {cartItems.length > 0 && (
@@ -84,10 +87,10 @@ function NavBar() {
         </button>
         <Modal
           className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
-          open={isModalOpen}
-          setOpen={setIsModalOpen}
+          open={isCartOpen}
+          setOpen={setIsCartOpen}
         >
-          <Cart onClose={() => setIsModalOpen(false)} />
+          <Cart onClose={() => setIsCartOpen(false)} />
         </Modal>
       </Container>
       {isOpen && (
