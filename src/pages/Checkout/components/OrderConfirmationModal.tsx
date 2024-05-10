@@ -96,7 +96,7 @@ export default function OrderConfirmationModal({
                 <div className="flex flex-col gap-6">
                   {!showAllItems && index === 0 && cartItems.length > 1 && (
                     <button
-                      className="text-[13px] font-bold opacity-50"
+                      className="pt-6 text-[13px] font-bold opacity-50"
                       onClick={toggleShowAllItems}
                     >
                       and {cartItems.length - 1} other item(s)
