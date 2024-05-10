@@ -4,13 +4,18 @@ import { InputHTMLAttributes, Ref, forwardRef } from 'react'
 
 interface InputProps extends InputHTMLAttributes<HTMLElement> {
   error?: string
-  inputType?: 'number' | 'text'
   label: string
   rootClassName?: string
 }
 
 const InputComponent = (
-  { error, inputType, label, rootClassName, ...inputAttributes }: InputProps,
+  {
+    error,
+    label,
+    rootClassName,
+    type = 'text',
+    ...inputAttributes
+  }: InputProps,
   ref: Ref<HTMLInputElement>
 ) => {
   return (
@@ -29,14 +34,15 @@ const InputComponent = (
           className={clsx(
             'h-14 w-full rounded-lg border-[1px] border-gray-light-200 pl-6 text-[14px] tracking-[-0.25px] placeholder-black placeholder-opacity-40 outline-none focus:border-orange-dark',
             inputAttributes.className,
-            inputType === 'number' &&
+            type === 'number' &&
               '[-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none',
 
             error && 'border-red-600'
           )}
-          pattern={inputType === 'number' ? '[0-9]*' : undefined}
+          min={type === 'number' ? 0 : undefined}
+          pattern={type === 'number' ? '[0-9]*' : undefined}
           ref={ref}
-          type={inputType}
+          type={type}
         />
       </div>
     </label>
