@@ -59,6 +59,10 @@ export default function PaymentDetails({
             }
             placeholder="238521993"
             {...register('eMoneyNumber', {
+              pattern: {
+                message: 'Enter a 9-digit positive number',
+                value: /^[1-9]\d{8}$/,
+              },
               required: 'Required field',
             })}
             label="e-Money Number"
@@ -68,10 +72,9 @@ export default function PaymentDetails({
             error={errors.eMoneyPin && (errors.eMoneyPin.message as string)}
             placeholder="6891"
             {...register('eMoneyPin', {
-              min: 0,
               pattern: {
-                message: 'Please enter a 4-digit positive number',
-                value: /^\d{4}$/,
+                message: 'Enter a 4-digit positive number',
+                value: /^[1-9]\d{3}$/,
               },
               required: 'Required field',
             })}
