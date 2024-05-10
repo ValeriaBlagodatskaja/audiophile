@@ -19,9 +19,17 @@ export default function Modal({
   setOpen,
 }: ModalProps) {
   const modalContentRef = useRef(null)
-  useClickOutside(modalContentRef, closeOnClickOutside ? open : false, () =>
+
+  useClickOutside(modalContentRef, closeOnClickOutside && open, (event) => {
+    if (!event.target || !(event.target instanceof Node)) return
+
+    const isHamburgerMenuClicked =
+      (event.target as Element).closest('.hamburger-menu') !== null
+
+    if (isHamburgerMenuClicked) return
+
     setOpen(false)
-  )
+  })
 
   if (!open) {
     return null

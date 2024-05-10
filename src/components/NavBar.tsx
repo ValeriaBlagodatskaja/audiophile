@@ -12,15 +12,19 @@ import { Spin as Hamburger } from 'hamburger-react'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-interface NavBarProps {
-  closeOnClickOutside?: boolean
-}
-
-function NavBar({ closeOnClickOutside = true }: NavBarProps) {
+function NavBar() {
   const menuRef = useRef(null)
   const [isOpen, setOpen] = useState(false)
 
-  useClickOutside(menuRef, closeOnClickOutside, () => setOpen(false))
+  useClickOutside(menuRef, isOpen, (event) => {
+    const target = event.target as HTMLElement
+    const hamburgerMenu = document.querySelector('.hamburger-menu')
+    if (!target || !hamburgerMenu) return
+
+    if (target.closest('.hamburger-menu') !== null) return
+
+    setOpen(false)
+  })
 
   const [isModalOpen, setIsModalOpen] = useState(false)
   const { cartItems } = useCart()
@@ -39,7 +43,7 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
   return (
     <div className="sticky top-0 z-20 bg-[#191919]">
       <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
-        <div className="lg:hidden">
+        <div className="hamburger-menu lg:hidden">
           <Hamburger
             color="white"
             direction="right"
