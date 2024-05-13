@@ -1,36 +1,30 @@
-import CartIcon from '@/assets/shared/desktop/icon-cart.svg?react'
-import Logo from '@/assets/shared/desktop/logo.svg?react'
-import Cart from '@/components/Cart/Cart'
-import Container from '@/components/Container'
-import MenuLink from '@/components/MenuLink'
-import Modal from '@/components/Modal'
-import Typography from '@/components/Typography'
-import { links } from '@/constants/links'
 import { useCart } from '@/hooks/useCart'
-import useClickOutside from '@/hooks/useClickOutside'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Spin as Hamburger } from 'hamburger-react'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function NavBar() {
-  const menuRef = useRef(null)
+import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
+import ShadowEarphones from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
+import ShadowHeadphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
+import ShadowSpeakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
+import Logo from '../assets/shared/desktop/logo.svg?react'
+import Cart from '../components/Cart/Cart'
+import useClickOutside from '../hooks/useClickOutside'
+import Container from './Container'
+import MenuLink from './MenuLink'
+import Modal from './Modal'
+import Typography from './Typography'
+
+interface NavBarProps {
+  closeOnClickOutside?: boolean
+}
+
+function NavBar({ closeOnClickOutside = true }: NavBarProps) {
   const [isOpen, setOpen] = useState(false)
-  const [isCartOpen, setIsCartOpen] = useState(false)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const { cartItems } = useCart()
-
-  useClickOutside(menuRef, isOpen, (event) => {
-    const target = event.target as HTMLElement
-    const hamburgerMenu = document.querySelector('.hamburger-menu')
-    if (!target || !hamburgerMenu) return
-
-    if (target.closest('.hamburger-menu') !== null) return
-
-    setOpen(false)
-  })
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen)
-  }
 
   useEffect(() => {
     const handleResize = () => {
@@ -43,10 +37,42 @@ function NavBar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const links = [
+    {
+      href: '/',
+      label: 'Home',
+    },
+    {
+      href: '/headphones',
+      label: 'Headphones',
+      src: ShadowHeadphones,
+    },
+    {
+      href: '/speakers',
+      label: 'Speakers',
+      src: ShadowSpeakers,
+    },
+    {
+      href: '/earphones',
+      label: 'Earphones',
+      src: ShadowEarphones,
+    },
+  ]
+
+  const variants = {
+    hidden: { opacity: 0, y: 5 },
+    visible: { opacity: 1, y: 0 },
+  }
+
+  const modalContentRef = useRef(null)
+  useClickOutside(modalContentRef, closeOnClickOutside ? isOpen : false, () =>
+    setOpen(false)
+  )
+
   return (
     <div className="sticky top-0 z-20 bg-[#191919]">
       <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
-        <div className="hamburger-menu lg:hidden">
+        <div className="lg:hidden">
           <Hamburger
             color="white"
             direction="right"
@@ -54,7 +80,7 @@ function NavBar() {
             duration={0.4}
             easing="ease-in"
             size={20}
-            toggle={() => setOpen(!isOpen)}
+            toggle={setOpen}
             toggled={isOpen}
           />
         </div>
@@ -77,48 +103,64 @@ function NavBar() {
           ))}
         </div>
         <button
-          className="cart-icon relative md:ml-auto lg:ml-0"
-          onClick={toggleCart}
+          className="relative md:ml-auto lg:ml-0"
+          onClick={() => setIsModalOpen(true)}
         >
           <CartIcon />
+
           {cartItems.length > 0 && (
-            <div className="absolute right-0 top-0 h-2 w-2 -translate-y-1/2 translate-x-1/2 transform rounded-full bg-red-500"></div>
+            <motion.div
+              animate={{
+                scale: [0, 1.2, 1],
+              }}
+              className="absolute right-0 top-[-4px] h-2 w-2 -translate-y-1/2 translate-x-1/2 transform rounded-full bg-red-500"
+              exit={{ scale: 0 }}
+              initial={{ scale: 0 }}
+              transition={{ duration: 4, ease: 'easeInOut' }}
+            ></motion.div>
           )}
         </button>
         <Modal
-          className="-translate-y-[350px] md:left-auto md:right-10 md:-translate-x-0"
-          open={isCartOpen}
-          setOpen={setIsCartOpen}
+          className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
+          open={isModalOpen}
+          setOpen={setIsModalOpen}
         >
-          <Cart onClose={() => setIsCartOpen(false)} />
+          <Cart onClose={() => setIsModalOpen(false)} />
         </Modal>
       </Container>
-      {isOpen && (
-        <>
-          <div className="absolute top-[90px] z-10 h-full w-full"></div>
-          <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 lg:hidden"></div>
-          <div
-            className="absolute z-40 flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] lg:hidden "
-            ref={menuRef}
-          >
-            {links.map((link, index) => {
-              if (link.label === 'Home' || !link.src) {
-                return null
-              }
-              return (
-                <MenuLink
-                  key={index}
-                  onClick={() => setOpen(false)}
-                  src={link.src}
-                  to={link.href}
-                >
-                  {link.label.toUpperCase()}
-                </MenuLink>
-              )
-            })}
-          </div>
-        </>
-      )}
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <div className="absolute top-[90px] z-10 h-full w-full"></div>
+            <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "></div>
+            <motion.div
+              animate="visible"
+              className="absolute z-40 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] "
+              exit={{ opacity: 0, y: 5 }}
+              initial="hidden"
+              ref={modalContentRef}
+              transition={{ duration: 0.3, ease: 'easeInOut' }}
+              variants={variants}
+            >
+              {links.map((link, index) => {
+                if (link.label === 'Home' || !link.src) {
+                  return null
+                }
+                return (
+                  <MenuLink
+                    key={index}
+                    onClick={() => setOpen(false)}
+                    src={link.src}
+                    to={link.href}
+                  >
+                    {link.label.toUpperCase()}
+                  </MenuLink>
+                )
+              })}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   )
 }
