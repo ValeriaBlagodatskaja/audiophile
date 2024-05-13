@@ -1,10 +1,10 @@
 import GoBackLink from '@/components/GoBackLink'
+import data from '@/data.json'
 import ProductLinks from '@/pages/Home/components/ProductLinks'
 import Store from '@/pages/Home/components/Store'
 import ProductDetails, {
   ProductDetailsProps,
 } from '@/pages/ProductInfo/components/ProductDetails'
-import data from 'data.json'
 import { useParams } from 'react-router-dom'
 
 interface OtherProduct {

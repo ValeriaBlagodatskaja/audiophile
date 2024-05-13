@@ -1,6 +1,6 @@
+import data from '@/data.json'
 import ProductListPage from '@/pages/Category/components/CategoryTemplate'
 import { ProductProps } from '@/pages/Category/components/Product'
-import data from 'data.json'
 
 interface CategoryPageProps {
   category: string
