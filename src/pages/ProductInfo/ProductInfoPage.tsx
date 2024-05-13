@@ -1,10 +1,11 @@
+import GoBackLink from '@/components/GoBackLink'
+import data from '@/data.json'
+import ProductLinks from '@/pages/Home/components/ProductLinks'
+import Store from '@/pages/Home/components/Store'
+import ProductDetails, {
+  ProductDetailsProps,
+} from '@/pages/ProductInfo/components/ProductDetails'
 import { useParams } from 'react-router-dom'
-
-import data from '../../../data.json'
-import GoBackLink from '../../components/GoBackLink'
-import ProductLinks from '../Home/components/ProductLinks'
-import Store from '../Home/components/Store'
-import ProductDetails, { ProductDetailsProps } from './ProductDetails'
 
 interface OtherProduct {
   image: {
@@ -39,11 +40,6 @@ export default function ProductInfoPage() {
     const productObject: ProductDetailsProps = {
       description: product.description,
       features: product.features,
-      galleryImageThird: {
-        lg: product.gallery.third.desktop,
-        md: product.gallery.third.tablet,
-        sm: product.gallery.third.mobile,
-      },
       galleryImages: [
         {
           lg: product.gallery.first.desktop,
@@ -54,6 +50,11 @@ export default function ProductInfoPage() {
           lg: product.gallery.second.desktop,
           md: product.gallery.second.tablet,
           sm: product.gallery.second.mobile,
+        },
+        {
+          lg: product.gallery.third.desktop,
+          md: product.gallery.third.tablet,
+          sm: product.gallery.third.mobile,
         },
       ],
       id: product.id,
@@ -74,7 +75,7 @@ export default function ProductInfoPage() {
 
   return (
     <>
-      <GoBackLink>Go Back</GoBackLink>
+      <GoBackLink />
       <div className="flex flex-col gap-[172px] lg:gap-60">
         <ProductDetails {...remappedData} />
         <div className="flex flex-col gap-[120px] lg:gap-10">

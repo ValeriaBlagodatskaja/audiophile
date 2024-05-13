@@ -1,9 +1,9 @@
-import HeroDesktopImage from '../../../assets/home/desktop/image-hero.jpg'
-import HeroMobileImage from '../../../assets/home/mobile/image-header.jpg'
-import HeroTabletImage from '../../../assets/home/tablet/image-header.jpg'
-import { LinkButton } from '../../../components/Button'
-import Container from '../../../components/Container'
-import Typography from '../../../components/Typography'
+import HeroDesktopImage from '@/assets/home/desktop/image-hero.jpg'
+import HeroMobileImage from '@/assets/home/mobile/image-header.jpg'
+import HeroTabletImage from '@/assets/home/tablet/image-header.jpg'
+import { LinkButton } from '@/components/Button'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
 
 export default function Hero() {
   return (
@@ -16,18 +16,18 @@ export default function Hero() {
         </picture>
         <div className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left">
           <Typography as="p" className="text-white opacity-50" variant="14px">
-            NEW PRODUCT
+            New product
           </Typography>
           <Typography
             as="h1"
             className="mb-6 mt-4 text-white md:my-6"
             variant="36px-56px"
           >
-            XX99 Mark II Headphones
+            XX99 Mark II headphones
           </Typography>
           <Typography
             as="p"
-            className="mb-7 w-[328px] text-white opacity-75 md:mb-10 md:w-[349px]"
+            className="mb-7 w-full max-w-[327px] text-white opacity-75 md:mb-10 md:max-w-[349px]"
             variant="15px"
           >
             Experience natural, lifelike audio and exceptional build quality
@@ -35,7 +35,7 @@ export default function Hero() {
           </Typography>
           <LinkButton color="orange" to="/xx99-mark-two-headphones">
             <Typography as="p" variant="13px">
-              SEE PRODUCT
+              See product
             </Typography>
           </LinkButton>
         </div>

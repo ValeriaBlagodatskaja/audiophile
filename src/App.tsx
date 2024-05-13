@@ -1,5 +1,5 @@
-import { CartProvider } from './components/Cart/useCartProvider'
-import Router from './router'
+import { CartProvider } from '@/components/Cart/context/CartContext'
+import Router from '@/router'
 
 function App() {
   return (

@@ -1,8 +1,9 @@
-import DeleteIcon4 from '../../assets/icon-x.png'
-import ItemAmount from '../../pages/ProductInfo/ItemAmount'
-import Button, { LinkButton } from '../Button'
-import Typography from '../Typography'
-import { useCart } from './useCart'
+import DeleteIcon4 from '@/assets/shared/desktop/icon-x.png'
+import Button, { LinkButton } from '@/components/Button'
+import Typography from '@/components/Typography'
+import { useCart } from '@/hooks/useCart'
+import ItemAmount from '@/pages/ProductInfo/components/ItemAmount'
+import numbro from 'numbro'
 
 interface CartProps {
   onClose: () => void
@@ -32,7 +33,7 @@ const Cart = ({ onClose }: CartProps) => {
     <>
       <div className="flex flex-row justify-between">
         <Typography as="h3" variant="18px">
-          CART ({totalItems})
+          Cart ({totalItems})
         </Typography>
         <Button color="gray" onClick={() => removeAllFromCart()}>
           Remove all
@@ -44,7 +45,7 @@ const Cart = ({ onClose }: CartProps) => {
             className="flex flex-row items-center justify-between"
             key={item.id}
           >
-            <div className="md-custom:gap-4 flex flex-row items-center gap-1">
+            <div className="flex flex-row items-center gap-1 md-custom:gap-4">
               {item.srcSet && item.srcSet.sm && (
                 <img className="h-16 w-16 rounded-lg" srcSet={item.srcSet.sm} />
               )}
@@ -61,7 +62,7 @@ const Cart = ({ onClose }: CartProps) => {
                   className="text-[14px] opacity-50"
                   variant="15px"
                 >
-                  $ {item.price}
+                  {numbro(item.price).formatCurrency('$ 0,0')}
                 </Typography>
               </div>
             </div>
@@ -83,26 +84,23 @@ const Cart = ({ onClose }: CartProps) => {
       <div className="flex flex-col gap-6">
         <div className="flex flex-row justify-between">
           <Typography as="h3" className="opacity-50" variant="15px">
-            TOTAL
+            Total
           </Typography>
           <Typography as="h3" variant="18px">
-            $ {subtotal}
+            {numbro(subtotal).formatCurrency('$ 0,0')}
           </Typography>
         </div>
-        {cartItems.length > 0 ? (
-          <LinkButton
-            className="mx w-full"
-            color="orange"
-            onClick={handleCheckout}
-            to="/checkout"
-          >
+        <LinkButton
+          className="w-full"
+          color="orange"
+          disabled={!cartItems || cartItems.length === 0}
+          onClick={handleCheckout}
+          to="/checkout"
+        >
+          <Typography as="h4" className="font-medium" variant="13px">
             Checkout
-          </LinkButton>
-        ) : (
-          <Button className="mx w-full" color="gray-200">
-            Checkout
-          </Button>
-        )}
+          </Typography>
+        </LinkButton>
       </div>
     </>
   )

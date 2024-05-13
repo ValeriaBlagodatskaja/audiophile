@@ -1,8 +1,7 @@
+import useClickOutside from '@/hooks/useClickOutside'
 import clsx from 'clsx'
 import { ReactNode, useRef } from 'react'
 import ReactDom from 'react-dom'
-
-import useClickOutside from '../hooks/useClickOutside'
 
 interface ModalProps {
   children: ReactNode
@@ -20,9 +19,20 @@ export default function Modal({
   setOpen,
 }: ModalProps) {
   const modalContentRef = useRef(null)
-  useClickOutside(modalContentRef, closeOnClickOutside ? open : false, () =>
-    setOpen(false)
-  )
+
+  useClickOutside(modalContentRef, closeOnClickOutside && open, (event) => {
+    if (!event.target || !(event.target instanceof Node)) return
+
+    const isHamburgerMenuClicked =
+      (event.target as Element).closest('.hamburger-menu') !== null
+
+    const isCartIconClicked =
+      (event.target as Element).closest('.cart-icon') !== null
+
+    if (!isHamburgerMenuClicked && !isCartIconClicked) {
+      setOpen(false)
+    }
+  })
 
   if (!open) {
     return null
@@ -33,7 +43,7 @@ export default function Modal({
       <div className="z-1000 fixed inset-0 bg-black bg-opacity-40" />
       <div
         className={clsx(
-          'z-1000 md-custom:px-8 md-custom:w-[377px] absolute left-1/2 right-0 top-1/2 mx-auto w-[327px] -translate-x-1/2 transform rounded-[8px] bg-white px-3 py-8',
+          'z-1000 fixed left-1/2 right-0 top-1/2 mx-auto w-[327px] -translate-x-1/2 transform rounded-[8px] bg-white px-3 py-8 md-custom:w-[377px] md-custom:px-8',
           className
         )}
         ref={modalContentRef}

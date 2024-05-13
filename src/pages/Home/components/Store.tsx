@@ -1,8 +1,8 @@
-import BestGearDesktop from '../../../assets/shared/desktop/image-best-gear.jpg'
-import BestGearMobile from '../../../assets/shared/mobile/image-best-gear.jpg'
-import BestGearTablet from '../../../assets/shared/tablet/image-best-gear.jpg'
-import Container from '../../../components/Container'
-import Typography from '../../../components/Typography'
+import BestGearDesktop from '@/assets/shared/desktop/image-best-gear.jpg'
+import BestGearMobile from '@/assets/shared/mobile/image-best-gear.jpg'
+import BestGearTablet from '@/assets/shared/tablet/image-best-gear.jpg'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
 
 export default function Store() {
   return (
@@ -24,12 +24,12 @@ export default function Store() {
           className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
           variant="28px-40px"
         >
-          Bringing you the
+          Bringing you the{' '}
           <span className="font-bold text-orange-dark">best</span> audio gear
         </Typography>
         <Typography
           as="p"
-          className="h-[250px] w-[327px] text-center opacity-50 md:h-[150px] md:w-[573px] lg:w-[445px] lg:text-left xl:h-[175px]"
+          className="h-[250px] w-full text-center opacity-50 md:h-[150px] md:max-w-[573px] lg:max-w-[445px] lg:text-left xl:h-[175px]"
           variant="15px"
         >
           Located at the heart of New York City, Audiophile is the premier store

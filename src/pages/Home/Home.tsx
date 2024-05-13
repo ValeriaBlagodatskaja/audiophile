@@ -1,9 +1,9 @@
-import Earphones from './components/Earphones'
-import Hero from './components/Hero'
-import ProductLinks from './components/ProductLinks'
-import SpeakerOne from './components/SpeakerOne'
-import SpeakerTwo from './components/SpeakerTwo'
-import Store from './components/Store'
+import Earphones from '@/pages/Home/components/Earphones'
+import Hero from '@/pages/Home/components/Hero'
+import ProductLinks from '@/pages/Home/components/ProductLinks'
+import SpeakerOne from '@/pages/Home/components/SpeakerOne'
+import SpeakerTwo from '@/pages/Home/components/SpeakerTwo'
+import Store from '@/pages/Home/components/Store'
 
 export default function Home() {
   return (

@@ -1,15 +1,9 @@
-import { ReactNode } from 'react'
+import Button from '@/components/Button'
+import Container from '@/components/Container'
+import Typography from '@/components/Typography'
 import { useNavigate } from 'react-router-dom'
 
-import { LinkButton } from '../components/Button'
-import Typography from '../components/Typography'
-import Container from './Container'
-
-interface GoBackLinkProps {
-  children: ReactNode
-}
-
-export default function GoBackLink({ children }: GoBackLinkProps) {
+export default function GoBackLink() {
   const navigate = useNavigate()
 
   const handleGoBack = () => {
@@ -22,9 +16,9 @@ export default function GoBackLink({ children }: GoBackLinkProps) {
         className="flex items-start pb-6 pt-4 md:pt-8 lg:pb-14 lg:pt-20"
         variant="15px"
       >
-        <LinkButton color="gray" onClick={handleGoBack}>
-          {children}{' '}
-        </LinkButton>
+        <Button className="capitalize" color="gray" onClick={handleGoBack}>
+          Go back
+        </Button>
       </Typography>
     </Container>
   )
