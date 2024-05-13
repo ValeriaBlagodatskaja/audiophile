@@ -86,7 +86,7 @@ function NavBar() {
           )}
         </button>
         <Modal
-          className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
+          className="-translate-y-[350px] md:left-auto md:right-10 md:-translate-x-0"
           open={isCartOpen}
           setOpen={setIsCartOpen}
         >
