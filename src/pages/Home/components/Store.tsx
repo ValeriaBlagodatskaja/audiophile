@@ -3,8 +3,27 @@ import BestGearMobile from '@/assets/shared/mobile/image-best-gear.jpg'
 import BestGearTablet from '@/assets/shared/tablet/image-best-gear.jpg'
 import Container from '@/components/Container'
 import Typography from '@/components/Typography'
+import { motion } from 'framer-motion'
 
 export default function Store() {
+  const text =
+    'Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.'
+  const words = text.split(' ')
+
+  const headerVariants = {
+    offscreen: {
+      x: '-100%',
+    },
+    onscreen: {
+      transition: {
+        bounce: 0.4,
+        duration: 0.8,
+        type: 'spring',
+      },
+      x: 0,
+    },
+  }
+
   return (
     <Container className="flex flex-col gap-10 md:gap-[63px] lg:flex lg:flex-row-reverse lg:gap-[125px]">
       <div className="w-full">
@@ -19,25 +38,41 @@ export default function Store() {
       </div>
 
       <div className="flex flex-col items-center justify-center gap-8 lg:items-start lg:text-left">
-        <Typography
-          as="h2"
-          className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
-          variant="28px-40px"
+        <motion.div
+          initial="offscreen"
+          viewport={{ amount: 0.5, once: true }}
+          whileInView="onscreen"
         >
-          Bringing you the{' '}
-          <span className="font-bold text-orange-dark">best</span> audio gear
-        </Typography>
+          <motion.div variants={headerVariants}>
+            <Typography
+              as="h2"
+              className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
+              variant="28px-40px"
+            >
+              Bringing you the{' '}
+              <span className="font-bold text-orange-dark">best</span> audio
+              gear
+            </Typography>
+          </motion.div>
+        </motion.div>
         <Typography
           as="p"
           className="h-[250px] w-full text-center opacity-50 md:h-[150px] md:max-w-[573px] lg:max-w-[445px] lg:text-left xl:h-[175px]"
           variant="15px"
         >
-          Located at the heart of New York City, Audiophile is the premier store
-          for high end headphones, earphones, speakers, and audio accessories.
-          We have a large showroom and luxury demonstration rooms available for
-          you to browse and experience a wide range of our products. Stop by our
-          store to meet some of the fantastic people who make Audiophile the
-          best place to buy your portable audio equipment.
+          {words.map((word, index) => (
+            <motion.span
+              animate={{ opacity: 1 }}
+              initial={{ opacity: 0 }}
+              key={index}
+              transition={{
+                delay: index / 10,
+                duration: 0.25,
+              }}
+            >
+              {word}{' '}
+            </motion.span>
+          ))}
         </Typography>
       </div>
     </Container>
