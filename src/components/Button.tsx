@@ -1,5 +1,4 @@
 import clsx from 'clsx'
-import { Variants, motion } from 'framer-motion'
 import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 interface ButtonProps {
@@ -33,31 +32,18 @@ export default function Button({
   disabled,
   onClick,
 }: ButtonProps) {
-  const buttonVariants: Variants = {
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.3,
-        stiffness: 120,
-        type: 'spring',
-      },
-    },
-  }
-
   return (
-    <motion.button variants={buttonVariants} whileHover="hover">
-      <button
-        className={clsx(
-          color && !disabled && commonClasses[color],
-          disabled && commonClasses.disabled,
-          className
-        )}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        <span>{children}</span>
-      </button>
-    </motion.button>
+    <button
+      className={clsx(
+        color && !disabled && commonClasses[color],
+        disabled && commonClasses.disabled,
+        className
+      )}
+      disabled={disabled}
+      onClick={onClick}
+    >
+      <span>{children}</span>
+    </button>
   )
 }
 
@@ -69,17 +55,6 @@ export function LinkButton({
   onClick,
   to = '',
 }: LinkButtonProps) {
-  const buttonVariants: Variants = {
-    hover: {
-      scale: 1.1,
-      transition: {
-        duration: 0.3,
-        stiffness: 120,
-        type: 'spring',
-      },
-    },
-  }
-
   if (disabled) {
     return (
       <button
@@ -93,14 +68,12 @@ export function LinkButton({
   }
 
   return (
-    <motion.div variants={buttonVariants} whileHover="hover">
-      <Link
-        className={clsx(commonClasses[color], className)}
-        onClick={onClick}
-        to={to}
-      >
-        <span>{children}</span>
-      </Link>
-    </motion.div>
+    <Link
+      className={clsx(commonClasses[color], className)}
+      onClick={onClick}
+      to={to}
+    >
+      <span>{children}</span>
+    </Link>
   )
 }
