@@ -1,3 +1,4 @@
+import { links } from '@/constants/links'
 import { useCart } from '@/hooks/useCart'
 import { AnimatePresence, motion } from 'framer-motion'
 import { Spin as Hamburger } from 'hamburger-react'
@@ -5,9 +6,6 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
-import ShadowEarphones from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
-import ShadowHeadphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
-import ShadowSpeakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
 import Logo from '../assets/shared/desktop/logo.svg?react'
 import Cart from '../components/Cart/Cart'
 import useClickOutside from '../hooks/useClickOutside'
@@ -28,7 +26,7 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1440) {
+      if (window.innerWidth >= 1100) {
         setOpen(false)
       }
     }
@@ -37,31 +35,32 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
-  const links = [
-    {
-      href: '/',
-      label: 'Home',
+  const dotVariants = {
+    exit: { scale: 0 },
+    hidden: { y: -10 },
+    transition: {
+      ease: 'easeInOut',
+      type: 'spring',
     },
-    {
-      href: '/headphones',
-      label: 'Headphones',
-      src: ShadowHeadphones,
-    },
-    {
-      href: '/speakers',
-      label: 'Speakers',
-      src: ShadowSpeakers,
-    },
-    {
-      href: '/earphones',
-      label: 'Earphones',
-      src: ShadowEarphones,
-    },
-  ]
+    visible: { y: 0 },
+  }
 
-  const variants = {
-    hidden: { opacity: 0, y: 5 },
-    visible: { opacity: 1, y: 0 },
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.2 } },
+  }
+
+  const modalVariants = {
+    hidden: {
+      opacity: 0,
+      transition: { duration: 0.3, ease: 'easeInOut' },
+      y: '-100%',
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3, ease: 'easeInOut' },
+      y: 0,
+    },
   }
 
   const modalContentRef = useRef(null)
@@ -69,9 +68,17 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
     setOpen(false)
   )
 
+  const getCartProductAmount = () => {
+    let amount = 0
+    cartItems.forEach((item) => {
+      amount += item.quantity
+    })
+    return amount
+  }
+
   return (
-    <div className="sticky top-0 z-20 bg-[#191919]">
-      <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
+    <div className="sticky top-0 z-20 lg:bg-[#191919]">
+      <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20 bg-[#191919] md:justify-normal lg:justify-between">
         <div className="lg:hidden">
           <Hamburger
             color="white"
@@ -108,39 +115,47 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
         >
           <CartIcon />
 
-          {cartItems.length > 0 && (
-            <motion.div
-              animate={{
-                scale: [0, 1.2, 1],
-              }}
-              className="absolute right-0 top-[-4px] h-2 w-2 -translate-y-1/2 translate-x-1/2 transform rounded-full bg-red-500"
-              exit={{ scale: 0 }}
-              initial={{ scale: 0 }}
-              transition={{ duration: 4, ease: 'easeInOut' }}
-            ></motion.div>
-          )}
+          <AnimatePresence>
+            {cartItems.length > 0 && (
+              <motion.div
+                animate="visible"
+                className="absolute right-[-4px] top-[-4px] flex size-4 -translate-y-1/2 translate-x-1/2 transform items-center justify-center rounded-full bg-red-500 text-xs font-normal text-white"
+                exit="exit"
+                initial="hidden"
+                variants={dotVariants}
+              >
+                {getCartProductAmount()}
+              </motion.div>
+            )}
+          </AnimatePresence>
         </button>
-        <Modal
-          className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
-          open={isModalOpen}
-          setOpen={setIsModalOpen}
-        >
-          <Cart onClose={() => setIsModalOpen(false)} />
-        </Modal>
+        <motion.div>
+          <Modal
+            className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
+            open={isModalOpen}
+            setOpen={setIsModalOpen}
+          >
+            <Cart onClose={() => setIsModalOpen(false)} />
+          </Modal>
+        </motion.div>
       </Container>
       <AnimatePresence>
         {isOpen && (
           <>
-            <div className="absolute top-[90px] z-10 h-full w-full"></div>
-            <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "></div>
             <motion.div
               animate="visible"
-              className="absolute z-40 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] "
-              exit={{ opacity: 0, y: 5 }}
+              className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "
+              exit="hidden"
+              initial="hidden"
+              variants={backdropVariants}
+            ></motion.div>
+            <motion.div
+              animate="visible"
+              className="absolute z-10 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] "
+              exit="hidden"
               initial="hidden"
               ref={modalContentRef}
-              transition={{ duration: 0.3, ease: 'easeInOut' }}
-              variants={variants}
+              variants={modalVariants}
             >
               {links.map((link, index) => {
                 if (link.label === 'Home' || !link.src) {
