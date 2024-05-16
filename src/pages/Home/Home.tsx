@@ -23,7 +23,7 @@ export default function Home() {
 
   const speakerTwoVariants = {
     offscreen: {
-      x: '100%',
+      x: '20px',
     },
     onscreen: {
       transition: {
@@ -37,7 +37,7 @@ export default function Home() {
 
   const earphonesVariants = {
     offscreen: {
-      y: '100%',
+      y: '20px',
     },
     onscreen: {
       transition: {
