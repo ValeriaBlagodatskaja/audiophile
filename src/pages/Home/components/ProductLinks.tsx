@@ -1,11 +1,31 @@
 import Container from '@/components/Container'
 import MenuLink from '@/components/MenuLink'
 import { links } from '@/constants/links'
+import { motion } from 'framer-motion'
 
 export default function ProductLinks() {
+  const linksVariants = {
+    offscreen: {
+      opacity: 0,
+      y: 20,
+    },
+    onscreen: {
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+      },
+      y: 0,
+    },
+  }
   return (
     <Container className="relative flex items-center justify-center">
-      <div className="flex w-full flex-col items-center justify-center gap-[68px] md:flex-row md:gap-2.5 lg:gap-[30px]">
+      <motion.div
+        className="flex w-full flex-col items-center justify-center gap-[68px] md:flex-row md:gap-2.5 lg:gap-[30px]"
+        initial="offscreen"
+        variants={linksVariants}
+        viewport={{ amount: 0.2, once: true }}
+        whileInView="onscreen"
+      >
         {links.map((link, index) => {
           if (link.label === 'Home' || !link.src) {
             return null
@@ -17,7 +37,7 @@ export default function ProductLinks() {
             </MenuLink>
           )
         })}
-      </div>
+      </motion.div>
     </Container>
   )
 }
