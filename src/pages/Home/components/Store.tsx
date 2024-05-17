@@ -10,17 +10,11 @@ export default function Store() {
     'Located at the heart of New York City, Audiophile is the premier store for high end headphones, earphones, speakers, and audio accessories. We have a large showroom and luxury demonstration rooms available for you to browse and experience a wide range of our products. Stop by our store to meet some of the fantastic people who make Audiophile the best place to buy your portable audio equipment.'
   const words = text.split(' ')
 
-  const headerVariants = {
-    offscreen: {
-      x: '-100%',
-    },
-    onscreen: {
-      transition: {
-        bounce: 0.4,
-        duration: 0.8,
-        type: 'spring',
-      },
-      x: 0,
+  const fromTopMotion = {
+    hidden: { opacity: 0, transition: { duration: 0.5 }, y: -20 },
+    visible: {
+      opacity: 1,
+      y: 0,
     },
   }
 
@@ -39,22 +33,21 @@ export default function Store() {
 
       <div className="flex flex-col items-center justify-center gap-8 lg:items-start lg:text-left">
         <motion.div
-          initial="offscreen"
+          initial="hidden"
+          variants={fromTopMotion}
           viewport={{ amount: 0.5, once: true }}
-          whileInView="onscreen"
+          whileInView="visible"
         >
-          <motion.div variants={headerVariants}>
-            <Typography
-              as="h2"
-              className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
-              variant="28px-40px"
-            >
-              Bringing you the{' '}
-              <span className="font-bold text-orange-dark">best</span> audio
-              gear
-            </Typography>
-          </motion.div>
+          <Typography
+            as="h2"
+            className="w-[327px] text-center md:w-[573px] lg:w-[445px] lg:text-left"
+            variant="28px-40px"
+          >
+            Bringing you the{' '}
+            <span className="font-bold text-orange-dark">best</span> audio gear
+          </Typography>
         </motion.div>
+
         <Typography
           as="p"
           className="h-[250px] w-full text-center opacity-50 md:h-[150px] md:max-w-[573px] lg:max-w-[445px] lg:text-left xl:h-[175px]"
