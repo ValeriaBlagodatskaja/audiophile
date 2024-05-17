@@ -78,57 +78,59 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
 
   return (
     <div className="sticky top-0 z-20 lg:bg-[#191919]">
-      <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20 bg-[#191919] md:justify-normal lg:justify-between">
-        <div className="lg:hidden">
-          <Hamburger
-            color="white"
-            direction="right"
-            distance="lg"
-            duration={0.4}
-            easing="ease-in"
-            size={20}
-            toggle={setOpen}
-            toggled={isOpen}
-          />
-        </div>
+      <Container className="relative z-30 bg-[#191919]">
+        <div className="flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20 ">
+          <div className="lg:hidden">
+            <Hamburger
+              color="white"
+              direction="right"
+              distance="lg"
+              duration={0.4}
+              easing="ease-in"
+              size={20}
+              toggle={setOpen}
+              toggled={isOpen}
+            />
+          </div>
 
-        <Link to="/">
-          <Logo className="ml-0 md:ml-10 lg:ml-0" />
-        </Link>
+          <Link to="/">
+            <Logo />
+          </Link>
 
-        <div className="hidden gap-[34px] text-white lg:flex">
-          {links.map((link) => (
-            <Link
-              className="hover:text-orange-dark"
-              key={link.href}
-              to={link.href}
-            >
-              <Typography as="p" variant="13px">
-                {link.label}
-              </Typography>
-            </Link>
-          ))}
-        </div>
-        <button
-          className="relative md:ml-auto lg:ml-0"
-          onClick={() => setIsModalOpen(true)}
-        >
-          <CartIcon />
-
-          <AnimatePresence>
-            {cartItems.length > 0 && (
-              <motion.div
-                animate="visible"
-                className="absolute right-[-4px] top-[-4px] flex size-4 -translate-y-1/2 translate-x-1/2 transform items-center justify-center rounded-full bg-red-500 text-xs font-normal text-white"
-                exit="exit"
-                initial="hidden"
-                variants={dotVariants}
+          <div className="hidden gap-[34px]  text-white lg:flex">
+            {links.map((link) => (
+              <Link
+                className="hover:text-orange-dark"
+                key={link.href}
+                to={link.href}
               >
-                {getCartProductAmount()}
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </button>
+                <Typography as="p" variant="13px">
+                  {link.label}
+                </Typography>
+              </Link>
+            ))}
+          </div>
+
+          <button
+            className="relative flex h-12 w-12 items-center justify-center"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <CartIcon />
+            <AnimatePresence>
+              {cartItems.length > 0 && (
+                <motion.div
+                  animate="visible"
+                  className="absolute right-1.5 top-[22px] flex size-4 -translate-y-1/2 translate-x-1/2 transform items-center justify-center rounded-full bg-red-500 text-xs font-normal text-white"
+                  exit="exit"
+                  initial="hidden"
+                  variants={dotVariants}
+                >
+                  {getCartProductAmount()}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
         <motion.div>
           <Modal
             className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
