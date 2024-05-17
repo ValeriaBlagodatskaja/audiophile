@@ -62,13 +62,14 @@ export default function Store() {
         >
           {words.map((word, index) => (
             <motion.span
-              animate={{ opacity: 1 }}
               initial={{ opacity: 0 }}
               key={index}
               transition={{
                 delay: index / 10,
                 duration: 0.25,
               }}
+              viewport={{ amount: 0.2, once: true }}
+              whileInView={{ opacity: 1 }}
             >
               {word}{' '}
             </motion.span>
