@@ -23,9 +23,11 @@ export default function Home() {
 
   const speakerTwoVariants = {
     offscreen: {
+      opacity: 0,
       x: '20px',
     },
     onscreen: {
+      opacity: 1,
       transition: {
         bounce: 0.4,
         duration: 0.8,
@@ -37,9 +39,11 @@ export default function Home() {
 
   const earphonesVariants = {
     offscreen: {
+      opacity: 0,
       y: '20px',
     },
     onscreen: {
+      opacity: 1,
       transition: {
         bounce: 0.4,
         duration: 0.8,

@@ -22,6 +22,7 @@ export default function Hero() {
           className="absolute "
           initial="hidden"
           variants={fromTopMotion}
+          viewport={{ once: true }}
           whileInView="visible"
         >
           <source media="(min-width:1100px)" srcSet={HeroDesktopImage} />
@@ -32,6 +33,7 @@ export default function Hero() {
           className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left"
           initial="hidden"
           variants={fromTopMotion}
+          viewport={{ once: true }}
           whileInView="visible"
         >
           <Typography as="p" className="text-white opacity-50" variant="14px">
