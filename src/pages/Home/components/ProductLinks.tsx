@@ -12,6 +12,7 @@ export default function ProductLinks() {
     onscreen: {
       opacity: 1,
       transition: {
+        delay: 0.5,
         duration: 0.5,
       },
       y: 0,
