@@ -1,4 +1,5 @@
 import Typography from '@/components/Typography'
+import { motion } from 'framer-motion'
 import React from 'react'
 
 interface FeaturesSectionProps {
@@ -7,13 +8,32 @@ interface FeaturesSectionProps {
 
 export default function FeaturesSection({ features }: FeaturesSectionProps) {
   const renderFeatures = (featuresText: string) => {
-    return featuresText.split('\n').map((line, index) => (
-      <React.Fragment key={index}>
-        {line}
-        <br />
-      </React.Fragment>
-    ))
+    const lines = featuresText.split('\n')
+    let totalWords = 0
+    return lines.map((line, lineIndex) => {
+      const words = line.split(' ')
+      totalWords += words.length
+      return (
+        <React.Fragment key={lineIndex}>
+          {words.map((word, wordIndex) => (
+            <motion.span
+              initial={{ opacity: 0 }}
+              key={totalWords - words.length + wordIndex}
+              transition={{
+                delay: (totalWords - words.length + wordIndex) / 10,
+                duration: 0.25,
+              }}
+              whileInView={{ opacity: 1 }}
+            >
+              {word}{' '}
+            </motion.span>
+          ))}
+          <br />
+        </React.Fragment>
+      )
+    })
   }
+
   return (
     <div>
       <Typography as="h3" variant="24px-32px">
