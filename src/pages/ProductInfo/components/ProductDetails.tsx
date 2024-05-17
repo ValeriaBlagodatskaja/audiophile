@@ -85,33 +85,28 @@ export default function ProductDetails({
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.5,
+        delayChildren: 0.3,
         ease: 'easeInOut',
-        staggerChildren: 0.5,
-      },
-    },
-  }
-
-  const fadeInVariant = {
-    container,
-    item: {
-      hidden: { opacity: 0 },
-      visible: {
-        opacity: 1,
-        transition: { duration: 0.3, ease: 'easeInOut' },
+        staggerChildren: 0.3,
       },
     },
   }
 
   const slideInLeftVariant = {
-    container,
-    item: {
-      hidden: { opacity: 0, x: -100 },
-      visible: {
-        opacity: 1,
-        transition: { duration: 0.5, ease: 'easeInOut' },
-        x: 0,
-      },
+    hidden: { opacity: 0, x: -100 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3, ease: 'easeInOut' },
+      x: 0,
+    },
+  }
+
+  const slideInRightVariant = {
+    hidden: { opacity: 0, x: 100 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3, ease: 'easeInOut' },
+      x: 0,
     },
   }
 
@@ -121,7 +116,7 @@ export default function ProductDetails({
         <div className="flex flex-col gap-8 md:flex md:flex-row md:items-center md:gap-[70px] lg:gap-[125px]">
           <motion.div
             initial="hidden"
-            variants={slideInLeftVariant.item}
+            variants={slideInLeftVariant}
             viewport={{ amount: 0.2, once: true }}
             whileInView="visible"
           >
@@ -136,11 +131,11 @@ export default function ProductDetails({
           </motion.div>
           <motion.div
             initial="hidden"
-            variants={fadeInVariant.container}
+            variants={container}
             viewport={{ amount: 0.2, once: true }}
             whileInView="visible"
           >
-            <motion.div variants={fadeInVariant.item}>
+            <motion.div variants={slideInRightVariant}>
               {newProduct && (
                 <Typography
                   as="span"
@@ -150,24 +145,20 @@ export default function ProductDetails({
                   new product
                 </Typography>
               )}
-            </motion.div>
-            <div className="flex flex-col gap-6 md:gap-8">
-              <motion.div variants={fadeInVariant.item}>
+
+              <div className="flex flex-col gap-6 md:gap-8">
                 <Typography as="h1" variant="28px-40px">
                   {title}
                 </Typography>
-              </motion.div>
-              <motion.div variants={fadeInVariant.item}>
+
                 <Typography as="p" className="w-full opacity-50" variant="15px">
                   {description}
                 </Typography>
-              </motion.div>
-              <motion.div variants={fadeInVariant.item}>
+
                 <Typography as="h3" variant="18px">
                   {numbro(price).formatCurrency('$ 0,0')}
                 </Typography>
-              </motion.div>
-              <motion.div variants={fadeInVariant.item}>
+
                 <div className="flex gap-4">
                   <ItemAmount amount={amount} updateQuantity={updateQuantity} />
                   <Button color="orange" onClick={handleAddToCart}>
@@ -176,8 +167,8 @@ export default function ProductDetails({
                     </Typography>
                   </Button>
                 </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </motion.div>
         </div>
         <div className="flex flex-col items-start gap-[88px] md:gap-[120px] lg:flex-row lg:items-baseline lg:gap-[124px]">
