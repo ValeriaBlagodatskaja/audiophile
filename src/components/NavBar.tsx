@@ -53,12 +53,23 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
   const modalVariants = {
     hidden: {
       opacity: 0,
-      transition: { duration: 0.3, ease: 'easeInOut' },
       y: '-100%',
     },
     visible: {
       opacity: 1,
       transition: { duration: 0.3, ease: 'easeInOut' },
+      y: 0,
+    },
+  }
+
+  const fromTopMotion = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, ease: 'easeInOut' },
       y: 0,
     },
   }
@@ -131,15 +142,22 @@ function NavBar({ closeOnClickOutside = true }: NavBarProps) {
             </AnimatePresence>
           </button>
         </div>
-        <motion.div>
-          <Modal
-            className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
-            open={isModalOpen}
-            setOpen={setIsModalOpen}
+        <AnimatePresence>
+          <motion.div
+            animate="visible"
+            exit="hidden"
+            initial="hidden"
+            variants={fromTopMotion}
           >
-            <Cart onClose={() => setIsModalOpen(false)} />
-          </Modal>
-        </motion.div>
+            <Modal
+              className="-translate-y-[400px] md:left-auto md:right-10 md:-translate-x-0"
+              open={isModalOpen}
+              setOpen={setIsModalOpen}
+            >
+              <Cart onClose={() => setIsModalOpen(false)} />
+            </Modal>
+          </motion.div>
+        </AnimatePresence>
       </Container>
       <AnimatePresence>
         {isOpen && (
