@@ -47,7 +47,7 @@ export default function SpeakerOne() {
           <div className="relative mb-[-50px] md:mb-[-120px]">
             <div className="flex items-center justify-center">
               <div className="flex h-[276px] w-[276px] items-center justify-center overflow-hidden md:h-[450px] md:w-[450px] lg:ring-0">
-                <picture className="absolute h-[208px] w-[172px]  md:h-[238px] md:w-[198px] lg:top-[20px] lg:h-[464px] lg:w-[400px]">
+                <picture className="absolute h-[208px] w-[172px]  md:h-[238px] md:w-[198px] lg:top-[-24px] lg:h-[464px] lg:w-[400px]">
                   <source
                     media="(min-width:1100px)"
                     srcSet={SpeakerImageZX9Desktop}
