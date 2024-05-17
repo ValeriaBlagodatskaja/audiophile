@@ -8,9 +8,18 @@ import { motion } from 'framer-motion'
 
 export default function Hero() {
   const fromTopMotion = {
-    hidden: { opacity: 0, transition: { duration: 0.5 }, y: -20 },
+    hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
+      transition: { duration: 0.5 },
+      y: 0,
+    },
+  }
+  const fromTopMotionDelayed = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      transition: { delay: 0.5, duration: 0.5 },
       y: 0,
     },
   }
@@ -32,7 +41,7 @@ export default function Hero() {
         <motion.div
           className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left"
           initial="hidden"
-          variants={fromTopMotion}
+          variants={fromTopMotionDelayed}
           viewport={{ once: true }}
           whileInView="visible"
         >

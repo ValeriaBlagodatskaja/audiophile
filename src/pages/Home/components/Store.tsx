@@ -11,9 +11,10 @@ export default function Store() {
   const words = text.split(' ')
 
   const fromTopMotion = {
-    hidden: { opacity: 0, transition: { duration: 0.5 }, y: -20 },
+    hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
+      transition: { duration: 0.5 },
       y: 0,
     },
   }
