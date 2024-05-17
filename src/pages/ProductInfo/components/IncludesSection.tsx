@@ -11,10 +11,10 @@ export default function IncludesSection({ includes }: IncludesSectionProps) {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.2,
-        duration: 0.5,
+        delay: 1,
+        delayChildren: 0.5,
         ease: 'easeInOut',
-        staggerChildren: 0.2,
+        staggerChildren: 0.5,
       },
       x: 0,
     },
@@ -26,9 +26,19 @@ export default function IncludesSection({ includes }: IncludesSectionProps) {
   }
   return (
     <div className="flex flex-col gap-6  md:flex-row md:gap-[170px]  lg:w-full lg:flex-col lg:gap-8 ">
-      <Typography as="h3" variant="24px-32px">
-        In the box
-      </Typography>
+      <motion.div
+        initial={{ opacity: 0, x: 50 }}
+        transition={{
+          delay: 0.8,
+          ease: 'easeInOut',
+        }}
+        viewport={{ amount: 0.2, once: true }}
+        whileInView={{ opacity: 1, x: 0 }}
+      >
+        <Typography as="h3" variant="24px-32px">
+          In the box
+        </Typography>
+      </motion.div>
       <motion.ul
         initial="hidden"
         variants={containerVariants}
