@@ -1,6 +1,6 @@
-import LinkButton from '@/components/Button'
 import { CartItem } from '@/components/Cart/context/CartContext'
 import Container from '@/components/Container'
+import LinkButton from '@/components/LinkButton'
 import Typography from '@/components/Typography'
 import { useCart } from '@/hooks/useCart'
 import FeaturesSection from '@/pages/ProductInfo/components/FeaturesSection'

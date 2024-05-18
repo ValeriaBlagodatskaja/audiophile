@@ -1,8 +1,8 @@
 import EarphonesYX1Desktop from '@/assets/home/desktop/image-earphones-yx1.jpg'
 import EarphonesYX1Mobile from '@/assets/home/mobile/image-earphones-yx1.jpg'
 import EarphonesYX1Tablet from '@/assets/home/tablet/image-earphones-yx1.jpg'
-import LinkButton from '@/components/Button'
 import Container from '@/components/Container'
+import LinkButton from '@/components/LinkButton'
 import Typography from '@/components/Typography'
 
 export default function Earphones() {

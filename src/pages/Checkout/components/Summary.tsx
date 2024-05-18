@@ -1,5 +1,5 @@
-import LinkButton from '@/components/Button'
 import { CartItem } from '@/components/Cart/context/CartContext'
+import LinkButton from '@/components/LinkButton'
 import { ModalProps } from '@/components/Modal'
 import Typography from '@/components/Typography'
 import OrderConfirmationModal from '@/pages/Checkout/components/OrderConfirmationModal'

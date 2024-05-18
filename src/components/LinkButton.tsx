@@ -31,7 +31,7 @@ export default function LinkButton({
       'flex h-12 w-40 items-center justify-center transition-colors',
       !disabled && colorClasses[color],
       disabled &&
-        'pointer-events-none cursor-not-allowed border-0 bg-gray-light px-[30px] py-[15px] text-gray-500',
+        'pointer-events-none cursor-not-allowed border-0 bg-gray-light text-gray-500',
       className
     ),
     onClick,

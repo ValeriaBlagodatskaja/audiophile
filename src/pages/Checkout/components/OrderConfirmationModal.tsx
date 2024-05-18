@@ -1,6 +1,6 @@
 import OrderConfirmationIcon from '@/assets/checkout/icon-order-confirmation.svg?react'
-import LinkButton from '@/components/Button'
 import { CartItem } from '@/components/Cart/context/CartContext'
+import LinkButton from '@/components/LinkButton'
 import Modal, { ModalProps } from '@/components/Modal'
 import Typography from '@/components/Typography'
 import { useCart } from '@/hooks/useCart'

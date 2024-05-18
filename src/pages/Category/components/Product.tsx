@@ -1,4 +1,4 @@
-import LinkButton from '@/components/Button'
+import LinkButton from '@/components/LinkButton'
 import Typography from '@/components/Typography'
 import clsx from 'clsx'
 import { motion } from 'framer-motion'

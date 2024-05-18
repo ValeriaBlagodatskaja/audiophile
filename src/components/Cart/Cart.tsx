@@ -1,5 +1,5 @@
 import DeleteIcon4 from '@/assets/shared/desktop/icon-x.png'
-import LinkButton from '@/components/Button'
+import LinkButton from '@/components/LinkButton'
 import Modal, { ModalProps } from '@/components/Modal'
 import Typography from '@/components/Typography'
 import { useCart } from '@/hooks/useCart'
