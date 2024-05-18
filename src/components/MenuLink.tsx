@@ -24,7 +24,7 @@ function MenuLink({ children, onClick, src, to }: MenuLinkProps) {
       to={to}
     >
       <picture className="absolute top-[-50px] h-[155px] w-[165px] lg:top-[-74px] lg:h-[200px] lg:w-[210px]">
-        <img alt="Menu Image" className="h-full w-full" src={src} />
+        <img alt="Menu Image" className="size-full" src={src} />
       </picture>
       <div className="mt-[62px] flex flex-col gap-[17px] lg:mt-[72px] lg:gap-[15px] lg:pt-[20px]">
         <Typography

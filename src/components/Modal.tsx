@@ -45,14 +45,14 @@ export default function Modal({
       {open && (
         <motion.div
           animate="visible"
-          className="z-1000 fixed inset-0 flex items-center justify-center bg-black bg-opacity-40"
+          className="fixed inset-0 flex items-center justify-center bg-black/40"
           exit="exit"
           initial="hidden"
           variants={modalVariants}
         >
           <div
             className={clsx(
-              'z-1000 mx-auto w-[327px] transform rounded-[8px] bg-white px-3 py-8 md-custom:w-[377px] md-custom:px-8',
+              'mx-auto w-[327px] rounded-[8px] bg-white px-3 py-8 md-custom:w-[377px] md-custom:px-8',
               className
             )}
             ref={modalContentRef}

@@ -37,7 +37,7 @@ export default function Hero() {
         >
           <source media="(min-width:1100px)" srcSet={HeroDesktopImage} />
           <source media="(min-width:768px)" srcSet={HeroTabletImage} />
-          <img className="mt-[-115px] h-auto w-auto" src={HeroMobileImage} />
+          <img className="mt-[-115px] size-auto" src={HeroMobileImage} />
         </motion.picture>
         <motion.div
           className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left"

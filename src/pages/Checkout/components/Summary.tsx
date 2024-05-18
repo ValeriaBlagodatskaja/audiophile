@@ -47,7 +47,7 @@ export default function Summary({
                 <div className="flex flex-row gap-4">
                   {item.srcSet && item.srcSet.sm && (
                     <img
-                      className="h-16 w-16 rounded-lg"
+                      className="size-16 rounded-lg"
                       srcSet={item.srcSet.sm}
                     />
                   )}

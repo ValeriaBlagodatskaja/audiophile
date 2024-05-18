@@ -5,7 +5,6 @@ const Arrow = ({ animateOnHover }: { animateOnHover: boolean }) => {
   return (
     <motion.div
       animate={animateOnHover ? { scale: 1.1, x: 10 } : { x: 0 }}
-      className="arrow-container"
       transition={{ duration: 0.3, ease: 'easeInOut' }}
     >
       <ArrowRightIcon className="flex" />

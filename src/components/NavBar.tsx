@@ -72,7 +72,7 @@ function NavBar() {
   return (
     <div className="sticky top-0 z-20 lg:bg-[#191919]">
       <Container className="relative z-30 bg-[#191919]">
-        <div className="flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20 ">
+        <div className="flex h-[90px] items-center justify-between border-b border-white/20">
           <div
             className={clsx(
               'lg:hidden',
@@ -112,7 +112,7 @@ function NavBar() {
 
           <button
             className={clsx(
-              'relative flex h-12 w-12 items-center justify-center',
+              'relative flex size-12 items-center justify-center',
               // useClickOutside hook to closes the modal when clicking outside
               isCartOpen && 'pointer-events-none'
             )}
@@ -123,7 +123,7 @@ function NavBar() {
               {cartItems.length > 0 && (
                 <motion.div
                   animate="visible"
-                  className="absolute right-1.5 top-[22px] flex size-4 -translate-y-1/2 translate-x-1/2 transform items-center justify-center rounded-full bg-red-500 text-xs font-normal text-white"
+                  className="absolute right-1.5 top-[22px] flex size-4 -translate-y-1/2 translate-x-1/2 items-center justify-center rounded-full bg-red-500 text-xs font-normal text-white"
                   exit="exit"
                   initial="hidden"
                   variants={dotVariants}
@@ -141,7 +141,7 @@ function NavBar() {
           <>
             <motion.div
               animate="visible"
-              className="fixed top-0 z-10 h-full w-full bg-black bg-opacity-40"
+              className="fixed top-0 z-10 size-full bg-black/40"
               exit="hidden"
               initial="hidden"
               variants={backdropVariants}

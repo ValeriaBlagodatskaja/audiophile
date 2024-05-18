@@ -51,15 +51,12 @@ const Cart = ({ open, setOpen }: CartProps) => {
             >
               <div className="flex flex-row items-center gap-1 md-custom:gap-4">
                 {item.srcSet && item.srcSet.sm && (
-                  <img
-                    className="h-16 w-16 rounded-lg"
-                    srcSet={item.srcSet.sm}
-                  />
+                  <img className="size-16 rounded-lg" srcSet={item.srcSet.sm} />
                 )}
                 <div>
                   <Typography
                     as="p"
-                    className="w-[110px] overflow-hidden text-ellipsis whitespace-nowrap font-bold uppercase"
+                    className="w-[110px] truncate font-bold uppercase"
                     variant="15px"
                   >
                     {item.title}

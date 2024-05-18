@@ -32,7 +32,7 @@ const InputComponent = (
         <input
           {...inputAttributes}
           className={clsx(
-            'h-14 w-full rounded-lg border-[1px] border-gray-light-200 pl-6 text-[14px] tracking-[-0.25px] placeholder-black placeholder-opacity-40 outline-none focus:border-orange-dark',
+            'h-14 w-full rounded-lg border border-gray-light-200 pl-6 text-[14px] tracking-[-0.25px] outline-none placeholder:text-black placeholder:text-opacity-40 focus:border-orange-dark',
             inputAttributes.className,
             type === 'number' &&
               '[-moz-appearance:_textfield] [&::-webkit-inner-spin-button]:m-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:m-0 [&::-webkit-outer-spin-button]:appearance-none',

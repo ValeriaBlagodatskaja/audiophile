@@ -64,10 +64,7 @@ export default function OrderConfirmationModal({
                 >
                   <div className="flex flex-row gap-4">
                     {item.srcSet && item.srcSet.sm && (
-                      <img
-                        className="h-[50px] w-[50px]"
-                        srcSet={item.srcSet.sm}
-                      />
+                      <img className="size-[50px]" srcSet={item.srcSet.sm} />
                     )}
                     <div className="flex flex-col">
                       <Typography
@@ -129,7 +126,7 @@ export default function OrderConfirmationModal({
           </div>
         </div>
         <LinkButton
-          className="mx w-full"
+          className="w-full"
           color="orange"
           onClick={removeAllFromCart}
           to="/"
