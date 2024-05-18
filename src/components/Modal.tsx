@@ -33,7 +33,7 @@ export default function Modal({
       <div className="z-1000 fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
         <div
           className={clsx(
-            'z-1000 fixed left-1/2 right-0 top-1/2 mx-auto w-[327px] -translate-x-1/2 transform rounded-[8px] bg-white px-3 py-8 md-custom:w-[377px] md-custom:px-8',
+            'z-1000 mx-auto w-[327px] transform rounded-[8px] bg-white px-3 py-8 md-custom:w-[377px] md-custom:px-8',
             className
           )}
           ref={modalContentRef}

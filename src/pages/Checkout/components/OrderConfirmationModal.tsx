@@ -51,7 +51,7 @@ export default function OrderConfirmationModal({
           variants={modalVariants}
         >
           <Modal
-            className="-translate-y-1/2 md:w-[540px]"
+            className="md:w-[540px]"
             closeOnClickOutside={false}
             open={isOpen}
             setOpen={onClose}
