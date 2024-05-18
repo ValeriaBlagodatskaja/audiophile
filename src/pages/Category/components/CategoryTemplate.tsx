@@ -4,6 +4,7 @@ import Product, { ProductProps } from '@/pages/Category/components/Product'
 import ProductLinks from '@/pages/Home/components/ProductLinks'
 import Store from '@/pages/Home/components/Store'
 import { motion } from 'framer-motion'
+
 interface ProductListPageProps {
   products: ProductProps[]
   title: string

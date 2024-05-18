@@ -1,4 +1,3 @@
-import DeleteIcon4 from '@/assets/shared/desktop/icon-x.png'
 import LinkButton from '@/components/LinkButton'
 import Modal, { ModalProps } from '@/components/Modal'
 import Typography from '@/components/Typography'
@@ -7,6 +6,8 @@ import ItemAmount from '@/pages/ProductInfo/components/ItemAmount'
 import numbro from 'numbro'
 
 import TextButton from '../TextButton'
+
+const deleteIcon4 = '/assets/shared/desktop/icon-x.png'
 
 interface CartProps {
   open: ModalProps['open']
@@ -81,7 +82,7 @@ const Cart = ({ open, setOpen }: CartProps) => {
                   }
                 />
                 <button onClick={() => removeFromCart(item.id)}>
-                  <img className="w-[15px]" src={DeleteIcon4} />
+                  <img className="w-[15px]" src={deleteIcon4} />
                 </button>
               </div>
             </li>

@@ -1,10 +1,11 @@
-import HeroDesktopImage from '@/assets/home/desktop/image-hero.jpg'
-import HeroMobileImage from '@/assets/home/mobile/image-header.jpg'
-import HeroTabletImage from '@/assets/home/tablet/image-header.jpg'
-import LinkButton from '@/components/LinkButton'
 import Container from '@/components/Container'
+import LinkButton from '@/components/LinkButton'
 import Typography from '@/components/Typography'
 import { motion } from 'framer-motion'
+
+const HeroDesktopImage = '/assets/home/desktop/image-hero.jpg'
+const HeroMobileImage = '/assets/home/mobile/image-header.jpg'
+const HeroTabletImage = '/assets/home/tablet/image-header.jpg'
 
 export default function Hero() {
   const fromTopMotion = {

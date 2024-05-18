@@ -1,4 +1,4 @@
-import ArrowRightIcon from '@/assets/shared/desktop/icon-arrow-right.svg?react'
+import ArrowRightIcon from '@/assets/icon-arrow-right.svg?react'
 import { motion } from 'framer-motion'
 
 const Arrow = ({ animateOnHover }: { animateOnHover: boolean }) => {

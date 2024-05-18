@@ -1,13 +1,14 @@
-import SpeakerImageZX9Desktop from '@/assets/home/desktop/image-speaker-zx9.png'
-import CirclesLG from '@/assets/home/desktop/pattern-circles.svg?react'
-import SpeakerImageZX9Mobile from '@/assets/home/mobile/image-speaker-zx9.png'
-import CirclesSM from '@/assets/home/mobile/pattern-circles.svg?react'
-import SpeakerImageZX9Tablet from '@/assets/home/tablet/image-speaker-zx9.png'
-import CirclesMD from '@/assets/home/tablet/pattern-circles.svg?react'
+import CirclesLG from '@/assets/pattern-circles/desktop/pattern-circles.svg?react'
+import CirclesSM from '@/assets/pattern-circles/mobile/pattern-circles.svg?react'
+import CirclesMD from '@/assets/pattern-circles/tablet/pattern-circles.svg?react'
 import Container from '@/components/Container'
 import LinkButton from '@/components/LinkButton'
 import Typography from '@/components/Typography'
 import { Variants, motion } from 'framer-motion'
+
+const speakerImageZX9Desktop = '/assets/home/desktop/image-speaker-zx9.png'
+const speakerImageZX9Mobile = '/assets/home/mobile/image-speaker-zx9.png'
+const speakerImageZX9Tablet = '/assets/home/tablet/image-speaker-zx9.png'
 
 export default function SpeakerOne() {
   const circlesVariants: Variants = {
@@ -50,13 +51,13 @@ export default function SpeakerOne() {
                 <picture className="absolute h-[208px] w-[172px]  md:h-[238px] md:w-[198px] lg:top-[-24px] lg:h-[464px] lg:w-[400px]">
                   <source
                     media="(min-width:1100px)"
-                    srcSet={SpeakerImageZX9Desktop}
+                    srcSet={speakerImageZX9Desktop}
                   />
                   <source
                     media="(min-width:768px)"
-                    srcSet={SpeakerImageZX9Tablet}
+                    srcSet={speakerImageZX9Tablet}
                   />
-                  <img src={SpeakerImageZX9Mobile} />
+                  <img src={speakerImageZX9Mobile} />
                 </picture>
               </div>
             </div>

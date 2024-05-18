@@ -1,6 +1,3 @@
-import BestGearDesktop from '@/assets/shared/desktop/image-best-gear.jpg'
-import BestGearMobile from '@/assets/shared/mobile/image-best-gear.jpg'
-import BestGearTablet from '@/assets/shared/tablet/image-best-gear.jpg'
 import Container from '@/components/Container'
 import Typography from '@/components/Typography'
 import { motion } from 'framer-motion'
@@ -23,11 +20,17 @@ export default function Store() {
     <Container className="flex flex-col gap-10 md:gap-[63px] lg:flex lg:flex-row-reverse lg:gap-[125px]">
       <div className="w-full">
         <picture className="flex h-[300px] grow rounded-lg lg:h-[588px]">
-          <source media="(min-width:1100px)" srcSet={BestGearDesktop} />
-          <source media="(min-width:768px)" srcSet={BestGearTablet} />
+          <source
+            media="(min-width:1100px)"
+            srcSet="/assets/shared/desktop/image-best-gear.jpg"
+          />
+          <source
+            media="(min-width:768px)"
+            srcSet="/assets/shared/tablet/image-best-gear.jpg"
+          />
           <img
             className="h-full grow rounded-lg object-cover object-center"
-            src={BestGearMobile}
+            src="/assets/shared/mobile/image-best-gear.jpg"
           />
         </picture>
       </div>

@@ -1,5 +1,5 @@
 import data from '@/data.json'
-import ProductListPage from '@/pages/Category/components/CategoryTemplate'
+import CategoryTemplate from '@/pages/Category/components/CategoryTemplate'
 import { ProductProps } from '@/pages/Category/components/Product'
 
 interface CategoryPageProps {
@@ -33,7 +33,7 @@ export default function CategoryPage({ category }: CategoryPageProps) {
   const remappedData = remapDataToMatchProps()
 
   return (
-    <ProductListPage
+    <CategoryTemplate
       products={remappedData}
       title={category.charAt(0).toUpperCase() + category.slice(1)}
     />

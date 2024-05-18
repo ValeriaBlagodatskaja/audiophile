@@ -1,6 +1,9 @@
-import ShadowEarphones from '../assets/shared/desktop/image-category-thumbnail-earphones.png'
-import ShadowHeadphones from '../assets/shared/desktop/image-category-thumbnail-headphones.png'
-import ShadowSpeakers from '../assets/shared/desktop/image-category-thumbnail-speakers.png'
+const shadowEarphones =
+  '/assets/shared/desktop/image-category-thumbnail-earphones.png'
+const shadowHeadphones =
+  '/assets/shared/desktop/image-category-thumbnail-headphones.png'
+const shadowSpeakers =
+  '/assets/shared/desktop/image-category-thumbnail-speakers.png'
 
 export const links = [
   {
@@ -10,16 +13,16 @@ export const links = [
   {
     href: '/headphones',
     label: 'Headphones',
-    src: ShadowHeadphones,
+    src: shadowHeadphones,
   },
   {
     href: '/speakers',
     label: 'Speakers',
-    src: ShadowSpeakers,
+    src: shadowSpeakers,
   },
   {
     href: '/earphones',
     label: 'Earphones',
-    src: ShadowEarphones,
+    src: shadowEarphones,
   },
 ]

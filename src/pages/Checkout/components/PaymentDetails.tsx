@@ -1,4 +1,4 @@
-import IconCash from '@/assets/checkout/icon-cash-on-delivery.svg?react'
+import IconCash from '@/assets/icon-cash-on-delivery.svg?react'
 import Input from '@/components/Input'
 import RadioInput from '@/components/RadioInput'
 import Typography from '@/components/Typography'
