@@ -1,4 +1,4 @@
-import Button from '@/components/Button'
+import LinkButton from '@/components/Button'
 import { CartItem } from '@/components/Cart/context/CartContext'
 import Container from '@/components/Container'
 import Typography from '@/components/Typography'
@@ -161,11 +161,11 @@ export default function ProductDetails({
 
                 <div className="flex gap-4">
                   <ItemAmount amount={amount} updateQuantity={updateQuantity} />
-                  <Button color="orange" onClick={handleAddToCart}>
+                  <LinkButton color="orange" onClick={handleAddToCart}>
                     <Typography as="p" variant="13px">
                       Add to cart
                     </Typography>
-                  </Button>
+                  </LinkButton>
                 </div>
               </div>
             </motion.div>

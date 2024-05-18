@@ -1,4 +1,4 @@
-import { LinkButton } from '@/components/Button'
+import LinkButton from '@/components/Button'
 import Typography from '@/components/Typography'
 import { motion } from 'framer-motion'
 interface RelatedProductSectionProps {

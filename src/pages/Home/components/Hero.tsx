@@ -1,7 +1,7 @@
 import HeroDesktopImage from '@/assets/home/desktop/image-hero.jpg'
 import HeroMobileImage from '@/assets/home/mobile/image-header.jpg'
 import HeroTabletImage from '@/assets/home/tablet/image-header.jpg'
-import { LinkButton } from '@/components/Button'
+import LinkButton from '@/components/Button'
 import Container from '@/components/Container'
 import Typography from '@/components/Typography'
 import { motion } from 'framer-motion'

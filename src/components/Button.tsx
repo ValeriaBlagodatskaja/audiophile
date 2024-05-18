@@ -1,53 +1,17 @@
 import clsx from 'clsx'
 import { ReactNode } from 'react'
 import { Link } from 'react-router-dom'
-interface ButtonProps {
+
+interface LinkButtonProps {
   children: ReactNode
   className?: string
-  color: 'black' | 'gray' | 'orange' | 'white'
+  color: 'black' | 'orange' | 'white'
   disabled?: boolean
   onClick?: () => void
+  to?: string
 }
 
-interface LinkButtonProps extends ButtonProps {
-  to: string
-}
-
-const commonClasses = {
-  black:
-    'flex transition duration-300 delay-150 ease-in-out justify-center items-center  h-12 w-40 hover:border hover:border-0 hover:bg-gray-800 hover:text-white bg-black text-white',
-  disabled:
-    'cursor-not-allowed bg-gray-light text-gray-500 flex justify-center items-center  h-12 w-40 border-0 px-[30px] py-[15px]',
-  gray: 'gap-[13px]  duration-300 delay-150 text-black transition ease-in-out opacity-50 flex items-center justify-center hover:text-orange-dark bg-transparent',
-  orange:
-    'flex justify-center delay-150 duration-300 items-center transition ease-in-out h-12 w-40 bg-orange-dark hover:bg-orange-light border-0 px-[30px] py-[15px] text-white',
-  white:
-    'flex justify-center items-center duration-300 delay-150 transition ease-in-out h-12 w-40 border border-black bg-transparent text-black hover:bg-black hover:text-white',
-}
-
-export default function Button({
-  children,
-  className,
-  color,
-  disabled,
-  onClick,
-}: ButtonProps) {
-  return (
-    <button
-      className={clsx(
-        color && !disabled && commonClasses[color],
-        disabled && commonClasses.disabled,
-        className
-      )}
-      disabled={disabled}
-      onClick={onClick}
-    >
-      <span>{children}</span>
-    </button>
-  )
-}
-
-export function LinkButton({
+export default function LinkButton({
   children,
   className,
   color,
@@ -55,25 +19,35 @@ export function LinkButton({
   onClick,
   to = '',
 }: LinkButtonProps) {
-  if (disabled) {
+  const colorClasses = {
+    black: 'bg-black text-white hover:bg-gray-800 hover:text-white',
+    orange: 'bg-orange-dark text-white hover:bg-orange-light',
+    white:
+      'border border-black bg-transparent text-black hover:bg-black hover:text-white',
+  }
+
+  const commonProps = {
+    className: clsx(
+      'flex h-12 w-40 items-center justify-center transition-colors',
+      !disabled && colorClasses[color],
+      disabled &&
+        'pointer-events-none cursor-not-allowed border-0 bg-gray-light px-[30px] py-[15px] text-gray-500',
+      className
+    ),
+    onClick,
+  }
+
+  if (to) {
     return (
-      <button
-        className={clsx(commonClasses.disabled, className)}
-        disabled={disabled}
-        onClick={onClick}
-      >
-        <span>{children}</span>
-      </button>
+      <Link {...commonProps} to={to}>
+        {children}
+      </Link>
     )
   }
 
   return (
-    <Link
-      className={clsx(commonClasses[color], className)}
-      onClick={onClick}
-      to={to}
-    >
-      <span>{children}</span>
-    </Link>
+    <button {...commonProps} disabled={disabled}>
+      {children}
+    </button>
   )
 }

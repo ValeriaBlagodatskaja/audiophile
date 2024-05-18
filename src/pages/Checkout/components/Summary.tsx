@@ -1,4 +1,4 @@
-import Button from '@/components/Button'
+import LinkButton from '@/components/Button'
 import Typography from '@/components/Typography'
 import { useCart } from '@/hooks/useCart'
 import OrderConfirmationModal from '@/pages/Checkout/components/OrderConfirmationModal'
@@ -126,7 +126,7 @@ export default function Summary({
             </Typography>
           </div>
         </div>
-        <Button
+        <LinkButton
           className="w-full"
           color="orange"
           disabled={!cartItems || cartItems.length === 0}
@@ -135,7 +135,7 @@ export default function Summary({
           <Typography as="h4" className="font-medium" variant="13px">
             Continue
           </Typography>
-        </Button>
+        </LinkButton>
       </div>
       {isModalOpen && (
         <OrderConfirmationModal
