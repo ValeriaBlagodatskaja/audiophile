@@ -25,7 +25,7 @@ export default function Summary({
   }, 0)
   const shippingFee = cartItems.length > 0 ? 50 : 0
   const vat = Math.round((subtotal + shippingFee) * 0.22)
-  const grandTotal = vat + subtotal
+  const grandTotal = vat + subtotal + shippingFee
 
   return (
     <>
