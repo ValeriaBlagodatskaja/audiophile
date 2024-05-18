@@ -1,6 +1,6 @@
 import DeleteIcon4 from '@/assets/shared/desktop/icon-x.png'
 import LinkButton from '@/components/Button'
-import Modal from '@/components/Modal'
+import Modal, { ModalProps } from '@/components/Modal'
 import Typography from '@/components/Typography'
 import { useCart } from '@/hooks/useCart'
 import ItemAmount from '@/pages/ProductInfo/components/ItemAmount'
@@ -9,8 +9,8 @@ import numbro from 'numbro'
 import TextButton from '../TextButton'
 
 interface CartProps {
-  open: boolean
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
+  open: ModalProps['open']
+  setOpen: ModalProps['setOpen']
 }
 
 const Cart = ({ open, setOpen }: CartProps) => {

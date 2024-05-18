@@ -1,42 +1,41 @@
 import LinkButton from '@/components/Button'
+import { CartItem } from '@/components/Cart/context/CartContext'
+import { ModalProps } from '@/components/Modal'
 import Typography from '@/components/Typography'
-import { useCart } from '@/hooks/useCart'
 import OrderConfirmationModal from '@/pages/Checkout/components/OrderConfirmationModal'
 import numbro from 'numbro'
-import { useEffect, useState } from 'react'
+
+interface SummaryProps {
+  cartItems: CartItem[]
+  onClose: () => void
+  onContinue: () => void
+  open: ModalProps['open']
+  setOpen: ModalProps['setOpen']
+}
 
 export default function Summary({
-  isFormCompleted,
+  cartItems,
+  onClose,
   onContinue,
-}: {
-  isFormCompleted: boolean
-  onContinue: () => void
-}) {
-  const { cartItems, removeAllFromCart } = useCart()
-  const [isModalOpen, setIsModalOpen] = useState(false)
-
-  useEffect(() => {
-    if (isFormCompleted) {
-      setIsModalOpen(true)
-    }
-  }, [isFormCompleted])
-
-  const handleContinue = () => {
-    onContinue()
-  }
-
+  open,
+  setOpen,
+}: SummaryProps) {
   const subtotal = cartItems.reduce((accumulator, { price, quantity }) => {
     return accumulator + price * quantity
   }, 0)
-
   const shippingFee = cartItems.length > 0 ? 50 : 0
-
   const vat = Math.round((subtotal + shippingFee) * 0.22)
-
   const grandTotal = vat + subtotal
 
   return (
     <>
+      <OrderConfirmationModal
+        cartItems={cartItems}
+        grandTotal={grandTotal}
+        onClose={onClose}
+        open={open}
+        setOpen={setOpen}
+      />
       <div className="flex flex-col gap-8 rounded-lg bg-white px-7 py-[30px] lg:h-fit lg:w-[350px]">
         <Typography as="h4" variant="18px">
           Summary
@@ -130,24 +129,13 @@ export default function Summary({
           className="w-full"
           color="orange"
           disabled={!cartItems || cartItems.length === 0}
-          onClick={handleContinue}
+          onClick={onContinue}
         >
           <Typography as="h4" className="font-medium" variant="13px">
             Continue
           </Typography>
         </LinkButton>
       </div>
-      {isModalOpen && (
-        <OrderConfirmationModal
-          cartItems={cartItems}
-          grandTotal={grandTotal}
-          isOpen={isModalOpen}
-          onClose={() => {
-            setIsModalOpen(false)
-            removeAllFromCart()
-          }}
-        />
-      )}
     </>
   )
 }

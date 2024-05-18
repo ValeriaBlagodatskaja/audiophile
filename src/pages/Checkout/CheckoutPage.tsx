@@ -1,6 +1,7 @@
 import Container from '@/components/Container'
 import GoBackLink from '@/components/GoBackLink'
 import Typography from '@/components/Typography'
+import { useCart } from '@/hooks/useCart'
 import BillingDetails from '@/pages/Checkout/components/BillingDetails'
 import PaymentDetails from '@/pages/Checkout/components/PaymentDetails'
 import ShippingInfo from '@/pages/Checkout/components/ShippingInfo'
@@ -22,16 +23,20 @@ export interface CheckoutFormData {
 }
 
 export default function Checkout() {
+  const [successModalOpen, setSuccessModalOpen] = useState(false)
+
+  const { cartItems, removeAllFromCart } = useCart()
+
   const {
     formState: { errors },
     handleSubmit,
     register,
+    reset,
   } = useForm<CheckoutFormData>()
 
-  const [isFormCompleted, setIsFormCompleted] = useState(false)
-
-  const onSubmit = () => {
-    setIsFormCompleted(Object.keys(errors).length === 0)
+  const onSubmit = (data: CheckoutFormData) => {
+    console.log(data)
+    setSuccessModalOpen(true)
   }
 
   const fromTopMotion = {
@@ -79,8 +84,14 @@ export default function Checkout() {
             whileInView="visible"
           >
             <Summary
-              isFormCompleted={isFormCompleted}
+              cartItems={cartItems}
+              onClose={() => {
+                reset()
+                removeAllFromCart()
+              }}
               onContinue={handleSubmit(onSubmit)}
+              open={successModalOpen}
+              setOpen={setSuccessModalOpen}
             />
           </motion.div>
         </div>

@@ -4,9 +4,10 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { ReactNode, useRef } from 'react'
 import ReactDom from 'react-dom'
 
-interface ModalProps {
+export interface ModalProps {
   children: ReactNode
   className?: string
+  onClose?: () => void
   open: boolean
   setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
@@ -14,11 +15,15 @@ interface ModalProps {
 export default function Modal({
   children,
   className,
+  onClose,
   open,
   setOpen,
 }: ModalProps) {
   const modalContentRef = useRef(null)
-  useClickOutside(modalContentRef, open, () => setOpen(false))
+  useClickOutside(modalContentRef, open, () => {
+    setOpen(false)
+    onClose?.()
+  })
 
   const modalVariants = {
     exit: {
