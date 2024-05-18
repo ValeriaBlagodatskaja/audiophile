@@ -44,7 +44,7 @@ export default function BillingDetails({
           {...register('tel', {
             pattern: {
               message: 'Invalid phone number format',
-              value: /^\+(?:[0-9] ?){6,14}[0-9]$/,
+              value: /^(?:[0-9] ?){6,14}[0-9]$/,
             },
             required: 'Required field',
           })}
