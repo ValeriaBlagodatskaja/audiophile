@@ -20,18 +20,8 @@ export default function Modal({
 }: ModalProps) {
   const modalContentRef = useRef(null)
 
-  useClickOutside(modalContentRef, closeOnClickOutside && open, (event) => {
-    if (!event.target || !(event.target instanceof Node)) return
-
-    const isHamburgerMenuClicked =
-      (event.target as Element).closest('.hamburger-menu') !== null
-
-    const isCartIconClicked =
-      (event.target as Element).closest('.cart-icon') !== null
-
-    if (!isHamburgerMenuClicked && !isCartIconClicked) {
-      setOpen(false)
-    }
+  useClickOutside(modalContentRef, closeOnClickOutside && open, () => {
+    setOpen(false)
   })
 
   if (!open) {
@@ -40,15 +30,16 @@ export default function Modal({
 
   return ReactDom.createPortal(
     <>
-      <div className="z-1000 fixed inset-0 bg-black bg-opacity-40" />
-      <div
-        className={clsx(
-          'z-1000 fixed left-1/2 right-0 top-1/2 mx-auto w-[327px] -translate-x-1/2 transform rounded-[8px] bg-white px-3 py-8 md-custom:w-[377px] md-custom:px-8',
-          className
-        )}
-        ref={modalContentRef}
-      >
-        {children}
+      <div className="z-1000 fixed inset-0 flex items-center justify-center bg-black bg-opacity-40">
+        <div
+          className={clsx(
+            'z-1000 mx-auto w-[327px] transform rounded-[8px] bg-white px-3 py-8 md-custom:w-[377px] md-custom:px-8',
+            className
+          )}
+          ref={modalContentRef}
+        >
+          {children}
+        </div>
       </div>
     </>,
     document.getElementById('portal') as HTMLElement

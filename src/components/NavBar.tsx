@@ -1,40 +1,32 @@
-import CartIcon from '@/assets/shared/desktop/icon-cart.svg?react'
-import Logo from '@/assets/shared/desktop/logo.svg?react'
-import Cart from '@/components/Cart/Cart'
-import Container from '@/components/Container'
-import MenuLink from '@/components/MenuLink'
-import Modal from '@/components/Modal'
-import Typography from '@/components/Typography'
 import { links } from '@/constants/links'
 import { useCart } from '@/hooks/useCart'
-import useClickOutside from '@/hooks/useClickOutside'
+import { AnimatePresence, motion } from 'framer-motion'
 import { Spin as Hamburger } from 'hamburger-react'
 import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 
-function NavBar() {
-  const menuRef = useRef(null)
+import CartIcon from '../assets/shared/desktop/icon-cart.svg?react'
+import Logo from '../assets/shared/desktop/logo.svg?react'
+import Cart from '../components/Cart/Cart'
+import useClickOutside from '../hooks/useClickOutside'
+import Container from './Container'
+import MenuLink from './MenuLink'
+import Modal from './Modal'
+import Typography from './Typography'
+
+interface NavBarProps {
+  closeOnClickOutside?: boolean
+}
+
+function NavBar({ closeOnClickOutside = true }: NavBarProps) {
   const [isOpen, setOpen] = useState(false)
-  const [isCartOpen, setIsCartOpen] = useState(false)
+
+  const [isModalOpen, setIsModalOpen] = useState(false)
   const { cartItems } = useCart()
-
-  useClickOutside(menuRef, isOpen, (event) => {
-    const target = event.target as HTMLElement
-    const hamburgerMenu = document.querySelector('.hamburger-menu')
-    if (!target || !hamburgerMenu) return
-
-    if (target.closest('.hamburger-menu') !== null) return
-
-    setOpen(false)
-  })
-
-  const toggleCart = () => {
-    setIsCartOpen(!isCartOpen)
-  }
 
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 1440) {
+      if (window.innerWidth >= 1100) {
         setOpen(false)
       }
     }
@@ -43,82 +35,167 @@ function NavBar() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  const dotVariants = {
+    exit: { scale: 0 },
+    hidden: { y: -10 },
+    transition: {
+      ease: 'easeInOut',
+      type: 'spring',
+    },
+    visible: { y: 0 },
+  }
+
+  const backdropVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 0.2 } },
+  }
+
+  const modalVariants = {
+    hidden: {
+      opacity: 0,
+      y: '-100%',
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.3, ease: 'easeInOut' },
+      y: 0,
+    },
+  }
+
+  const fromTopMotion = {
+    hidden: {
+      opacity: 0,
+      y: -20,
+    },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5, ease: 'easeInOut' },
+      y: 0,
+    },
+  }
+
+  const modalContentRef = useRef(null)
+  useClickOutside(modalContentRef, closeOnClickOutside ? isOpen : false, () =>
+    setOpen(false)
+  )
+
+  const getCartProductAmount = () => {
+    let amount = 0
+    cartItems.forEach((item) => {
+      amount += item.quantity
+    })
+    return amount
+  }
+
   return (
-    <div className="sticky top-0 z-20 bg-[#191919]">
-      <Container className="relative z-30 flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20   md:justify-normal   lg:justify-between ">
-        <div className="hamburger-menu lg:hidden">
-          <Hamburger
-            color="white"
-            direction="right"
-            distance="lg"
-            duration={0.4}
-            easing="ease-in"
-            size={20}
-            toggle={() => setOpen(!isOpen)}
-            toggled={isOpen}
-          />
-        </div>
-
-        <Link to="/">
-          <Logo className="ml-0 md:ml-10 lg:ml-0" />
-        </Link>
-
-        <div className="hidden gap-[34px] text-white lg:flex">
-          {links.map((link) => (
-            <Link
-              className="hover:text-orange-dark"
-              key={link.href}
-              to={link.href}
-            >
-              <Typography as="p" variant="13px">
-                {link.label}
-              </Typography>
-            </Link>
-          ))}
-        </div>
-        <button
-          className="cart-icon relative md:ml-auto lg:ml-0"
-          onClick={toggleCart}
-        >
-          <CartIcon />
-          {cartItems.length > 0 && (
-            <div className="absolute right-0 top-0 h-2 w-2 -translate-y-1/2 translate-x-1/2 transform rounded-full bg-red-500"></div>
-          )}
-        </button>
-        <Modal
-          className="-translate-y-[350px] md:left-auto md:right-10 md:-translate-x-0"
-          open={isCartOpen}
-          setOpen={setIsCartOpen}
-        >
-          <Cart onClose={() => setIsCartOpen(false)} />
-        </Modal>
-      </Container>
-      {isOpen && (
-        <>
-          <div className="absolute top-[90px] z-10 h-full w-full"></div>
-          <div className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 lg:hidden"></div>
-          <div
-            className="absolute z-40 flex w-full flex-col items-center gap-[68px] rounded-b-lg  bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] lg:hidden "
-            ref={menuRef}
-          >
-            {links.map((link, index) => {
-              if (link.label === 'Home' || !link.src) {
-                return null
-              }
-              return (
-                <MenuLink
-                  key={index}
-                  onClick={() => setOpen(false)}
-                  src={link.src}
-                  to={link.href}
-                >
-                  {link.label.toUpperCase()}
-                </MenuLink>
-              )
-            })}
+    <div className="sticky top-0 z-20 lg:bg-[#191919]">
+      <Container className="relative z-30 bg-[#191919]">
+        <div className="flex h-[90px] items-center justify-between border-b-[1px] border-white border-opacity-20 ">
+          <div className="lg:hidden">
+            <Hamburger
+              color="white"
+              direction="right"
+              distance="lg"
+              duration={0.4}
+              easing="ease-in"
+              size={20}
+              toggle={setOpen}
+              toggled={isOpen}
+            />
           </div>
-        </>
-      )}
+
+          <Link to="/">
+            <Logo />
+          </Link>
+
+          <div className="hidden gap-[34px]  text-white lg:flex">
+            {links.map((link) => (
+              <Link
+                className="hover:text-orange-dark"
+                key={link.href}
+                to={link.href}
+              >
+                <Typography as="p" variant="13px">
+                  {link.label}
+                </Typography>
+              </Link>
+            ))}
+          </div>
+
+          <button
+            className="relative flex h-12 w-12 items-center justify-center"
+            onClick={() => setIsModalOpen(true)}
+          >
+            <CartIcon />
+            <AnimatePresence>
+              {cartItems.length > 0 && (
+                <motion.div
+                  animate="visible"
+                  className="absolute right-1.5 top-[22px] flex size-4 -translate-y-1/2 translate-x-1/2 transform items-center justify-center rounded-full bg-red-500 text-xs font-normal text-white"
+                  exit="exit"
+                  initial="hidden"
+                  variants={dotVariants}
+                >
+                  {getCartProductAmount()}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </button>
+        </div>
+        <AnimatePresence>
+          <motion.div
+            animate="visible"
+            exit="hidden"
+            initial="hidden"
+            variants={fromTopMotion}
+          >
+            <Modal
+              className=" -translate-y-[300px] "
+              open={isModalOpen}
+              setOpen={setIsModalOpen}
+            >
+              <Cart onClose={() => setIsModalOpen(false)} />
+            </Modal>
+          </motion.div>
+        </AnimatePresence>
+      </Container>
+      <AnimatePresence>
+        {isOpen && (
+          <>
+            <motion.div
+              animate="visible"
+              className="fixed top-0 z-10 h-full w-full  bg-black bg-opacity-40 "
+              exit="hidden"
+              initial="hidden"
+              variants={backdropVariants}
+            ></motion.div>
+            <motion.div
+              animate="visible"
+              className="absolute z-10 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] "
+              exit="hidden"
+              initial="hidden"
+              ref={modalContentRef}
+              variants={modalVariants}
+            >
+              {links.map((link, index) => {
+                if (link.label === 'Home' || !link.src) {
+                  return null
+                }
+                return (
+                  <MenuLink
+                    key={index}
+                    onClick={() => setOpen(false)}
+                    src={link.src}
+                    to={link.href}
+                  >
+                    {link.label.toUpperCase()}
+                  </MenuLink>
+                )
+              })}
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   )
 }

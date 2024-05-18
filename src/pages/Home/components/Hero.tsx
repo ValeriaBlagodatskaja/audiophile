@@ -4,20 +4,51 @@ import HeroTabletImage from '@/assets/home/tablet/image-header.jpg'
 import { LinkButton } from '@/components/Button'
 import Container from '@/components/Container'
 import Typography from '@/components/Typography'
+import { motion } from 'framer-motion'
 
 export default function Hero() {
+  const fromTopMotion = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      transition: { duration: 0.5 },
+      y: 0,
+    },
+  }
+  const fromTopMotionDelayed = {
+    hidden: { opacity: 0, y: -20 },
+    visible: {
+      opacity: 1,
+      transition: { delay: 0.5, duration: 0.5 },
+      y: 0,
+    },
+  }
+
   return (
     <div className="relative bg-[#191919]">
       <Container className="relative flex h-[510px] items-center justify-center overflow-hidden md:h-[640px]  lg:justify-between">
-        <picture className="absolute ">
+        <motion.picture
+          className="absolute "
+          initial="hidden"
+          variants={fromTopMotion}
+          viewport={{ once: true }}
+          whileInView="visible"
+        >
           <source media="(min-width:1100px)" srcSet={HeroDesktopImage} />
           <source media="(min-width:768px)" srcSet={HeroTabletImage} />
           <img className="mt-[-115px] h-auto w-auto" src={HeroMobileImage} />
-        </picture>
-        <div className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left">
+        </motion.picture>
+        <motion.div
+          className="absolute flex w-[375px] flex-col items-center justify-center text-center md:h-[346px] md:w-[398px] lg:items-start lg:text-left"
+          initial="hidden"
+          variants={fromTopMotionDelayed}
+          viewport={{ once: true }}
+          whileInView="visible"
+        >
           <Typography as="p" className="text-white opacity-50" variant="14px">
             New product
           </Typography>
+
           <Typography
             as="h1"
             className="mb-6 mt-4 text-white md:my-6"
@@ -25,6 +56,7 @@ export default function Hero() {
           >
             XX99 Mark II headphones
           </Typography>
+
           <Typography
             as="p"
             className="mb-7 w-full max-w-[327px] text-white opacity-75 md:mb-10 md:max-w-[349px]"
@@ -33,12 +65,13 @@ export default function Hero() {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </Typography>
+
           <LinkButton color="orange" to="/xx99-mark-two-headphones">
             <Typography as="p" variant="13px">
               See product
             </Typography>
           </LinkButton>
-        </div>
+        </motion.div>
       </Container>
     </div>
   )
