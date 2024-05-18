@@ -79,41 +79,42 @@ export default function Product({
           <img className="rounded-lg" srcSet={srcSet.sm} />
         </picture>
       </motion.div>
-      <div className="flex flex-col items-center lg:flex lg:h-[560px] lg:items-start lg:justify-center lg:text-left">
-        <motion.div variants={slideInRightVariant.item}>
-          {newProduct && (
-            <Typography
-              as="span"
-              className="mb-6 text-orange-dark"
-              variant="14px"
-            >
-              New product
-            </Typography>
-          )}
-
+      <motion.div
+        className="flex flex-col items-center lg:flex lg:h-[560px] lg:items-start lg:justify-center lg:text-left"
+        variants={slideInRightVariant.item}
+      >
+        {newProduct && (
           <Typography
-            as="h1"
-            className="text-center lg:text-left"
-            variant="28px-40px"
+            as="span"
+            className="mb-6  text-orange-dark"
+            variant="14px"
           >
-            {title}
+            New product
           </Typography>
+        )}
 
-          <Typography
-            as="p"
-            className="my-6 w-full text-center opacity-50 md:mb-6 md:mt-8 md:max-w-[572px] lg:mb-10 lg:max-w-none  lg:text-left"
-            variant="15px"
-          >
-            {description}
+        <Typography
+          as="h1"
+          className="text-center lg:text-left"
+          variant="28px-40px"
+        >
+          {title}
+        </Typography>
+
+        <Typography
+          as="p"
+          className="my-6 w-full text-center opacity-50 md:mb-6 md:mt-8 md:max-w-[572px] lg:mb-10 lg:max-w-none  lg:text-left"
+          variant="15px"
+        >
+          {description}
+        </Typography>
+
+        <LinkButton color="orange" to={to}>
+          <Typography as="p" variant="13px">
+            See product
           </Typography>
-
-          <LinkButton color="orange" to={to}>
-            <Typography as="p" variant="13px">
-              See product
-            </Typography>
-          </LinkButton>
-        </motion.div>
-      </div>
+        </LinkButton>
+      </motion.div>
     </motion.div>
   )
 }
