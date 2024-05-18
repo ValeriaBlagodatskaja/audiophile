@@ -12,19 +12,18 @@ import Cart from '../components/Cart/Cart'
 import useClickOutside from '../hooks/useClickOutside'
 import Container from './Container'
 import MenuLink from './MenuLink'
-import Modal from './Modal'
 import Typography from './Typography'
 
 function NavBar() {
-  const [isOpen, setOpen] = useState(false)
+  const [navOpen, setNavOpen] = useState(false)
+  const [isCartOpen, setIsCartOpen] = useState(false)
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
   const { cartItems } = useCart()
 
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 1100) {
-        setOpen(false)
+        setNavOpen(false)
       }
     }
 
@@ -47,7 +46,7 @@ function NavBar() {
     visible: { opacity: 1, transition: { duration: 0.2 } },
   }
 
-  const modalVariants = {
+  const navVariants = {
     hidden: {
       opacity: 0,
       y: '-100%',
@@ -59,20 +58,8 @@ function NavBar() {
     },
   }
 
-  const fromTopMotion = {
-    hidden: {
-      opacity: 0,
-      y: -20,
-    },
-    visible: {
-      opacity: 1,
-      transition: { duration: 0.5, ease: 'easeInOut' },
-      y: 0,
-    },
-  }
-
-  const modalContentRef = useRef(null)
-  useClickOutside(modalContentRef, isOpen, () => setOpen(false))
+  const navRef = useRef(null)
+  useClickOutside(navRef, navOpen, () => setNavOpen(false))
 
   const getCartProductAmount = () => {
     let amount = 0
@@ -90,7 +77,7 @@ function NavBar() {
             className={clsx(
               'lg:hidden',
               // useClickOutside hook to closes the menu when clicking outside
-              isOpen && 'pointer-events-none'
+              navOpen && 'pointer-events-none'
             )}
           >
             <Hamburger
@@ -100,8 +87,8 @@ function NavBar() {
               duration={0.4}
               easing="ease-in"
               size={20}
-              toggle={setOpen}
-              toggled={isOpen}
+              toggle={setNavOpen}
+              toggled={navOpen}
             />
           </div>
 
@@ -124,8 +111,12 @@ function NavBar() {
           </div>
 
           <button
-            className="relative flex h-12 w-12 items-center justify-center"
-            onClick={() => setIsModalOpen(true)}
+            className={clsx(
+              'relative flex h-12 w-12 items-center justify-center',
+              // useClickOutside hook to closes the modal when clicking outside
+              isCartOpen && 'pointer-events-none'
+            )}
+            onClick={() => setIsCartOpen(true)}
           >
             <CartIcon />
             <AnimatePresence>
@@ -143,25 +134,10 @@ function NavBar() {
             </AnimatePresence>
           </button>
         </div>
-        <AnimatePresence>
-          <motion.div
-            animate="visible"
-            exit="hidden"
-            initial="hidden"
-            variants={fromTopMotion}
-          >
-            <Modal
-              className=" -translate-y-[300px] "
-              open={isModalOpen}
-              setOpen={setIsModalOpen}
-            >
-              <Cart onClose={() => setIsModalOpen(false)} />
-            </Modal>
-          </motion.div>
-        </AnimatePresence>
+        <Cart open={isCartOpen} setOpen={setIsCartOpen} />
       </Container>
       <AnimatePresence>
-        {isOpen && (
+        {navOpen && (
           <>
             <motion.div
               animate="visible"
@@ -175,8 +151,8 @@ function NavBar() {
               className="absolute z-10 flex w-full flex-col items-center gap-[68px]  rounded-b-lg bg-white pb-[35px] pt-[84px] md:flex-row md:justify-center md:gap-2.5 md:pb-[67px] md:pt-[108px] "
               exit="hidden"
               initial="hidden"
-              ref={modalContentRef}
-              variants={modalVariants}
+              ref={navRef}
+              variants={navVariants}
             >
               {links
                 .filter((link) => Boolean(link.src))
@@ -184,7 +160,7 @@ function NavBar() {
                   return (
                     <MenuLink
                       key={index}
-                      onClick={() => setOpen(false)}
+                      onClick={() => setNavOpen(false)}
                       src={link.src!}
                       to={link.href}
                     >

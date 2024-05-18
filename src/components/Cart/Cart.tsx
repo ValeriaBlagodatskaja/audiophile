@@ -1,15 +1,19 @@
 import DeleteIcon4 from '@/assets/shared/desktop/icon-x.png'
-import Button, { LinkButton } from '@/components/Button'
+import LinkButton from '@/components/Button'
+import Modal from '@/components/Modal'
 import Typography from '@/components/Typography'
 import { useCart } from '@/hooks/useCart'
 import ItemAmount from '@/pages/ProductInfo/components/ItemAmount'
 import numbro from 'numbro'
 
+import TextButton from '../TextButton'
+
 interface CartProps {
-  onClose: () => void
+  open: boolean
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const Cart = ({ onClose }: CartProps) => {
+const Cart = ({ open, setOpen }: CartProps) => {
   const {
     cartItems,
     removeAllFromCart,
@@ -25,19 +29,17 @@ const Cart = ({ onClose }: CartProps) => {
     return accumulator + quantity
   }, 0)
 
-  const handleCheckout = () => {
-    onClose()
-  }
-
   return (
-    <>
+    <Modal open={open} setOpen={setOpen}>
       <div className="flex flex-row justify-between">
         <Typography as="h3" variant="18px">
           Cart ({totalItems})
         </Typography>
-        <Button color="gray" onClick={() => removeAllFromCart()}>
-          Remove all
-        </Button>
+        {totalItems > 0 && (
+          <TextButton onClick={() => removeAllFromCart()}>
+            Remove all
+          </TextButton>
+        )}
       </div>
       <ul className="flex flex-col gap-6 py-8">
         {cartItems.map((item) => (
@@ -94,7 +96,7 @@ const Cart = ({ onClose }: CartProps) => {
           className="w-full"
           color="orange"
           disabled={!cartItems || cartItems.length === 0}
-          onClick={handleCheckout}
+          onClick={() => setOpen(false)}
           to="/checkout"
         >
           <Typography as="h4" className="font-medium" variant="13px">
@@ -102,7 +104,7 @@ const Cart = ({ onClose }: CartProps) => {
           </Typography>
         </LinkButton>
       </div>
-    </>
+    </Modal>
   )
 }
 
