@@ -37,7 +37,10 @@ const Cart = ({ open, setOpen }: CartProps) => {
           Cart ({totalItems})
         </Typography>
         {totalItems > 0 && (
-          <TextButton onClick={() => removeAllFromCart()}>
+          <TextButton
+            className="capitalize"
+            onClick={() => removeAllFromCart()}
+          >
             Remove all
           </TextButton>
         )}

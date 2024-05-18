@@ -16,7 +16,7 @@ export default function GoBackLink() {
         className="flex items-start pb-6 pt-4 md:pt-8 lg:pb-14 lg:pt-20"
         variant="15px"
       >
-        <TextButton onClick={handleGoBack}>Go back</TextButton>
+        <TextButton className='capitalize' onClick={handleGoBack}>Go back</TextButton>
       </Typography>
     </Container>
   )
