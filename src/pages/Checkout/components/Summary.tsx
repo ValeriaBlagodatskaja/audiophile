@@ -12,7 +12,7 @@ export default function Summary({
   isFormCompleted: boolean
   onContinue: () => void
 }) {
-  const { cartItems } = useCart()
+  const { cartItems, removeAllFromCart } = useCart()
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
@@ -142,7 +142,10 @@ export default function Summary({
           cartItems={cartItems}
           grandTotal={grandTotal}
           isOpen={isModalOpen}
-          onClose={() => setIsModalOpen(false)}
+          onClose={() => {
+            setIsModalOpen(false)
+            removeAllFromCart()
+          }}
         />
       )}
     </>
