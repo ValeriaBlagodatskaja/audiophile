@@ -30,9 +30,9 @@ export default function Product({
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.5,
+        delayChildren: 0.3,
         ease: 'easeInOut',
-        staggerChildren: 0.5,
+        staggerChildren: 0.3,
       },
     },
   }
@@ -43,7 +43,7 @@ export default function Product({
       hidden: { opacity: 0, x: -100 },
       visible: {
         opacity: 1,
-        transition: { duration: 0.5, ease: 'easeInOut' },
+        transition: { duration: 0.3, ease: 'easeInOut' },
         x: 0,
       },
     },
@@ -55,7 +55,7 @@ export default function Product({
       hidden: { opacity: 0, x: 100 },
       visible: {
         opacity: 1,
-        transition: { duration: 0.5, ease: 'easeInOut' },
+        transition: { duration: 0.3, ease: 'easeInOut' },
         x: 0,
       },
     },

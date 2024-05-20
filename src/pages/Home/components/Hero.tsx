@@ -12,7 +12,7 @@ export default function Hero() {
     hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
-      transition: { duration: 0.5 },
+      transition: { duration: 0.3 },
       y: 0,
     },
   }
@@ -20,7 +20,7 @@ export default function Hero() {
     hidden: { opacity: 0, y: -20 },
     visible: {
       opacity: 1,
-      transition: { delay: 0.5, duration: 0.5 },
+      transition: { delay: 0.3, duration: 0.3 },
       y: 0,
     },
   }

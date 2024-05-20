@@ -21,7 +21,7 @@ export default function RelatedProductSection({
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.5,
+        delayChildren: 0.2,
         staggerChildren: 0.2,
       },
     },
@@ -32,7 +32,7 @@ export default function RelatedProductSection({
     visible: {
       opacity: 1,
       scale: 1,
-      transition: { duration: 0.5, ease: 'easeInOut' },
+      transition: { ease: 'easeInOut' },
     },
   }
 
@@ -45,7 +45,7 @@ export default function RelatedProductSection({
         className="flex flex-col gap-14 md:flex-row md:gap-3 lg:gap-[30px]"
         initial="hidden"
         variants={containerVariants}
-        viewport={{ once: true }}
+        viewport={{ amount: 0.2, once: true }}
         whileInView="visible"
       >
         {others.map((other, index) => (
