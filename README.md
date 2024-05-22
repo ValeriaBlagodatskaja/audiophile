@@ -16,42 +16,17 @@ This project does not include a back-end code or database connection. Instead, d
 - **Prettier** - A tool to handle formatting and keep code consistent.
 - **ESLint** - A tool to enforce good coding practices.
 
-## Pages Overview
+## Project Overview
 
-### Home
+**Users Should Be Able To:**
 
-**Description**: The Home component serves as the landing page of the application, providing an overview and navigation to other parts of the site.
-
-**Features**:
-
-- **Hero Section**: A prominent section with a featured product or promotion.
-- **Categories Overview**: Quick links or highlights of different product categories.
-- **Featured Products**: Display a selection of featured or popular products.
-- **Responsive Design**: Ensure the home page is visually appealing and functional on all devices.
-
-### Category
-
-**Description**: The Category component displays a list of products belonging to a specific category.
-
-**Features**:
-
-- **Product Listing**: Show products with basic information such as name, price, and thumbnail.
-
-### ProductInfo
-
-**Description**: The ProductInfo component provides detailed information about a specific product.
-
-**Features**:
-
-- **Product Details**: Display comprehensive details such as description, specifications, and images.
-- **Add to Cart**: Enable users to add the product to their cart directly from the product page.
-- **Related Products**: Suggest similar or related products to the user.
-
-### Checkout
-
-**Description**: The checkout page component.  
-**Features**:
-
-- Form validation
-- Submission handling
-- Summary display
+- View the optimal layout for the app depending on their device's screen size.
+- See hover states for all interactive elements on the page.
+- Add/remove products from the shopping cart.
+- Edit product quantities in the shopping cart.
+- Fill in all fields in the checkout form.
+- Receive form validations if fields are missed or incorrect during checkout.
+- See correct checkout totals depending on the products in the cart.
+- Always have a shipping fee of $50 added to the order.
+- Have VAT calculated as 22% of the product total, excluding shipping.
+- See an order confirmation modal after checking out with an order summary.
