@@ -85,9 +85,7 @@ export default function ProductDetails({
       opacity: 1,
       scale: 1,
       transition: {
-        delayChildren: 0.3,
         ease: 'easeInOut',
-        staggerChildren: 0.3,
       },
     },
   }
